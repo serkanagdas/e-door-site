@@ -1,23 +1,413 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// ============================================================
+//  FORM BACKEND AYARI  (DEMO MODU)
+// ------------------------------------------------------------
+//  Su an site statik oldugu icin formun gercekten bir yere
+//  gonderilmesi lazim. Bu degisken o "hedef adresi" tutar:
+//
+//   •  '' (bos)   -> DEMO MODU: gonderim simule edilir,
+//                    sadece basarili mesaji gosterilir.
+//                    (sunucuya hicbir sey gonderilmez)
+//
+//   •  bir URL    -> GERCEK GONDERIM: o adrese fetch ile
+//                    POST yapilir. Bunu doldurdugunda demo
+//                    modu otomatik kapanir. Ornek degerler:
+//
+//        Formspree : 'https://formspree.io/f/XXXXXXXX'
+//        Kendi API : 'https://edoor.com.tr/api/contact'
+//
+//  Host/VPS kesinlesince ya Formspree gibi bir servis ac,
+//  ya da kendi endpoint'ini yaz ve asagidaki adresi yapistir.
+//  Baska HICBIR seyi degistirmene gerek yok.
+// ============================================================
+const FORM_ENDPOINT = '';
+
+const serviceOptions = [
+  'Özel Yazılım Geliştirme',
+  'ERP & Sistem Çözümleri',
+  'Mobil Uygulama',
+  'Web Tasarımı',
+  'Bakım & Destek',
+  'BT Danışmanlığı',
+  'Diğer',
+];
+
+// Placeholder bilgiler — gercek degerler hazir olunca burayi guncelle.
+const contactInfo = [
+  { icon: 'mail', label: 'E-posta', value: 'info@edoor.com.tr', href: 'mailto:info@edoor.com.tr' },
+  { icon: 'call', label: 'Telefon', value: '+90 (000) 000 00 00', href: 'tel:+900000000000' },
+  { icon: 'location_on', label: 'Adres', value: 'Ofis adresi buraya eklenecek, Türkiye' },
+  { icon: 'schedule', label: 'Çalışma Saatleri', value: 'Hafta içi 09:00 - 18:00' },
+];
+
+const socials = [
+  {
+    label: 'LinkedIn',
+    href: '#',
+    svg: '<svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+  },
+  {
+    label: 'Instagram',
+    href: '#',
+    svg: '<svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.67.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.34 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.34 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12-.66-.66-1.34-1.08-2.12-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-10.4a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>',
+  },
+  {
+    label: 'GitHub',
+    href: '#',
+    svg: '<svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.94 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.53.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.62-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.21.69.83.57A12 12 0 0 0 12 .3"/></svg>',
+  },
+];
+
 const title = 'İletişim';
+const description =
+  'E-DOOR ile iletişime geçin. Özel yazılım, ERP ve dijital dönüşüm projeleriniz için bize ulaşın veya teklif alın.';
 ---
 
-<Layout title={`${title} | E-DOOR`} description="E-DOOR ile iletişime geçin. Özel yazılım, ERP ve dijital dönüşüm projeleriniz için teklif alın.">
-  <section class="min-h-[70vh] flex items-center justify-center bg-background px-gutter md:px-margin">
-    <div class="text-center max-w-xl">
-      <div class="w-16 h-16 rounded-2xl bg-secondary-container/20 text-secondary flex items-center justify-center mx-auto mb-6">
-        <span class="material-symbols-outlined text-4xl">construction</span>
-      </div>
-      <h1 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-4">{title}</h1>
-      <p class="font-body text-base text-on-surface-variant mb-8">
-        Bu sayfa şu anda hazırlanıyor. Yakında iletişim formu, iletişim bilgileri ve ofis konumumuzu burada paylaşacağız.
+<Layout title={`${title} | E-DOOR`} description={description}>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-surface-container-lowest py-20 md:py-28">
+    <div class="absolute inset-0 hero-pattern opacity-30"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-surface/50 to-surface-container-lowest"></div>
+    <div class="relative z-10 mx-auto max-w-3xl px-gutter text-center md:px-margin">
+      <span class="mb-3 block text-xs font-medium uppercase tracking-wider text-secondary">İletişim</span>
+      <h1 class="mb-5 font-headline text-4xl font-bold leading-tight text-on-surface sm:text-5xl">
+        İletişime Geçin
+      </h1>
+      <p class="mx-auto max-w-2xl font-body text-base text-on-surface-variant md:text-lg">
+        Projeniz, iş birliği fikriniz veya sorularınız için bize ulaşın. En kısa sürede size dönüş yapalım.
       </p>
-      <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary text-sm font-semibold hover:bg-on-secondary-container transition-colors">
-        <span class="material-symbols-outlined text-base">arrow_back</span>
-        Anasayfaya Dön
-      </a>
     </div>
   </section>
+
+  <!-- ANA BÖLÜM: Form + Bilgi Sidebar -->
+  <section class="bg-surface-container-low py-14 md:py-24">
+    <div class="mx-auto max-w-7xl px-gutter md:px-margin">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-12">
+
+        <!-- SOL: FORM -->
+        <div class="reveal lg:col-span-3">
+          <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 shadow-sm sm:p-10">
+            <h2 class="mb-2 font-headline text-2xl font-bold text-on-surface">Bize Yazın</h2>
+            <p class="mb-8 font-body text-sm text-on-surface-variant">
+              Formu doldurun, ekibimiz en kısa sürede sizinle iletişime geçsin.
+            </p>
+
+            <!--
+              FORM
+              data-endpoint: üstteki FORM_ENDPOINT degiskeninden gelir.
+              Bos ise (demo modu) JS gonderimi simule eder; dolu ise
+              o adrese fetch ile POST yapar. "method" ve "action" yalnizca
+              JS calismayan tarayicilar icin yedek (fallback) olarak durur.
+            -->
+            <div id="form-wrapper">
+              <form
+                id="contact-form"
+                data-endpoint={FORM_ENDPOINT}
+                method="POST"
+                action="#"
+                class="space-y-5"
+              >
+                <!-- Ad Soyad -->
+                <div>
+                  <label for="name" class="mb-2 block text-sm font-medium text-on-surface">Ad Soyad *</label>
+                  <input
+                    id="name" name="name" type="text" required autocomplete="name"
+                    placeholder="Adınız Soyadınız"
+                    class="w-full rounded-lg border border-outline-variant bg-surface px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                  />
+                </div>
+
+                <!-- E-posta + Telefon (2 kolon) -->
+                <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
+                    <label for="email" class="mb-2 block text-sm font-medium text-on-surface">E-posta *</label>
+                    <input
+                      id="email" name="email" type="email" required autocomplete="email"
+                      placeholder="ornek@firma.com"
+                      class="w-full rounded-lg border border-outline-variant bg-surface px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                    />
+                  </div>
+                  <div>
+                    <label for="phone" class="mb-2 block text-sm font-medium text-on-surface">Telefon</label>
+                    <input
+                      id="phone" name="phone" type="tel" autocomplete="tel"
+                      placeholder="+90 5XX XXX XX XX"
+                      class="w-full rounded-lg border border-outline-variant bg-surface px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                    />
+                  </div>
+                </div>
+
+                <!-- Hizmet Türü -->
+                <div>
+                  <label for="service" class="mb-2 block text-sm font-medium text-on-surface">Hizmet Türü *</label>
+                  <select
+                    id="service" name="service" required
+                    class="w-full rounded-lg border border-outline-variant bg-surface px-4 py-3 text-sm text-on-surface transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                  >
+                    <option value="" disabled selected>Bir hizmet seçin</option>
+                    {serviceOptions.map((opt) => (
+                      <option value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <!-- Mesaj -->
+                <div>
+                  <label for="message" class="mb-2 block text-sm font-medium text-on-surface">Mesajınız *</label>
+                  <textarea
+                    id="message" name="message" rows="5" required
+                    placeholder="Projenizden veya ihtiyacınızdan kısaca bahsedin..."
+                    class="w-full resize-y rounded-lg border border-outline-variant bg-surface px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                  ></textarea>
+                </div>
+
+                <!--
+                  KVKK ONAYI (Türkiye'de zorunlu)
+                  Kişisel veri toplandigi icin acik riza sart. "required"
+                  ile tarayici bos birakildiginda gonderimi engeller.
+                -->
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input
+                    id="kvkk" name="kvkk" type="checkbox" required
+                    class="mt-1 h-4 w-4 rounded border-outline-variant text-secondary focus:ring-secondary/20"
+                  />
+                  <span class="text-xs leading-relaxed text-on-surface-variant">
+                    Kişisel verilerimin <a href="#" class="text-secondary underline hover:no-underline">KVKK Aydınlatma Metni</a>
+                    kapsamında işlenmesini kabul ediyorum. *
+                  </span>
+                </label>
+
+                <!-- Gönder butonu: JS yuklenirken/imzada durumlar icin "data-" attribute'leriyle kontrol edilir -->
+                <button
+                  type="submit"
+                  id="submit-btn"
+                  class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-secondary px-6 py-3.5 text-sm font-semibold text-on-secondary shadow-sm transition-all hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                >
+                  <span id="submit-text">Mesajı Gönder</span>
+                  <span class="material-symbols-outlined text-base" id="submit-icon">send</span>
+                </button>
+
+                <p class="text-xs text-on-surface-variant/70">
+                  <span class="material-symbols-outlined align-middle text-[14px]">lock</span>
+                  Bilgileriniz güvende, yalnızca sizinle iletişim için kullanılır.
+                </p>
+              </form>
+
+              <!--
+                BAŞARI DURUMU
+                Form gonderimi "basarili" sayildiginda JS burayi gosterir,
+                formu gizler. (Demo modunda da ayni ekran cikar.)
+              -->
+              <div id="form-success" class="hidden flex-col items-center py-10 text-center">
+                <div class="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-secondary-container/25 text-secondary">
+                  <span class="material-symbols-outlined text-4xl">check_circle</span>
+                </div>
+                <h3 class="mb-2 font-headline text-2xl font-bold text-on-surface">Mesajınız Alındı</h3>
+                <p class="mb-6 max-w-sm font-body text-sm text-on-surface-variant">
+                  Teşekkür ederiz! Ekibimiz en kısa sürede sizinle iletişime geçecek.
+                </p>
+                <button
+                  type="button"
+                  id="reset-btn"
+                  class="inline-flex items-center gap-2 rounded-lg border border-outline-variant bg-surface px-5 py-2.5 text-sm font-semibold text-on-surface transition-colors hover:border-secondary hover:text-secondary"
+                >
+                  <span class="material-symbols-outlined text-base">edit</span>
+                  Yeni Mesaj Gönder
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAĞ: BİLGİ SIDEBAR -->
+        <div class="reveal flex flex-col lg:col-span-2" style="--reveal-delay: 120ms">
+          <div class="flex flex-1 flex-col justify-between gap-4">
+            {contactInfo.map((item) => (
+              <div class="flex items-start gap-4 rounded-2xl border border-outline-variant bg-surface-container-lowest p-5 shadow-sm transition-colors hover:border-secondary/40">
+                <div class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-secondary-container/20 text-secondary">
+                  <span class="material-symbols-outlined text-xl">{item.icon}</span>
+                </div>
+                <div class="min-w-0">
+                  <p class="text-xs font-medium uppercase tracking-wide text-on-surface-variant">{item.label}</p>
+                  {item.href ? (
+                    <a href={item.href} class="block break-words font-body text-sm font-medium text-on-surface transition-colors hover:text-secondary">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p class="font-body text-sm font-medium text-on-surface">{item.value}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+
+            <!-- Sosyal Medya -->
+            <div class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-5 shadow-sm">
+              <p class="mb-3 text-xs font-medium uppercase tracking-wide text-on-surface-variant">Sosyal Medya</p>
+              <div class="flex items-center gap-3">
+                {socials.map((s) => (
+                  <a
+                    href={s.href}
+                    aria-label={s.label}
+                    class="flex h-10 w-10 items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant transition-all hover:border-secondary hover:text-secondary"
+                    set:html={s.svg}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HARITA -->
+  <section class="bg-background py-14 md:py-24">
+    <div class="mx-auto max-w-7xl px-gutter md:px-margin">
+      <div class="reveal mb-8 text-center">
+        <span class="mb-2 block text-xs font-medium uppercase tracking-wider text-secondary">Konum</span>
+        <h2 class="font-headline text-3xl font-bold text-on-surface md:text-4xl">Bizi Burada Bulun</h2>
+      </div>
+      <!--
+        Google Maps embed (API key gerektirmez).
+        Gercek ofis adresi belli olunca q=... kismini o adresle degistir.
+      -->
+      <div class="reveal overflow-hidden rounded-2xl border border-outline-variant shadow-sm">
+        <iframe
+          title="E-DOOR Konum"
+          src="https://www.google.com/maps?q=Istanbul,Türkiye&output=embed"
+          width="100%"
+          height="420"
+          style="border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // ============================================================
+  //  FORM GÖNDERİM MANTIĞI  (DEMO / GERÇEK)
+  // ------------------------------------------------------------
+  //  Üstteki FORM_ENDPOINT bos ise  -> DEMO MODU
+  //  dolu ise (Formspree/kendi API) -> GERÇEK gönderim
+  //  Bu davranis degisimi otomatik; ayri bir bayrağa gerek yok.
+  // ============================================================
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const wrapper = document.getElementById('form-wrapper');
+  const successPanel = document.getElementById('form-success') as HTMLElement | null;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const submitText = document.getElementById('submit-text');
+  const submitIcon = document.getElementById('submit-icon');
+  const resetBtn = document.getElementById('reset-btn');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form || !submitBtn) return;
+
+    // data-endpoint: dosya başındaki FORM_ENDPOINT değişkeninden gelir.
+    //  • '' (boş)  => DEMO MODU (hiçbir yere gönderilmez)
+    //  • 'https://...' => GERÇEK MOD (fetch ile POST)
+    const endpoint = form.dataset.endpoint || '';
+    const isDemo = endpoint.trim() === '';
+
+    // Buton: yükleniyor durumuna geç
+    setLoading(true);
+
+    try {
+      if (!isDemo) {
+        // ---- GERÇEK GÖNDERİM ----
+        // Formspree veya kendi API'ne FormData olarak POST.
+        // Formspree JSON bekliyorsa: { 'Accept': 'application/json' }
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        if (!res.ok) throw new Error('Gönderim başarısız: ' + res.status);
+      } else {
+        // ---- DEMO MODU ----
+        // Burada gerçek bir istek YAPILMAZ. Sadece gönderim taklit edilir
+        // ve kullanıcıya başarı mesajı gösterilir. Backend hazır olunca
+        // FORM_ENDPOINT'i doldurmak yeterli — bu blok otomatik atlanır.
+        await new Promise((r) => setTimeout(r, 800)); // sahte bekleme hissi
+      }
+
+      // Başarı: formu gizle, başarı panelini göster
+      form.classList.add('hidden');
+      if (successPanel) {
+        successPanel.classList.remove('hidden');
+        successPanel.classList.add('flex');
+      }
+    } catch (err) {
+      // Gerçek modda hata olursa kullanıcıyı bilgilendir
+      alert('Bir sorun oluştu, lütfen tekrar deneyin veya doğrudan e-posta ile ulaşın.');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  });
+
+  // "Yeni Mesaj Gönder" -> formu sıfırla ve geri göster
+  resetBtn?.addEventListener('click', () => {
+    if (!form || !successPanel) return;
+    form.reset();
+    form.classList.remove('hidden');
+    successPanel.classList.add('hidden');
+    successPanel.classList.remove('flex');
+  });
+
+  function setLoading(loading: boolean) {
+    if (!submitBtn || !submitText || !submitIcon) return;
+    submitBtn.disabled = loading;
+    submitText.textContent = loading ? 'Gönderiliyor...' : 'Mesajı Gönder';
+    submitIcon.textContent = loading ? 'progress_activity' : 'send';
+    if (loading) submitIcon.classList.add('animate-spin');
+    else submitIcon.classList.remove('animate-spin');
+  }
+
+  // ---- Scroll-reveal (diğer sayfalarla aynı mantık) ----
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    reveals.forEach((el) => io.observe(el));
+  }
+</script>
