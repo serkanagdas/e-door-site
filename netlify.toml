@@ -1,0 +1,8 @@
+# Netlify deploy ayarları (statik Astro sitesi)
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Astro 5 için Node 22 (>=22 destekler)
+  NODE_VERSION = "22"

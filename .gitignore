@@ -9,9 +9,6 @@ node_modules/
 dist/
 build/
 .astro/
-*.png
-*.jpg
-*.jpeg
 
 # Environment and Logs
 .env
