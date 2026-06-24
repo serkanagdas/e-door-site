@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Projeler';
+---
+
+<Layout title={`${title} & Referanslar | E-DOOR`} description="E-DOOR'un tamamladığı yazılım projeleri ve kurumsal referansları. Müze & Kütüphane ERP Sistemi başta olmak üzere teslim edilen çözümler.">
+  <section class="min-h-[70vh] flex items-center justify-center bg-background px-gutter md:px-margin">
+    <div class="text-center max-w-xl">
+      <div class="w-16 h-16 rounded-2xl bg-secondary-container/20 text-secondary flex items-center justify-center mx-auto mb-6">
+        <span class="material-symbols-outlined text-4xl">construction</span>
+      </div>
+      <h1 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-4">{title} & Referanslar</h1>
+      <p class="font-body text-base text-on-surface-variant mb-8">
+        Bu sayfa şu anda hazırlanıyor. Yakında tamamladığımız projeleri ve müşteri referanslarını burada sergileyeceğiz.
+      </p>
+      <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary text-sm font-semibold hover:bg-on-secondary-container transition-colors">
+        <span class="material-symbols-outlined text-base">arrow_back</span>
+        Anasayfaya Dön
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,114 @@
+---
+const navLinks = [
+  { href: '/hakkimizda', label: 'Hakkımızda' },
+  { href: '/hizmetler', label: 'Hizmetler' },
+  { href: '/projeler', label: 'Projeler' },
+  { href: '/iletisim', label: 'İletişim' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string) => currentPath === href;
+---
+
+<nav id="site-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300 ease-in-out border-b border-surface-variant">
+  <div class="flex items-center justify-between px-gutter md:px-margin py-4 max-w-7xl mx-auto">
+    <a class="flex-shrink-0" href="/">
+      <img alt="E-DOOR Logo" class="h-8 w-auto" src="/images/logo.png" />
+    </a>
+    <div class="hidden md:flex items-center gap-1">
+      {navLinks.map((link) => (
+        <a
+          class:list={[
+            'relative px-4 py-2 rounded-lg font-body text-sm transition-colors duration-200',
+            isActive(link.href)
+              ? 'text-secondary font-semibold'
+              : 'text-on-surface-variant hover:text-secondary',
+          ]}
+          href={link.href}
+        >
+          {link.label}
+          {isActive(link.href) && (
+            <span class="absolute left-4 right-4 -bottom-0.5 h-0.5 bg-secondary rounded-full"></span>
+          )}
+        </a>
+      ))}
+    </div>
+    <div class="flex items-center gap-2">
+      <a
+        class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-secondary text-on-secondary text-xs font-semibold hover:bg-on-secondary-container transition-colors"
+        href="/iletisim"
+      >
+        Teklif Al
+      </a>
+      <button
+        id="menu-toggle"
+        aria-label="Menüyü aç/kapat"
+        aria-expanded="false"
+        class="md:hidden p-2 text-on-surface"
+      >
+        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-surface-variant bg-surface/95 backdrop-blur-md">
+    <div class="px-gutter py-4 flex flex-col gap-1 max-w-7xl mx-auto">
+      {navLinks.map((link) => (
+        <a
+          class:list={[
+            'mobile-link font-body text-base rounded-lg px-4 py-3 transition-colors',
+            isActive(link.href)
+              ? 'text-secondary font-semibold bg-secondary-container/15'
+              : 'text-on-surface-variant hover:text-secondary hover:bg-surface-container',
+          ]}
+          href={link.href}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        class="mobile-link inline-flex items-center justify-center mt-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary text-sm font-semibold"
+        href="/iletisim"
+      >
+        Teklif Al
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const initNav = () => {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    if (!toggle || !menu || !icon) return;
+
+    const close = () => {
+      menu.classList.add('hidden');
+      icon.textContent = 'menu';
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const open = () => {
+      menu.classList.remove('hidden');
+      icon.textContent = 'close';
+      toggle.setAttribute('aria-expanded', 'true');
+    };
+
+    toggle.addEventListener('click', () => {
+      menu.classList.contains('hidden') ? open() : close();
+    });
+
+    menu.querySelectorAll('.mobile-link').forEach((link) => {
+      link.addEventListener('click', close);
+    });
+
+    const desktopMQ = window.matchMedia('(min-width: 768px)');
+    desktopMQ.addEventListener('change', (e) => {
+      if (e.matches) close();
+    });
+  };
+
+  initNav();
+</script>

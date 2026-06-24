@@ -1,0 +1,69 @@
+---
+const quickLinks = [
+  { href: '#about', label: 'Hakkımızda' },
+  { href: '#services', label: 'Hizmetler' },
+  { href: '#projects', label: 'Projeler' },
+  { href: '#contact', label: 'İletişim' },
+];
+
+const serviceLinks = [
+  { href: '#', label: 'Özel Yazılım' },
+  { href: '#', label: 'ERP Sistemleri' },
+  { href: '#', label: 'Mobil Uygulama' },
+  { href: '#', label: 'Danışmanlık' },
+];
+
+const legalLinks = [
+  { href: '#', label: 'Gizlilik Politikası' },
+  { href: '#', label: 'Kullanım Koşulları' },
+  { href: '#', label: 'Çerez Politikası' },
+  { href: '#', label: 'KVKK Aydınlatma Metni' },
+];
+---
+
+<footer class="bg-surface-container-highest w-full pt-12 md:pt-16 pb-8 border-t border-outline-variant">
+  <div class="max-w-7xl mx-auto px-gutter md:px-margin">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 mb-12">
+      <div class="col-span-1 md:col-span-1">
+        <img alt="E-DOOR Logo" class="h-10 w-auto mb-6 opacity-80 mix-blend-multiply" src="/images/logo-footer.png" />
+        <p class="font-body text-sm text-on-surface-variant">
+          İhtiyacınıza Özel Yazılım Çözümleri. Dijital dönüşümde güvenilir teknoloji ortağınız.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">Hızlı Bağlantılar</h4>
+        <ul class="space-y-3">
+          {quickLinks.map((link) => (
+            <li><a class="font-body text-sm text-on-surface-variant hover:text-secondary transition-colors" href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">Hizmetler</h4>
+        <ul class="space-y-3">
+          {serviceLinks.map((link) => (
+            <li><a class="font-body text-sm text-on-surface-variant hover:text-secondary transition-colors" href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">Yasal</h4>
+        <ul class="space-y-3">
+          {legalLinks.map((link) => (
+            <li><a class="font-body text-sm text-on-surface-variant hover:text-secondary transition-colors" href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-outline-variant pt-8 flex flex-col md:flex-row items-center justify-between">
+      <p class="font-body text-sm text-on-surface-variant">
+        © 2026 E-DOOR Dijital Bilişim. Tüm hakları saklıdır.
+      </p>
+      <div class="flex items-center space-x-4 mt-4 md:mt-0">
+        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">
+          <span class="material-symbols-outlined text-xl">language</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

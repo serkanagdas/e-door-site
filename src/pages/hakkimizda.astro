@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const values = [
+  {
+    icon: 'engineering',
+    title: 'Mühendislik Disiplini',
+    desc: 'Mimari tutarlılık, test edilebilirlik ve sürdürülebilirlik esastır; hız ile kalite arasında asla taviz vermeyiz.',
+  },
+  {
+    icon: 'visibility',
+    title: 'Şeffaflık',
+    desc: 'Süreçlerimizi baştan sona açık tutar, düzenli toplantı ve raporlamalarla projeyi şeffaf biçimde takip etmenizi sağlarız.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Müşteri Odaklılık',
+    desc: 'İşinizi anlamadan kod yazmayız; çözümlerimizi sizin iş akışınıza ve hedeflerinize göre şekillendiririz.',
+  },
+  {
+    icon: 'trending_up',
+    title: 'Sürekli Gelişim',
+    desc: 'Teknolojinin sınırlarını zorlar, yeni araç ve metodolojileri öğrenir; dünden daha iyiyi hedefleriz.',
+  },
+  {
+    icon: 'shield',
+    title: 'Performans & Güvenlik',
+    desc: 'Hızlı yanıt veren, kesintisiz ve güvenli sistemler kurmak vazgeçilmezimizdir.',
+  },
+];
+
+const team = [
+  { img: '/images/avatar-1.jpg', name: 'Backend Mühendisi' },
+  { img: '/images/avatar-2.jpg', name: 'Frontend Mühendisi' },
+  { img: '/images/avatar-3.jpg', name: 'UI/UX Tasarımcı' },
+];
+
+const stats = [
+  { num: '15+', label: 'Uzman Geliştirici' },
+  { num: '20+', label: 'Tamamlanan Proje' },
+  { num: '%100', label: 'Proje Teslimatı' },
+  { num: '5+', label: 'Yıllık Tecrübe' },
+];
+
+const title = 'Hakkımızda';
+const description =
+  'E-DOOR ekibi, hikayemiz, misyonumuz ve değerlerimiz. Karmaşık problemleri zarif kodlara dönüştüren tutkulu bir mühendislik ekibi.';
+---
+
+<Layout title={`${title} | E-DOOR`} description={description}>
+
+  <!-- 1. PAGE HERO -->
+  <section class="relative flex items-center overflow-hidden bg-surface-container-lowest py-24 md:py-32">
+    <div class="absolute inset-0 hero-pattern opacity-30"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-surface/50 to-surface-container-lowest"></div>
+    <div class="relative z-10 mx-auto max-w-4xl px-gutter text-center md:px-margin">
+      <span class="mb-3 block text-xs font-medium uppercase tracking-wider text-secondary">
+        Biz Kimiz
+      </span>
+      <h1 class="mb-6 font-headline text-4xl font-bold leading-tight text-on-surface sm:text-5xl md:text-[52px]">
+        Karmaşık Problemleri Zarif Kodlara Dönüştürüyoruz
+      </h1>
+      <p class="mx-auto mb-10 max-w-2xl font-body text-base text-on-surface-variant md:text-lg">
+        E-DOOR, genç ve dinamik bir yazılım mühendisliği ekibidir. İşletmelerin dijital dönüşüm yolculuğunda,
+        ölçeklenebilir ve güvenli çözümlerle yanlarında olan güvenilir bir teknoloji ortağıyız.
+      </p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/iletisim"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-secondary px-8 py-3 text-xs font-semibold text-on-secondary shadow-sm transition-all hover:shadow-md sm:w-auto"
+        >
+          Bizimle Çalışın
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+        <a
+          href="/projeler"
+          class="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-outline-variant bg-surface px-8 py-3 text-xs font-semibold text-on-surface transition-all hover:bg-surface-variant sm:w-auto"
+        >
+          Projelerimizi İnceleyin
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. HİKAYEMİZ -->
+  <section class="bg-background py-14 md:py-24">
+    <div class="mx-auto max-w-7xl px-gutter md:px-margin">
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="reveal">
+          <div class="mb-6 h-1 w-20 rounded-full bg-secondary"></div>
+          <h2 class="mb-6 font-headline text-3xl font-semibold leading-tight text-on-surface md:text-4xl">
+            Hikayemiz
+          </h2>
+          <p class="mb-5 font-body text-base leading-relaxed text-on-surface-variant">
+            E-DOOR, yazılımın yalnızca kod değil, bir iş çözümü olduğuna inanan bir grup mühendis tarafından kuruldu.
+            Çıkış noktamız basitti: kurumların tekrarlayan, manuel iş süreçlerini otomatize eden; verimliliği artırırken
+            insan hatasını en aza indiren sistemler geliştirmek.
+          </p>
+          <p class="font-body text-base leading-relaxed text-on-surface-variant">
+            Bugüne kadar farklı sektörlerden işletmelere özel yazılım çözümleri sunduk ve büyük ölçekli veri yönetimi
+            ile kurumsal süreç mimarisinde uzmanlaştık. En gurur duyduğumuz başarılarımızdan biri, başarıyla hayata
+            geçirdiğimiz <strong class="text-on-surface">Müze & Kütüphane ERP Sistemi</strong> oldu.
+          </p>
+        </div>
+        <div class="reveal relative">
+          <div class="absolute -inset-4 rounded-[2rem] bg-secondary-container/20 rotate-3"></div>
+          <div class="relative flex aspect-[4/3] flex-col items-center justify-center gap-6 rounded-2xl bg-surface p-10 shadow-lg">
+            <span class="material-symbols-outlined select-none text-[140px] leading-none text-secondary/20">hub</span>
+            <div class="text-center">
+              <p class="font-headline text-lg font-semibold text-on-surface">Veri & Süreç Mimarisi</p>
+              <p class="font-body text-sm text-on-surface-variant">Büyük ölçekli sistemlerde uzmanlık</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MİSYON & VİZYON -->
+  <section class="bg-surface-container-low py-14 md:py-24">
+    <div class="mx-auto max-w-7xl px-gutter md:px-margin">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div class="reveal rounded-2xl border border-outline-variant bg-surface p-8 shadow-sm md:p-10">
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary-container/20 text-secondary">
+            <span class="material-symbols-outlined text-4xl">flag</span>
+          </div>
+          <h3 class="mb-4 font-headline text-2xl font-bold text-on-surface">Misyonumuz</h3>
+          <p class="font-body text-base leading-relaxed text-on-surface-variant">
+            İşletmelerin iş akışlarını derinlemesine anlayarak bu süreçleri yazılımla otomatize eden, ölçeklenebilir ve
+            güvenli çözümler geliştirmek. Manuel, tekrarlayan işleri azaltmak ve verimliliği en üst düzeye çıkarmak
+            önceliğimizdir.
+          </p>
+        </div>
+        <div class="reveal rounded-2xl border border-outline-variant bg-surface p-8 shadow-sm md:p-10" style="--reveal-delay: 120ms">
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-secondary-container/20 text-secondary">
+            <span class="material-symbols-outlined text-4xl">visibility</span>
+          </div>
+          <h3 class="mb-4 font-headline text-2xl font-bold text-on-surface">Vizyonumuz</h3>
+          <p class="font-body text-base leading-relaxed text-on-surface-variant">
+            Türkiye'nin önde gelen, güvene ve mühendislik disiplinine dayalı yazılım teknolojileri ortağı olmak. Her
+            projede kaliteyi, performansı ve kullanıcı deneyimini yeni bir standarda taşımak.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DEĞERLERİMİZ -->
+  <section class="bg-background py-14 md:py-24">
+    <div class="mx-auto max-w-7xl px-gutter md:px-margin">
+      <div class="mb-12 text-center md:mb-16">
+        <span class="mb-2 block text-xs font-medium uppercase tracking-wider text-secondary">İlkelerimiz</span>
+        <h2 class="font-headline text-4xl font-bold text-on-surface">Değerlerimiz</h2>
+        <p class="mx-auto mt-4 max-w-xl font-body text-base text-on-surface-variant">
+          Üzerinde durduğumuz, her projeye taşıdığımız ilkeler.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {values.map((value, i) => (
+          <div
+            class="reveal group rounded-2xl border border-outline-variant bg-surface p-7 shadow-sm transition-all duration-300 hover:border-secondary hover:shadow-md"
+            style={`--reveal-delay: ${i * 100}ms`}
+          >
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-secondary-container/20 text-secondary transition-transform group-hover:scale-110">
+              <span class="material-symbols-outlined text-3xl">{value.icon}</span>
+            </div>
+            <h4 class="mb-2 font-headline text-lg font-semibold text-on-surface">{value.title}</h4>
+            <p class="font-body text-sm leading-relaxed text-on-surface-variant">{value.desc}</p>
+          </div>
+        ))}
+        <div class="reveal flex flex-col justify-center rounded-2xl border border-dashed border-outline-variant bg-surface-container-low/50 p-7" style={`--reveal-delay: ${values.length * 100}ms`}>
+          <span class="material-symbols-outlined mb-3 text-4xl text-secondary/50">add</span>
+          <p class="font-headline text-lg font-semibold text-on-surface">Ve fazlası</p>
+          <p class="font-body text-sm text-on-surface-variant">Her projede büyüyerek öğreniyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. EKİBİMİZ -->
+  <section class="bg-surface-container-low py-14 md:py-24">
+    <div class="mx-auto max-w-7xl px-gutter md:px-margin">
+      <div class="mb-12 text-center md:mb-16">
+        <span class="mb-2 block text-xs font-medium uppercase tracking-wider text-secondary">Ekibimiz</span>
+        <h2 class="font-headline text-4xl font-bold text-on-surface">Tutkulu Bir Mühendislik Ekibi</h2>
+        <p class="mx-auto mt-4 max-w-xl font-body text-base text-on-surface-variant">
+          Farklı disiplinlerden gelen, kaliteye ve sürekli öğrenmeye inanan bir ekip.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {team.map((member, i) => (
+          <div class="reveal group rounded-2xl border border-outline-variant bg-surface p-8 text-center shadow-sm transition-all duration-300 hover:shadow-md" style={`--reveal-delay: ${i * 120}ms`}>
+            <div class="relative mx-auto mb-5 w-28">
+              <img
+                src={member.img}
+                alt={member.name}
+                class="mx-auto h-28 w-28 rounded-full border-4 border-surface object-cover shadow-sm transition-transform group-hover:scale-105"
+              />
+              <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-3 py-1 text-[10px] font-semibold text-on-secondary">
+                E-DOOR
+              </span>
+            </div>
+            <h4 class="font-headline text-lg font-semibold text-on-surface">{member.name}</h4>
+            <p class="mt-1 font-body text-sm text-on-surface-variant">Yazılım Ekibi</p>
+          </div>
+        ))}
+      </div>
+      <div class="reveal mt-10 flex items-center justify-center gap-3 text-on-surface-variant">
+        <div class="flex -space-x-3">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-surface bg-secondary text-xs font-semibold text-on-secondary">+12</span>
+        </div>
+        <span class="font-body text-sm">ve daha birçok uzman geliştirici</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. İSTATİSTİKLER -->
+  <section class="bg-inverse-surface py-14 md:py-20">
+    <div class="mx-auto max-w-7xl px-gutter md:px-margin">
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+        {stats.map((stat, i) => (
+          <div class="reveal text-center" style={`--reveal-delay: ${i * 100}ms`}>
+            <div class="font-headline text-4xl font-bold text-secondary md:text-5xl">{stat.num}</div>
+            <div class="mt-2 font-body text-sm text-inverse-on-surface/70">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CTA -->
+  <section class="bg-background py-14 md:py-24">
+    <div class="mx-auto max-w-5xl px-gutter md:px-margin">
+      <div class="reveal relative overflow-hidden rounded-[2rem] bg-secondary px-8 py-14 text-center shadow-lg md:px-16 md:py-20">
+        <div class="absolute inset-0 hero-pattern opacity-10"></div>
+        <span class="material-symbols-outlined absolute -right-8 -top-8 select-none text-[220px] leading-none text-on-secondary/10">rocket_launch</span>
+        <div class="relative">
+          <h2 class="mb-4 font-headline text-3xl font-bold text-on-secondary md:text-4xl">Birlikte Çalışalım</h2>
+          <p class="mx-auto mb-8 max-w-xl font-body text-base text-on-secondary/80">
+            Projenizi konuşmak için bizimle iletişime geçin. İhtiyacınıza özel çözümleri birlikte tasarlayalım.
+          </p>
+          <a
+            href="/iletisim"
+            class="inline-flex items-center justify-center gap-2 rounded-lg bg-on-secondary px-8 py-3 text-sm font-semibold text-secondary shadow-md transition-all hover:scale-105"
+          >
+            İletişime Geç
+            <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    reveals.forEach((el) => io.observe(el));
+  }
+</script>

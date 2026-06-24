@@ -1,0 +1,19 @@
+# OS and Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dependencies and Builds
+node_modules/
+dist/
+build/
+.astro/
+*.png
+*.jpg
+*.jpeg
+
+# Environment and Logs
+.env
+*.log
+stitch-source.html

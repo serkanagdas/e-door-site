@@ -1,0 +1,255 @@
+---
+const steps = [
+  {
+    num: '01',
+    icon: 'task_alt',
+    title: 'Proje Yönetimi',
+    desc: 'Projenin başından sonuna kadar tüm süreçlerin planlanması, görev dağılımları ve teslimat tarihlerinin belirlenmesi. Düzenli toplantı ve raporlamalarla süreci şeffaf biçimde takip ediyoruz.',
+  },
+  {
+    num: '02',
+    icon: 'design_services',
+    title: 'UI ve UX Geliştirme',
+    desc: 'Kullanıcı dostu ve estetik arayüzler tasarlıyoruz. Wireframe ve prototiplerle kullanıcı akışlarını detaylandırıyor, beğenmenize kadar revize ve onay sürecini işletiyoruz.',
+  },
+  {
+    num: '03',
+    icon: 'code',
+    title: 'Front-End Geliştirme',
+    desc: 'Onaylanan tasarımları modern teknolojilerle responsive, mobil uyumlu ve pixel-perfect olarak kodluyoruz. SEO ve performans kriterlerine maksimum önem veriyoruz.',
+  },
+  {
+    num: '04',
+    icon: 'dns',
+    title: 'Back-End Geliştirme',
+    desc: 'İçeriğinizi kolayca yönetebilmeniz için özel sistemler, sunucu yapılandırması ve API entegrasyonları geliştiriyoruz. Güvenli, performanslı ve ölçeklenebilir bir altyapı kuruyoruz.',
+  },
+  {
+    num: '05',
+    icon: 'bug_report',
+    title: 'Test Süreçleri',
+    desc: 'Fonksiyonel, performans ve güvenlik testleri gerçekleştiriyoruz. Tespit edilen hataları düzelterek uygulamanın kullanıcı dostu ve sorunsuz çalışmasını sağlıyoruz.',
+  },
+  {
+    num: '06',
+    icon: 'rocket_launch',
+    title: 'Teslim Aşaması',
+    desc: 'Son kontroller sonrası uygulama, belirlenen yöntemler neticesinde teslim edilir.',
+  },
+];
+---
+
+<section class="py-14 md:py-24 bg-background" id="process">
+  <div class="max-w-7xl mx-auto px-gutter md:px-margin">
+    <div class="text-center mb-12 md:mb-16">
+      <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">Nasıl Çalışıyoruz?</span>
+      <h2 class="font-headline text-4xl font-bold text-on-surface">Süreçlerimiz</h2>
+    </div>
+
+    <div class="rounded-2xl border border-outline-variant bg-surface shadow-sm overflow-hidden">
+      <div class="track flex" id="process-track" aria-orientation="horizontal">
+        {steps.map((step) => (
+          <div class="panel w-full flex-shrink-0">
+            <div class="panel-content grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center px-6 sm:px-10 md:px-16 py-10 md:py-14">
+              <div class="flex flex-col items-center gap-5">
+                <span class="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-secondary-container/25 text-secondary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-4xl md:text-5xl">{step.icon}</span>
+                </span>
+                <span class="font-headline text-3xl md:text-4xl font-bold text-secondary/25">{step.num}</span>
+              </div>
+              <div>
+                <span class="step-label text-xs font-medium tracking-wider uppercase text-secondary block mb-3">Adım {step.num} / 06</span>
+                <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-4">{step.title}</h3>
+                <p class="font-body text-base text-on-surface-variant leading-relaxed max-w-xl">{step.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Step indicators -->
+    <div class="flex items-center mt-12 mb-6">
+      {steps.map((step, i) => (
+        <>
+          {i > 0 && <div class="step-segment" data-segment={i - 1}></div>}
+          <button
+            class="step-dot"
+            data-index={i}
+            aria-label={`Adım ${step.num}: ${step.title}`}
+          >
+            {step.num}
+          </button>
+        </>
+      ))}
+    </div>
+
+    <!-- Controls -->
+    <div class="flex items-center justify-between gap-4">
+      <button
+        id="process-prev"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-outline-variant bg-surface text-on-surface text-sm font-semibold hover:border-secondary hover:text-secondary transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        aria-label="Önceki adım"
+      >
+        <span class="material-symbols-outlined text-base">arrow_back</span>
+        Geri
+      </button>
+
+      <span class="text-sm font-medium text-on-surface-variant font-headline" id="process-counter">01 / 06</span>
+
+      <button
+        id="process-next"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-outline-variant bg-surface text-on-surface text-sm font-semibold hover:border-secondary hover:text-secondary transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        aria-label="Sonraki adım"
+      >
+        İleri
+        <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .track {
+    transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  .step-dot {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'Geist', sans-serif;
+    border: 2px solid #c4c7c8;
+    background: #fcf8f8;
+    color: #444748;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+  @media (min-width: 768px) {
+    .step-dot {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 0.75rem;
+    }
+  }
+  .step-dot:hover {
+    border-color: #2b5daa;
+    color: #2b5daa;
+  }
+  .step-dot.is-done {
+    border-color: #2b5daa;
+    background: #2b5daa;
+    color: #ffffff;
+  }
+  .step-dot.is-active {
+    border-color: #2b5daa;
+    background: #2b5daa;
+    color: #ffffff;
+    transform: scale(1.12);
+    box-shadow: 0 0 0 4px rgba(43, 93, 170, 0.18);
+  }
+
+  .step-segment {
+    height: 2px;
+    flex: 1 1 0;
+    background: #c4c7c8;
+    margin: 0 0.5rem;
+    border-radius: 9999px;
+    transition: background 0.4s ease;
+  }
+  .step-segment.is-active {
+    background: #2b5daa;
+  }
+
+  @keyframes panelFadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .panel-content.is-animated {
+    animation: panelFadeSlide 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+</style>
+
+<script>
+  const initProcess = () => {
+    const section = document.getElementById('process');
+    if (!section) return;
+
+    const track = section.querySelector<HTMLDivElement>('#process-track');
+    if (!track) return;
+
+    const panels = Array.from(track.children) as HTMLElement[];
+    const total = panels.length;
+    const indicators = Array.from(section.querySelectorAll<HTMLButtonElement>('[data-index]'));
+    const segments = Array.from(section.querySelectorAll<HTMLElement>('[data-segment]'));
+    const prevBtn = section.querySelector<HTMLButtonElement>('#process-prev');
+    const nextBtn = section.querySelector<HTMLButtonElement>('#process-next');
+    const counter = section.querySelector<HTMLSpanElement>('#process-counter');
+    let current = 0;
+
+    const pad = (n: number) => String(n).padStart(2, '0');
+
+    const goTo = (index: number) => {
+      current = Math.max(0, Math.min(index, total - 1));
+      track.style.transform = `translateX(-${current * 100}%)`;
+
+      indicators.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === current);
+        dot.classList.toggle('is-done', i < current);
+        dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+      });
+
+      segments.forEach((seg, i) => {
+        seg.classList.toggle('is-active', i < current);
+      });
+
+      panels.forEach((panel, i) => {
+        const content = panel.querySelector<HTMLElement>('.panel-content');
+        if (!content) return;
+        content.classList.remove('is-animated');
+        if (i === current) {
+          void content.offsetWidth;
+          content.classList.add('is-animated');
+        }
+      });
+
+      if (prevBtn) prevBtn.disabled = current === 0;
+      if (nextBtn) nextBtn.disabled = current === total - 1;
+      if (counter) counter.textContent = `${pad(current + 1)} / ${pad(total)}`;
+    };
+
+    indicators.forEach((dot) => {
+      dot.addEventListener('click', () => goTo(Number(dot.dataset.index)));
+    });
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+    section.setAttribute('tabindex', '0');
+    section.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goTo(current + 1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goTo(current - 1);
+      }
+    });
+
+    goTo(0);
+  };
+
+  initProcess();
+</script>

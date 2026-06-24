@@ -1,0 +1,44 @@
+---
+const services = [
+  {
+    icon: 'code',
+    title: 'Özel Yazılım Geliştirme',
+    desc: 'İş süreçlerinize tam uyumlu, ölçeklenebilir ve yüksek performanslı özel web ve mobil uygulamalar.',
+  },
+  {
+    icon: 'account_tree',
+    title: 'ERP & Sistem Çözümleri',
+    desc: 'Kurumsal kaynak planlaması ve tüm departmanları tek bir merkezden yönetmenizi sağlayan sistemler.',
+  },
+  {
+    icon: 'support_agent',
+    title: 'Bakım & Destek',
+    desc: 'Yazılımlarınızın 7/24 kesintisiz çalışması için sürekli izleme, güncelleme ve teknik destek hizmeti.',
+  },
+  {
+    icon: 'lightbulb',
+    title: 'BT Danışmanlığı',
+    desc: 'Dijital dönüşüm yolculuğunuzda stratejik teknoloji danışmanlığı ve mimari altyapı planlaması.',
+  },
+];
+---
+
+<section class="py-14 md:py-24 bg-surface-container-low" id="services">
+  <div class="max-w-7xl mx-auto px-gutter md:px-margin">
+    <div class="text-center mb-12 md:mb-16">
+      <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">Neler Yapıyoruz?</span>
+      <h2 class="font-headline text-4xl font-bold text-on-surface">Uçtan Uca Hizmetler</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service) => (
+        <div class="bg-surface rounded-xl p-8 shadow-sm border border-outline-variant hover:border-secondary hover:shadow-md transition-all group">
+          <div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed mb-6 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-[32px]">{service.icon}</span>
+          </div>
+          <h3 class="font-headline text-xl font-semibold text-on-surface mb-3">{service.title}</h3>
+          <p class="font-body text-sm text-on-surface-variant leading-relaxed">{service.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
