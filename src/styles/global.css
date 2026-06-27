@@ -24,13 +24,11 @@
   }
   .animated-grid {
     background-image:
-      linear-gradient(to right, rgba(43, 93, 170, 0.3) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(43, 93, 170, 0.3) 1px, transparent 1px);
+      linear-gradient(to right, rgba(43, 93, 170, 0.22) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(43, 93, 170, 0.22) 1px, transparent 1px);
     background-size: 50px 50px;
-    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
-    mask-image: radial-gradient(ellipse at center, black 40%, transparent 90%);
-    animation: grid-pan 20s linear infinite, grid-glow 4s ease-in-out infinite;
-    will-change: background-position, opacity;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 92%);
+    mask-image: radial-gradient(ellipse at center, #000 40%, transparent 92%);
   }
   .glass-card {
     background: rgba(255, 255, 255, 0.7);
@@ -39,28 +37,62 @@
   }
 }
 
-@keyframes grid-pan {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
-  }
+@property --ripple {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
 }
 
-@keyframes grid-glow {
-  0%,
-  100% {
-    opacity: 0.75;
+.grid-wave::before,
+.grid-wave::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(127, 171, 254, 0.95) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(127, 171, 254, 0.95) 1px, transparent 1px);
+  background-size: 50px 50px;
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    transparent calc(var(--ripple) - 7%),
+    #000 var(--ripple),
+    transparent calc(var(--ripple) + 7%)
+  );
+  mask-image: radial-gradient(
+    circle at center,
+    transparent calc(var(--ripple) - 7%),
+    #000 var(--ripple),
+    transparent calc(var(--ripple) + 7%)
+  );
+  animation: ripple-wave 4.5s ease-out infinite;
+  will-change: --ripple, opacity;
+}
+
+.grid-wave::after {
+  animation-delay: 2.25s;
+}
+
+@keyframes ripple-wave {
+  0% {
+    --ripple: 0%;
+    opacity: 0;
   }
-  50% {
+  12% {
     opacity: 1;
+  }
+  80% {
+    opacity: 0.55;
+  }
+  100% {
+    --ripple: 100%;
+    opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animated-grid {
+  .grid-wave::before,
+  .grid-wave::after {
     animation: none;
-    opacity: 0.9;
+    opacity: 0;
   }
 }
