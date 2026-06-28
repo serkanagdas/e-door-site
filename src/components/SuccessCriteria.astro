@@ -1,36 +1,22 @@
 ---
-const featured = {
-  icon: 'account_tree',
-  title: 'İş Akışı Otomasyonu',
-  desc: 'En önemlisi: kurumların iş akışlarını ve hedefledikleri iş düzenini net biçimde anlayıp, bu süreçleri yazılımla otomatize ediyoruz. Manuel, tekrarlayan işleri azaltır; verimliliği artırırken insan hatasını en aza indiririz.',
-};
+import { useTranslations, type Lang } from '../i18n/utils';
 
-const standards = [
-  {
-    icon: 'devices',
-    title: 'Kullanıcı Dostu Arayüz',
-    desc: 'Ekiplerin günlük kullanımda hızla benimseyeceği, kolay gezinilebilen ve anlaşılır bir arayüz yapısı.',
-  },
-  {
-    icon: 'bolt',
-    title: 'Yüksek Performans & Hız',
-    desc: 'Yoğun veri ve kullanıcı altında bile hızlı yanıt veren, akıcı ve kesintisiz çalışan sistemler.',
-  },
-  {
-    icon: 'grid_view',
-    title: 'Pixel-Perfect Hassasiyet',
-    desc: 'Görsel bütünlüğün korunması için tasarımın piksel piksel, renk ve font mükemmelliğiyle uygulanması.',
-  },
-];
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang);
+const featured = t('criteria.featured') as { icon: string; title: string; desc: string };
+const standards = t('criteria.standards') as { icon: string; title: string; desc: string }[];
 ---
 
 <section class="py-14 md:py-24 bg-surface-container-low" id="criteria">
   <div class="max-w-7xl mx-auto px-gutter md:px-margin">
     <div class="text-center mb-12 md:mb-16 reveal">
-      <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">Kalite Standartlarımız</span>
-      <h2 class="font-headline text-4xl font-bold text-on-surface mb-4">Başarı Kriterlerimiz</h2>
+      <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">{t('criteria.eyebrow')}</span>
+      <h2 class="font-headline text-4xl font-bold text-on-surface mb-4">{t('criteria.title')}</h2>
       <p class="font-body text-base text-on-surface-variant max-w-2xl mx-auto">
-        Bir projeyi başarılı kılan detayları asla göz ardı etmiyoruz. Teslim ettiğimiz her yazılım şu kriterleri karşılar.
+        {t('criteria.intro')}
       </p>
     </div>
 

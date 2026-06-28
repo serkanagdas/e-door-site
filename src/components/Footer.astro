@@ -1,24 +1,23 @@
 ---
+import { useTranslations, getNavLinks, type Lang } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang);
+const paths = getNavLinks(lang);
+
 const quickLinks = [
-  { href: '#about', label: 'Hakkımızda' },
-  { href: '#services', label: 'Hizmetler' },
-  { href: '#projects', label: 'Projeler' },
-  { href: '#contact', label: 'İletişim' },
+  { href: paths.about, label: t('nav.about') },
+  { href: paths.services, label: t('nav.services') },
+  { href: paths.projects, label: t('nav.projects') },
+  { href: paths.contact, label: t('nav.contact') },
 ];
 
-const serviceLinks = [
-  { href: '#', label: 'Özel Yazılım' },
-  { href: '#', label: 'ERP Sistemleri' },
-  { href: '#', label: 'Mobil Uygulama' },
-  { href: '#', label: 'Danışmanlık' },
-];
-
-const legalLinks = [
-  { href: '#', label: 'Gizlilik Politikası' },
-  { href: '#', label: 'Kullanım Koşulları' },
-  { href: '#', label: 'Çerez Politikası' },
-  { href: '#', label: 'KVKK Aydınlatma Metni' },
-];
+const serviceLinks = (t('footer.serviceLinks') as string[]).map((label) => ({ href: '#', label }));
+const legalLinks = (t('footer.legalLinks') as string[]).map((label) => ({ href: '#', label }));
 ---
 
 <footer class="bg-surface-container-highest w-full pt-12 md:pt-16 pb-8 border-t border-outline-variant">
@@ -27,11 +26,11 @@ const legalLinks = [
       <div class="col-span-1 md:col-span-1">
         <img alt="E-DOOR Logo" class="h-10 w-auto mb-6 opacity-80 mix-blend-multiply" src="/images/logo-footer.png" />
         <p class="font-body text-sm text-on-surface-variant">
-          İhtiyacınıza Özel Yazılım Çözümleri. Dijital dönüşümde güvenilir teknoloji ortağınız.
+          {t('footer.tagline')}
         </p>
       </div>
       <div>
-        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">Hızlı Bağlantılar</h4>
+        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">{t('footer.quickLinks')}</h4>
         <ul class="space-y-3">
           {quickLinks.map((link) => (
             <li><a class="font-body text-sm text-on-surface-variant hover:text-secondary transition-colors" href={link.href}>{link.label}</a></li>
@@ -39,7 +38,7 @@ const legalLinks = [
         </ul>
       </div>
       <div>
-        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">Hizmetler</h4>
+        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">{t('footer.services')}</h4>
         <ul class="space-y-3">
           {serviceLinks.map((link) => (
             <li><a class="font-body text-sm text-on-surface-variant hover:text-secondary transition-colors" href={link.href}>{link.label}</a></li>
@@ -47,7 +46,7 @@ const legalLinks = [
         </ul>
       </div>
       <div>
-        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">Yasal</h4>
+        <h4 class="font-headline text-lg font-semibold text-on-surface mb-4">{t('footer.legal')}</h4>
         <ul class="space-y-3">
           {legalLinks.map((link) => (
             <li><a class="font-body text-sm text-on-surface-variant hover:text-secondary transition-colors" href={link.href}>{link.label}</a></li>
@@ -57,12 +56,10 @@ const legalLinks = [
     </div>
     <div class="border-t border-outline-variant pt-8 flex flex-col md:flex-row items-center justify-between">
       <p class="font-body text-sm text-on-surface-variant">
-        © 2026 E-DOOR Dijital Bilişim. Tüm hakları saklıdır.
+        {t('footer.copyright')}
       </p>
       <div class="flex items-center space-x-4 mt-4 md:mt-0">
-        <a class="text-on-surface-variant hover:text-secondary transition-colors" href="#">
-          <span class="material-symbols-outlined text-xl">language</span>
-        </a>
+        <LanguageSwitcher />
       </div>
     </div>
   </div>

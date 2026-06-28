@@ -1,49 +1,19 @@
 ---
-const steps = [
-  {
-    num: '01',
-    icon: 'task_alt',
-    title: 'Proje Yönetimi',
-    desc: 'Projenin başından sonuna kadar tüm süreçlerin planlanması, görev dağılımları ve teslimat tarihlerinin belirlenmesi. Düzenli toplantı ve raporlamalarla süreci şeffaf biçimde takip ediyoruz.',
-  },
-  {
-    num: '02',
-    icon: 'design_services',
-    title: 'UI ve UX Geliştirme',
-    desc: 'Kullanıcı dostu ve estetik arayüzler tasarlıyoruz. Wireframe ve prototiplerle kullanıcı akışlarını detaylandırıyor, beğenmenize kadar revize ve onay sürecini işletiyoruz.',
-  },
-  {
-    num: '03',
-    icon: 'code',
-    title: 'Front-End Geliştirme',
-    desc: 'Onaylanan tasarımları modern teknolojilerle responsive, mobil uyumlu ve pixel-perfect olarak kodluyoruz. Performans kriterlerine maksimum önem veriyoruz.',
-  },
-  {
-    num: '04',
-    icon: 'dns',
-    title: 'Back-End Geliştirme',
-    desc: 'İçeriğinizi kolayca yönetebilmeniz için özel sistemler, sunucu yapılandırması ve API entegrasyonları geliştiriyoruz. Güvenli, performanslı ve ölçeklenebilir bir altyapı kuruyoruz.',
-  },
-  {
-    num: '05',
-    icon: 'bug_report',
-    title: 'Test Süreçleri',
-    desc: 'Fonksiyonel, performans ve güvenlik testleri gerçekleştiriyoruz. Tespit edilen hataları düzelterek uygulamanın kullanıcı dostu ve sorunsuz çalışmasını sağlıyoruz.',
-  },
-  {
-    num: '06',
-    icon: 'rocket_launch',
-    title: 'Teslim Aşaması',
-    desc: 'Son kontroller sonrası uygulama, belirlenen yöntemler neticesinde teslim edilir.',
-  },
-];
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang);
+const steps = t('process.steps') as { num: string; icon: string; title: string; desc: string }[];
 ---
 
 <section class="py-14 md:py-24 bg-background" id="process">
   <div class="max-w-7xl mx-auto px-gutter md:px-margin">
     <div class="text-center mb-12 md:mb-16">
-      <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">Nasıl Çalışıyoruz?</span>
-      <h2 class="font-headline text-4xl font-bold text-on-surface">Süreçlerimiz</h2>
+      <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">{t('process.eyebrow')}</span>
+      <h2 class="font-headline text-4xl font-bold text-on-surface">{t('process.title')}</h2>
     </div>
 
     <div class="rounded-2xl border border-outline-variant bg-surface shadow-sm overflow-hidden">
@@ -58,7 +28,7 @@ const steps = [
                 <span class="font-headline text-3xl md:text-4xl font-bold text-secondary/25">{step.num}</span>
               </div>
               <div>
-                <span class="step-label text-xs font-medium tracking-wider uppercase text-secondary block mb-3">Adım {step.num} / 06</span>
+                <span class="step-label text-xs font-medium tracking-wider uppercase text-secondary block mb-3">{t('process.stepLabel')} {step.num} / 06</span>
                 <h3 class="font-headline text-2xl md:text-3xl font-bold text-on-surface mb-4">{step.title}</h3>
                 <p class="font-body text-base text-on-surface-variant leading-relaxed max-w-xl">{step.desc}</p>
               </div>
@@ -76,7 +46,7 @@ const steps = [
           <button
             class="step-dot"
             data-index={i}
-            aria-label={`Adım ${step.num}: ${step.title}`}
+            aria-label={`${t('process.stepLabel')} ${step.num}: ${step.title}`}
           >
             {step.num}
           </button>
@@ -89,10 +59,10 @@ const steps = [
       <button
         id="process-prev"
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-outline-variant bg-surface text-on-surface text-sm font-semibold hover:border-secondary hover:text-secondary transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-        aria-label="Önceki adım"
+        aria-label={t('process.prevAria')}
       >
         <span class="material-symbols-outlined text-base">arrow_back</span>
-        Geri
+        {t('process.prev')}
       </button>
 
       <span class="text-sm font-medium text-on-surface-variant font-headline" id="process-counter">01 / 06</span>
@@ -100,9 +70,9 @@ const steps = [
       <button
         id="process-next"
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-outline-variant bg-surface text-on-surface text-sm font-semibold hover:border-secondary hover:text-secondary transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-        aria-label="Sonraki adım"
+        aria-label={t('process.nextAria')}
       >
-        İleri
+        {t('process.next')}
         <span class="material-symbols-outlined text-base">arrow_forward</span>
       </button>
     </div>

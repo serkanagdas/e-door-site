@@ -1,0 +1,433 @@
+{
+  "meta": {
+    "defaultTitle": {
+      "tr": "E-DOOR | İhtiyacınıza Özel Yazılım Çözümleri",
+      "en": "E-DOOR | Custom Software Solutions for Your Needs"
+    },
+    "defaultDescription": {
+      "tr": "İşletmenizi dijital geleceğe taşıyoruz. Modern teknolojiler ve çevik metodolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılımlar geliştiriyoruz.",
+      "en": "We carry your business into the digital future. We develop scalable, secure and high-performance software with modern technologies and agile methodologies."
+    }
+  },
+  "nav": {
+    "home": { "tr": "Anasayfa", "en": "Home" },
+    "about": { "tr": "Hakkımızda", "en": "About" },
+    "services": { "tr": "Hizmetler", "en": "Services" },
+    "projects": { "tr": "Projeler", "en": "Projects" },
+    "contact": { "tr": "İletişim", "en": "Contact" },
+    "quote": { "tr": "Teklif Al", "en": "Get a Quote" },
+    "menuAria": { "tr": "Menüyü aç/kapat", "en": "Open/close menu" }
+  },
+  "footer": {
+    "tagline": {
+      "tr": "İhtiyacınıza Özel Yazılım Çözümleri. Dijital dönüşümde güvenilir teknoloji ortağınız.",
+      "en": "Custom Software Solutions for Your Needs. Your trusted technology partner in digital transformation."
+    },
+    "quickLinks": { "tr": "Hızlı Bağlantılar", "en": "Quick Links" },
+    "services": { "tr": "Hizmetler", "en": "Services" },
+    "legal": { "tr": "Yasal", "en": "Legal" },
+    "serviceLinks": {
+      "tr": ["Özel Yazılım", "ERP Sistemleri", "Mobil Uygulama", "Danışmanlık"],
+      "en": ["Custom Software", "ERP Systems", "Mobile Apps", "Consulting"]
+    },
+    "legalLinks": {
+      "tr": ["Gizlilik Politikası", "Kullanım Koşulları", "Çerez Politikası", "KVKK Aydınlatma Metni"],
+      "en": ["Privacy Policy", "Terms of Use", "Cookie Policy", "GDPR Disclosure"]
+    },
+    "copyright": {
+      "tr": "© 2026 E-DOOR Dijital Bilişim. Tüm hakları saklıdır.",
+      "en": "© 2026 E-DOOR Digital Informatics. All rights reserved."
+    }
+  },
+  "hero": {
+    "titleA": { "tr": "İhtiyacınıza Özel", "en": "Tailored to Your Needs" },
+    "titleB": { "tr": "Yazılım Çözümleri", "en": "Software Solutions" },
+    "subtitle": {
+      "tr": "İşletmenizi/Kurumunuzu dijital geleceğe taşıyoruz. Modern teknolojiler ve çevik metodolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılımlar geliştiriyoruz.",
+      "en": "We carry your business/organization into the digital future. We develop scalable, secure and high-performance software with modern technologies and agile methodologies."
+    },
+    "quote": { "tr": "Teklif Al", "en": "Get a Quote" },
+    "about": { "tr": "Hakkımızda", "en": "About Us" }
+  },
+  "about": {
+    "titleA": { "tr": "Genç, Dinamik ve", "en": "A Young, Dynamic and" },
+    "titleB": { "tr": "Hedef Odaklı Ekip", "en": "Goal-Oriented Team" },
+    "p1": {
+      "tr": "E-DOOR olarak, karmaşık problemleri zarif kodlara dönüştüren tutkulu bir mühendislik ekibiyiz. Teknolojinin sınırlarını zorlayarak, müşterilerimize sadece bir yazılım değil, rekabet avantajı sunuyoruz.",
+      "en": "As E-DOOR, we are a passionate engineering team that turns complex problems into elegant code. By pushing the boundaries of technology, we offer our clients not just software, but a competitive advantage."
+    },
+    "p2": {
+      "tr": "Son olarak \"Yazma Eser Kurumu\" için geliştirdiğimiz \"Şifahane Kitap Restorasyonu ve Arşivlemesi\" otomasyonu, büyük ölçekli veri yönetimi ve kurumsal süreç mimarisindeki uzmanlığımızın somut bir göstergesidir.",
+      "en": "Most recently, the \"Şifahane Book Restoration and Archiving\" automation we developed for the \"Manuscripts Institution\" is a concrete demonstration of our expertise in large-scale data management and enterprise process architecture."
+    },
+    "imgAlt": {
+      "tr": "E-DOOR yazılım ekibi",
+      "en": "E-DOOR software team"
+    },
+    "statValue": { "tr": "100%", "en": "100%" },
+    "statLabel": { "tr": "Proje Teslimatı", "en": "Project Delivery" }
+  },
+  "services": {
+    "eyebrow": { "tr": "Neler Yapıyoruz?", "en": "What We Do?" },
+    "title": { "tr": "Uçtan Uca Hizmetler", "en": "End-to-End Services" },
+    "items": {
+      "tr": [
+        { "icon": "code", "title": "Özel Yazılım Geliştirme", "desc": "İş süreçlerinize tam uyumlu, ölçeklenebilir ve yüksek performanslı özel web ve mobil uygulamalar." },
+        { "icon": "account_tree", "title": "ERP & Sistem Çözümleri", "desc": "Kurumsal kaynak planlaması ve tüm departmanları tek bir merkezden yönetmenizi sağlayan sistemler." },
+        { "icon": "support_agent", "title": "Bakım & Destek", "desc": "Yazılımlarınızın 7/24 kesintisiz çalışması için sürekli izleme, güncelleme ve teknik destek hizmeti." },
+        { "icon": "lightbulb", "title": "BT Danışmanlığı", "desc": "Dijital dönüşüm yolculuğunuzda stratejik teknoloji danışmanlığı ve mimari altyapı planlaması." }
+      ],
+      "en": [
+        { "icon": "code", "title": "Custom Software Development", "desc": "Custom web and mobile applications fully aligned with your business processes, scalable and high-performance." },
+        { "icon": "account_tree", "title": "ERP & System Solutions", "desc": "Enterprise resource planning and systems that let you manage all departments from a single hub." },
+        { "icon": "support_agent", "title": "Maintenance & Support", "desc": "Continuous monitoring, updates and technical support to keep your software running 24/7 without interruption." },
+        { "icon": "lightbulb", "title": "IT Consulting", "desc": "Strategic technology consulting and architectural infrastructure planning for your digital transformation journey." }
+      ]
+    }
+  },
+  "process": {
+    "eyebrow": { "tr": "Nasıl Çalışıyoruz?", "en": "How We Work?" },
+    "title": { "tr": "Süreçlerimiz", "en": "Our Process" },
+    "stepLabel": { "tr": "Adım", "en": "Step" },
+    "prev": { "tr": "Geri", "en": "Back" },
+    "next": { "tr": "İleri", "en": "Next" },
+    "prevAria": { "tr": "Önceki adım", "en": "Previous step" },
+    "nextAria": { "tr": "Sonraki adım", "en": "Next step" },
+    "steps": {
+      "tr": [
+        { "num": "01", "icon": "task_alt", "title": "Proje Yönetimi", "desc": "Projenin başından sonuna kadar tüm süreçlerin planlanması, görev dağılımları ve teslimat tarihlerinin belirlenmesi. Düzenli toplantı ve raporlamalarla süreci şeffaf biçimde takip ediyoruz." },
+        { "num": "02", "icon": "design_services", "title": "UI ve UX Geliştirme", "desc": "Kullanıcı dostu ve estetik arayüzler tasarlıyoruz. Wireframe ve prototiplerle kullanıcı akışlarını detaylandırıyor, beğenmenize kadar revize ve onay sürecini işletiyoruz." },
+        { "num": "03", "icon": "code", "title": "Front-End Geliştirme", "desc": "Onaylanan tasarımları modern teknolojilerle responsive, mobil uyumlu ve pixel-perfect olarak kodluyoruz. Performans kriterlerine maksimum önem veriyoruz." },
+        { "num": "04", "icon": "dns", "title": "Back-End Geliştirme", "desc": "İçeriğinizi kolayca yönetebilmeniz için özel sistemler, sunucu yapılandırması ve API entegrasyonları geliştiriyoruz. Güvenli, performanslı ve ölçeklenebilir bir altyapı kuruyoruz." },
+        { "num": "05", "icon": "bug_report", "title": "Test Süreçleri", "desc": "Fonksiyonel, performans ve güvenlik testleri gerçekleştiriyoruz. Tespit edilen hataları düzelterek uygulamanın kullanıcı dostu ve sorunsuz çalışmasını sağlıyoruz." },
+        { "num": "06", "icon": "rocket_launch", "title": "Teslim Aşaması", "desc": "Son kontroller sonrası uygulama, belirlenen yöntemler neticesinde teslim edilir." }
+      ],
+      "en": [
+        { "num": "01", "icon": "task_alt", "title": "Project Management", "desc": "Planning all processes from start to finish, task assignments and setting delivery dates. We track the process transparently with regular meetings and reports." },
+        { "num": "02", "icon": "design_services", "title": "UI & UX Development", "desc": "We design user-friendly and aesthetic interfaces. We detail user flows with wireframes and prototypes, running revision and approval cycles until you're satisfied." },
+        { "num": "03", "icon": "code", "title": "Front-End Development", "desc": "We code approved designs with modern technologies as responsive, mobile-friendly and pixel-perfect. We place maximum importance on performance criteria." },
+        { "num": "04", "icon": "dns", "title": "Back-End Development", "desc": "We develop custom systems, server configuration and API integrations so you can easily manage your content. We build a secure, performant and scalable infrastructure." },
+        { "num": "05", "icon": "bug_report", "title": "Testing Processes", "desc": "We conduct functional, performance and security testing. We fix detected bugs to ensure the application is user-friendly and runs smoothly." },
+        { "num": "06", "icon": "rocket_launch", "title": "Delivery Phase", "desc": "After final checks, the application is delivered according to the determined methods." }
+      ]
+    }
+  },
+  "criteria": {
+    "eyebrow": { "tr": "Kalite Standartlarımız", "en": "Our Quality Standards" },
+    "title": { "tr": "Başarı Kriterlerimiz", "en": "Our Success Criteria" },
+    "intro": {
+      "tr": "Bir projeyi başarılı kılan detayları asla göz ardı etmiyoruz. Teslim ettiğimiz her yazılım şu kriterleri karşılar.",
+      "en": "We never overlook the details that make a project successful. Every software we deliver meets the following criteria."
+    },
+    "featured": {
+      "tr": { "icon": "account_tree", "title": "İş Akışı Otomasyonu", "desc": "En önemlisi: kurumların iş akışlarını ve hedefledikleri iş düzenini net biçimde anlayıp, bu süreçleri yazılımla otomatize ediyoruz. Manuel, tekrarlayan işleri azaltır; verimliliği artırırken insan hatasını en aza indiririz." },
+      "en": { "icon": "account_tree", "title": "Workflow Automation", "desc": "Most importantly: we clearly understand the workflows and target business routines of organizations, and automate these processes with software. We reduce manual, repetitive tasks; increasing efficiency while minimizing human error." }
+    },
+    "standards": {
+      "tr": [
+        { "icon": "devices", "title": "Kullanıcı Dostu Arayüz", "desc": "Ekiplerin günlük kullanımda hızla benimseyeceği, kolay gezinilebilen ve anlaşılır bir arayüz yapısı." },
+        { "icon": "bolt", "title": "Yüksek Performans & Hız", "desc": "Yoğun veri ve kullanıcı altında bile hızlı yanıt veren, akıcı ve kesintisiz çalışan sistemler." },
+        { "icon": "grid_view", "title": "Pixel-Perfect Hassasiyet", "desc": "Görsel bütünlüğün korunması için tasarımın piksel piksel, renk ve font mükemmelliğiyle uygulanması." }
+      ],
+      "en": [
+        { "icon": "devices", "title": "User-Friendly Interface", "desc": "An interface structure that teams quickly adopt in daily use, easy to navigate and understand." },
+        { "icon": "bolt", "title": "High Performance & Speed", "desc": "Systems that respond quickly, run smoothly and uninterrupted even under heavy data and user load." },
+        { "icon": "grid_view", "title": "Pixel-Perfect Precision", "desc": "Applying the design pixel by pixel, with color and font perfection to preserve visual integrity." }
+      ]
+    }
+  },
+  "cta": {
+    "title": { "tr": "Birlikte Çalışalım", "en": "Let's Work Together" },
+    "text": {
+      "tr": "Projenizi konuşmak için bizimle iletişime geçin. İhtiyacınıza özel çözümleri birlikte tasarlayalım.",
+      "en": "Get in touch with us to discuss your project. Let's design solutions tailored to your needs together."
+    },
+    "button": { "tr": "İletişime Geç", "en": "Get in Touch" }
+  },
+  "aboutPage": {
+    "metaTitle": { "tr": "Hakkımızda", "en": "About Us" },
+    "metaDesc": {
+      "tr": "E-DOOR ekibi, hikayemiz, misyonumuz ve değerlerimiz. Karmaşık problemleri zarif kodlara dönüştüren tutkulu bir mühendislik ekibi.",
+      "en": "The E-DOOR team, our story, mission and values. A passionate engineering team that turns complex problems into elegant code."
+    },
+    "heroEyebrow": { "tr": "Biz Kimiz", "en": "Who We Are" },
+    "heroTitle": { "tr": "Karmaşık Problemleri Zarif Kodlara Dönüştürüyoruz", "en": "Turning Complex Problems into Elegant Code" },
+    "heroText": {
+      "tr": "E-DOOR, genç ve dinamik bir yazılım mühendisliği ekibidir. İşletmelerin dijital dönüşüm yolculuğunda, ölçeklenebilir ve güvenli çözümlerle yanlarında olan güvenilir bir teknoloji ortağıyız.",
+      "en": "E-DOOR is a young and dynamic software engineering team. We are a trusted technology partner alongside businesses in their digital transformation journey, with scalable and secure solutions."
+    },
+    "heroCta1": { "tr": "Bizimle Çalışın", "en": "Work With Us" },
+    "heroCta2": { "tr": "Projelerimizi İnceleyin", "en": "View Our Projects" },
+    "storyTitle": { "tr": "Hikayemiz", "en": "Our Story" },
+    "storyP1": {
+      "tr": "E-DOOR, yazılımın yalnızca kod değil, bir iş çözümü olduğuna inanan bir grup mühendis tarafından kuruldu. Çıkış noktamız basitti: kurumların tekrarlayan, manuel iş süreçlerini otomatize eden; verimliliği artırırken insan hatasını en aza indiren sistemler geliştirmek.",
+      "en": "E-DOOR was founded by a group of engineers who believed that software is not just code, but a business solution. Our starting point was simple: to develop systems that automate repetitive, manual business processes of organizations; increasing efficiency while minimizing human error."
+    },
+    "storyP2A": {
+      "tr": "Bugüne kadar farklı sektörlerden işletmelere özel yazılım çözümleri sunduk ve büyük ölçekli veri yönetimi ile kurumsal süreç mimarisinde uzmanlaştık. En gurur duyduğumuz başarılarımızdan biri, başarıyla hayata geçirdiğimiz",
+      "en": "To date, we have provided custom software solutions to businesses across various sectors and specialized in large-scale data management and enterprise process architecture. One of our proudest achievements is the successfully launched"
+    },
+    "storyHighlight": { "tr": "Müze & Kütüphane ERP Sistemi", "en": "Museum & Library ERP System" },
+    "storyP2B": { "tr": "oldu.", "en": "." },
+    "storyImgAlt": {
+      "tr": "E-DOOR yazılım ekibi ve çalışma ortamı",
+      "en": "E-DOOR software team and work environment"
+    },
+    "missionTitle": { "tr": "Misyonumuz", "en": "Our Mission" },
+    "missionText": {
+      "tr": "İşletmelerin iş akışlarını derinlemesine anlayarak bu süreçleri yazılımla otomatize eden, ölçeklenebilir ve güvenli çözümler geliştirmek. Manuel, tekrarlayan işleri azaltmak ve verimliliği en üst düzeye çıkarmak önceliğimizdir.",
+      "en": "To develop scalable and secure solutions that automate business processes by deeply understanding the workflows of businesses. Reducing manual, repetitive tasks and maximizing efficiency is our priority."
+    },
+    "visionTitle": { "tr": "Vizyonumuz", "en": "Our Vision" },
+    "visionText": {
+      "tr": "Türkiye'nin önde gelen, güvene ve mühendislik disiplinine dayalı yazılım teknolojileri ortağı olmak. Her projede kaliteyi, performansı ve kullanıcı deneyimini yeni bir standarda taşımak.",
+      "en": "To become one of Turkey's leading software technology partners built on trust and engineering discipline. To elevate quality, performance and user experience to a new standard in every project."
+    },
+    "valuesEyebrow": { "tr": "İlkelerimiz", "en": "Our Principles" },
+    "valuesTitle": { "tr": "Değerlerimiz", "en": "Our Values" },
+    "valuesIntro": {
+      "tr": "Üzerinde durduğumuz, her projeye taşıdığımız ilkeler.",
+      "en": "The principles we stand by and carry into every project."
+    },
+    "values": {
+      "tr": [
+        { "icon": "engineering", "title": "Mühendislik Disiplini", "desc": "Mimari tutarlılık, test edilebilirlik ve sürdürülebilirlik esastır; hız ile kalite arasında asla taviz vermeyiz." },
+        { "icon": "visibility", "title": "Şeffaflık", "desc": "Süreçlerimizi baştan sona açık tutar, düzenli toplantı ve raporlamalarla projeyi şeffaf biçimde takip etmenizi sağlarız." },
+        { "icon": "handshake", "title": "Müşteri Odaklılık", "desc": "İşinizi anlamadan kod yazmayız; çözümlerimizi sizin iş akışınıza ve hedeflerinize göre şekillendiririz." },
+        { "icon": "trending_up", "title": "Sürekli Gelişim", "desc": "Teknolojinin sınırlarını zorlar, yeni araç ve metodolojileri öğrenir; dünden daha iyiyi hedefleriz." },
+        { "icon": "shield", "title": "Performans & Güvenlik", "desc": "Hızlı yanıt veren, kesintisiz ve güvenli sistemler kurmak vazgeçilmezimizdir." }
+      ],
+      "en": [
+        { "icon": "engineering", "title": "Engineering Discipline", "desc": "Architectural consistency, testability and sustainability are essential; we never compromise between speed and quality." },
+        { "icon": "visibility", "title": "Transparency", "desc": "We keep our processes open end to end, ensuring you track the project transparently through regular meetings and reports." },
+        { "icon": "handshake", "title": "Customer Focus", "desc": "We don't write code without understanding your business; we shape our solutions around your workflows and goals." },
+        { "icon": "trending_up", "title": "Continuous Improvement", "desc": "We push the boundaries of technology, learn new tools and methodologies; we aim for better than yesterday." },
+        { "icon": "shield", "title": "Performance & Security", "desc": "Building fast, uninterrupted and secure systems is our imperative." }
+      ]
+    },
+    "moreTitle": { "tr": "Ve fazlası", "en": "And more" },
+    "moreText": { "tr": "Her projede büyüyerek öğreniyoruz.", "en": "We learn and grow with every project." },
+    "teamEyebrow": { "tr": "Ekibimiz", "en": "Our Team" },
+    "teamTitle": { "tr": "Tutkulu Bir Mühendislik Ekibi", "en": "A Passionate Engineering Team" },
+    "teamIntro": {
+      "tr": "Farklı disiplinlerden gelen, kaliteye ve sürekli öğrenmeye inanan bir ekip.",
+      "en": "A team from different disciplines, believing in quality and continuous learning."
+    },
+    "teamRole": { "tr": "Yazılım Ekibi", "en": "Software Team" },
+    "team": {
+      "tr": [{ "name": "Backend" }, { "name": "Frontend" }, { "name": "UI/UX" }],
+      "en": [{ "name": "Backend" }, { "name": "Frontend" }, { "name": "UI/UX" }]
+    }
+  },
+  "servicesPage": {
+    "metaTitle": { "tr": "Hizmetler", "en": "Services" },
+    "metaDesc": {
+      "tr": "E-DOOR hizmetleri: özel yazılım geliştirme, ERP & sistem çözümleri, mobil uygulama, web tasarımı, bakım & destek ve BT danışmanlığı.",
+      "en": "E-DOOR services: custom software development, ERP & system solutions, mobile apps, web design, maintenance & support and IT consulting."
+    },
+    "text": {
+      "tr": "Bu sayfa şu anda hazırlanıyor. Yakında sunduğumuz uçtan uca hizmetleri ve teknoloji yığınını detaylıca burada paylaşacağız.",
+      "en": "This page is currently under construction. Soon we will share the end-to-end services and technology stack we offer here in detail."
+    },
+    "backHome": { "tr": "Anasayfaya Dön", "en": "Back to Home" }
+  },
+  "projectsPage": {
+    "title": { "tr": "Projeler", "en": "Projects" },
+    "metaTitle": {
+      "tr": "Projeler & Referanslar",
+      "en": "Projects & References"
+    },
+    "metaDesc": {
+      "tr": "E-DOOR'un tamamladığı yazılım projeleri ve kurumsal referansları. Şifahane Kitap Restorasyonu ve Arşivlemesi Otomasyonu başta olmak üzere teslim edilen çözümler.",
+      "en": "Software projects and corporate references completed by E-DOOR. Delivered solutions, led by the Şifahane Book Restoration and Archiving Automation."
+    },
+    "project": {
+      "name": { "tr": "Şifahane", "en": "Şifahane" },
+      "subtitle": {
+        "tr": "Kitap Restorasyonu ve Arşivlemesi Otomasyonu",
+        "en": "Book Restoration and Archiving Automation"
+      },
+      "category": {
+        "tr": "ERP & Kurumsal Yönetim Sistemi",
+        "en": "ERP & Enterprise Management System"
+      },
+      "client": { "tr": "Yazma Eser Kurumu", "en": "Manuscripts Institution" },
+      "year": { "tr": "2025", "en": "2025" },
+      "summary": {
+        "tr": "Kültür ve Turizm Bakanlığı'na bağlı Yazma Eser Kurumu için geliştirilen, kitap ve yazma eserlerinin restorasyon, konservasyon, kataloglama, dijitalleştirme ve arşivlenme süreçlerini uçtan uca yöneten kurumsal ölçekli bir yönetim sistemidir. 7 departmanı, 30+ modülü ve IoT tabanlı ortam izleme altyapısıyla kurumun tüm operasyonel akışını tek bir çatı altında birleştirir.",
+        "en": "An enterprise-scale management system developed for the Manuscripts Institution under the Ministry of Culture and Tourism, managing the restoration, conservation, cataloging, digitization and archiving processes of books and manuscripts end to end. With 7 departments, 30+ modules and an IoT-based environmental monitoring infrastructure, it unites the institution's entire operational flow under one roof."
+      },
+      "tags": ["PHP", "PostgreSQL", "Tailwind CSS", "jQuery", "Chart.js", "Material Design"],
+      "stats": {
+        "tr": [
+          { "value": "30+", "label": "Modül & Sayfa" },
+          { "value": "7", "label": "Departman Entegrasyonu" },
+          { "value": "IoT", "label": "Sensör Entegrasyonu" },
+          { "value": "100%", "label": "Responsive & Dark Mode" }
+        ],
+        "en": [
+          { "value": "30+", "label": "Modules & Pages" },
+          { "value": "7", "label": "Department Integration" },
+          { "value": "IoT", "label": "Sensor Integration" },
+          { "value": "100%", "label": "Responsive & Dark Mode" }
+        ]
+      },
+      "cardTag": { "tr": "E-DOOR Kurumsal Çözüm", "en": "E-DOOR Enterprise Solution" }
+    },
+    "clientLabel": { "tr": "Müşteri:", "en": "Client:" },
+    "yearLabel": { "tr": "Yıl:", "en": "Year:" },
+    "screensEyebrow": { "tr": "Uygulama İçi Görünümler", "en": "In-App Views" },
+    "screensTitle": { "tr": "Ekran Görüntüleri", "en": "Screenshots" },
+    "screensText": {
+      "tr": "Sistemin arayüzünden üç kesit: yönetim paneli, eser yönetimi ve depo sıcaklık takibi ekranları.",
+      "en": "Three glimpses from the system's interface: the management panel, artifact management and warehouse temperature tracking screens."
+    },
+    "screenshots": {
+      "tr": [
+        { "src": "/images/anasayfa.png", "alt": "Şifahane Dashboard - Başkan Yönetim Paneli", "title": "Yönetim Paneli (Dashboard)", "desc": "Eser öncelik dağılımı, konservasyon durumu, ısı-nem trendleri ve departman bazlı analitik grafikler tek ekranda.", "icon": "dashboard" },
+        { "src": "/images/eser_sayfasi.png", "alt": "Şifahane Eser Yönetimi Ekranı", "title": "Eser Yönetimi & Kataloglama", "desc": "Yazma eserlerinin kaydı, fiziki değerlendirme formları ve kataloglama işlemleri için kapsamlı arayüz.", "icon": "library_books" },
+        { "src": "/images/sicaklik_takip.png", "alt": "Şifahane Depo Sıcaklık Takip Ekranı", "title": "Depo Sıcaklık & Nem Takibi", "desc": "Depo ve kütüphane ortam koşullarının gerçek zamanlı izlenmesi, tarih aralıklı trend grafikleri ve eşik analizi.", "icon": "thermostat" }
+      ],
+      "en": [
+        { "src": "/images/anasayfa.png", "alt": "Şifahane Dashboard - President Management Panel", "title": "Management Panel (Dashboard)", "desc": "Artifact priority distribution, conservation status, temperature-humidity trends and department-based analytics charts on a single screen.", "icon": "dashboard" },
+        { "src": "/images/eser_sayfasi.png", "alt": "Şifahane Artifact Management Screen", "title": "Artifact Management & Cataloging", "desc": "A comprehensive interface for manuscript registration, physical assessment forms and cataloging operations.", "icon": "library_books" },
+        { "src": "/images/sicaklik_takip.png", "alt": "Şifahane Warehouse Temperature Tracking Screen", "title": "Warehouse Temperature & Humidity Tracking", "desc": "Real-time monitoring of warehouse and library environmental conditions, date-ranged trend charts and threshold analysis.", "icon": "thermostat" }
+      ]
+    },
+    "shotPlaceholder": { "tr": "Ekran görüntüsü yakında eklenecek", "en": "Screenshot coming soon" },
+    "featuresEyebrow": { "tr": "Modüller", "en": "Modules" },
+    "featuresTitle": { "tr": "Sistem Özellikleri", "en": "System Features" },
+    "featuresText": {
+      "tr": "Kurumun farklı departmanlarına hitap eden, birbirleriyle entegre çalışan modüler yapı.",
+      "en": "A modular structure addressing the institution's different departments, working in an integrated fashion."
+    },
+    "features": {
+      "tr": [
+        { "icon": "library_books", "title": "Eser Yönetimi & Kataloglama", "desc": "Kitap ve yazma eserlerinin kaydı, kataloglanması, sınıflandırılması ve dijitalleştirilmesi. Çok dilli destek ve eser bazlı değerleme formları." },
+        { "icon": "engineering", "title": "Konservasyon & Restorasyon", "desc": "Eserlerin fiziki değerlendirmesi, kritik/orta/düşük öncelik analizleri ve restorasyon süreçlerinin uçtan uca takibi." },
+        { "icon": "thermostat", "title": "Isı & Nem İzleme", "desc": "Depo ve kütüphane ortam koşullarının IoT sensörlerle gerçek zamanlı takibi, trend grafikleri ve eşik uyarıları." },
+        { "icon": "checklist", "title": "Rutin İş Takibi", "desc": "Periyodik bakım ve kontrol görevlerinin planlanması, ataması ve tamamlanma durumlarının izlenmesi." },
+        { "icon": "translate", "title": "Çeviri Operasyonları", "desc": "Çeviri taleplerinin alınması, eser bazlı çeviri süreç yönetimi ve yıllık çeviri performans takibi." },
+        { "icon": "museum", "title": "Sergi Yönetimi", "desc": "Sergilerin planlanması, devam eden ve tamamlanan sergilerin takibi ile yıllık sergi durum analitikleri." },
+        { "icon": "developer_board", "title": "IoT Cihaz Yönetimi", "desc": "Sensör ve cihaz tanımlamaları, rutin tanımları ve cihaz bazlı veri toplama altyapısı." },
+        { "icon": "admin_panel_settings", "title": "Rol Tabanlı Erişim", "desc": "Departman ve yetki seviyesine göre detaylı erişim kontrolü, ekip/rol yönetimi ve denetim kayıtları." }
+      ],
+      "en": [
+        { "icon": "library_books", "title": "Artifact Management & Cataloging", "desc": "Registration, cataloging, classification and digitization of books and manuscripts. Multilingual support and artifact-based valuation forms." },
+        { "icon": "engineering", "title": "Conservation & Restoration", "desc": "Physical assessment of artifacts, critical/medium/low priority analysis and end-to-end tracking of restoration processes." },
+        { "icon": "thermostat", "title": "Temperature & Humidity Monitoring", "desc": "Real-time tracking of warehouse and library environmental conditions with IoT sensors, trend charts and threshold alerts." },
+        { "icon": "checklist", "title": "Routine Task Tracking", "desc": "Planning, assignment and completion status monitoring of periodic maintenance and control tasks." },
+        { "icon": "translate", "title": "Translation Operations", "desc": "Receiving translation requests, artifact-based translation process management and annual translation performance tracking." },
+        { "icon": "museum", "title": "Exhibition Management", "desc": "Planning exhibitions, tracking ongoing and completed exhibitions, and annual exhibition status analytics." },
+        { "icon": "developer_board", "title": "IoT Device Management", "desc": "Sensor and device definitions, routine definitions and device-based data collection infrastructure." },
+        { "icon": "admin_panel_settings", "title": "Role-Based Access", "desc": "Detailed access control by department and authorization level, team/role management and audit logs." }
+      ]
+    },
+    "techEyebrow": { "tr": "Mimari", "en": "Architecture" },
+    "techTitle": { "tr": "Teknik Altyapı", "en": "Technical Infrastructure" },
+    "techText": {
+      "tr": "Güvenli, ölçeklenebilir ve sürdürülebilir bir mimari için seçilen teknolojiler.",
+      "en": "Technologies chosen for a secure, scalable and sustainable architecture."
+    },
+    "techStack": {
+      "tr": [
+        { "category": "Back-End", "icon": "dns", "items": [{ "name": "PHP", "desc": "Sunucu tarafı iş mantığı" }, { "name": "PostgreSQL", "desc": "İlişkisel veritabanı (PDO)" }, { "name": "Prepared Statements", "desc": "Güvenli veri erişimi" }] },
+        { "category": "Front-End", "icon": "code", "items": [{ "name": "Tailwind CSS", "desc": "Utility-first stil sistemi" }, { "name": "jQuery", "desc": "DOM etkileşimleri" }, { "name": "Select2", "desc": "Gelişmiş arama/seçim" }] },
+        { "category": "Görselleştirme", "icon": "monitoring", "items": [{ "name": "Chart.js", "desc": "İnteraktif grafikler" }, { "name": "Material Symbols", "desc": "Tutarlı ikon seti" }, { "name": "Dark Mode", "desc": "Tema desteği" }] },
+        { "category": "Altyapı", "icon": "cloud", "items": [{ "name": "Responsive", "desc": "Mobil & masaüstü uyum" }, { "name": "Rol Bazlı Güvenlik", "desc": "Yetkilendirme katmanı" }, { "name": "Modüler Mimari", "desc": "Veri/şablon ayrımı" }] }
+      ],
+      "en": [
+        { "category": "Back-End", "icon": "dns", "items": [{ "name": "PHP", "desc": "Server-side business logic" }, { "name": "PostgreSQL", "desc": "Relational database (PDO)" }, { "name": "Prepared Statements", "desc": "Secure data access" }] },
+        { "category": "Front-End", "icon": "code", "items": [{ "name": "Tailwind CSS", "desc": "Utility-first styling system" }, { "name": "jQuery", "desc": "DOM interactions" }, { "name": "Select2", "desc": "Advanced search/select" }] },
+        { "category": "Visualization", "icon": "monitoring", "items": [{ "name": "Chart.js", "desc": "Interactive charts" }, { "name": "Material Symbols", "desc": "Consistent icon set" }, { "name": "Dark Mode", "desc": "Theme support" }] },
+        { "category": "Infrastructure", "icon": "cloud", "items": [{ "name": "Responsive", "desc": "Mobile & desktop compatibility" }, { "name": "Role-Based Security", "desc": "Authorization layer" }, { "name": "Modular Architecture", "desc": "Data/template separation" }] }
+      ]
+    },
+    "departmentsTitle": { "tr": "Entegre Departmanlar", "en": "Integrated Departments" },
+    "departments": {
+      "tr": ["Kitap Şifahanesi ve Arşiv Dairesi", "Önleyici Koruma", "Taşra Teşkilatı", "Yazma ve Nadir Eserler", "Çeviri ve Yayın", "Araştırma ve Eğitim", "Strateji & İnsan Kaynakları"],
+      "en": ["Book Şifahane and Archive Department", "Preventive Conservation", "Provincial Organization", "Manuscripts and Rare Works", "Translation and Publication", "Research and Education", "Strategy & Human Resources"]
+    }
+  },
+  "contactPage": {
+    "metaTitle": { "tr": "İletişim", "en": "Contact" },
+    "metaDesc": {
+      "tr": "E-DOOR ile iletişime geçin. Özel yazılım, ERP ve dijital dönüşüm projeleriniz için bize ulaşın veya teklif alın.",
+      "en": "Get in touch with E-DOOR. Reach out to us or get a quote for your custom software, ERP and digital transformation projects."
+    },
+    "heroEyebrow": { "tr": "İletişim", "en": "Contact" },
+    "heroTitle": { "tr": "İletişime Geçin", "en": "Get in Touch" },
+    "heroText": {
+      "tr": "Projeniz, iş birliği fikriniz veya sorularınız için bize ulaşın. En kısa sürede size dönüş yapalım.",
+      "en": "Reach out to us for your project, collaboration idea or questions. Let us get back to you as soon as possible."
+    },
+    "formTitle": { "tr": "Bize Yazın", "en": "Write to Us" },
+    "formText": {
+      "tr": "Formu doldurun, ekibimiz en kısa sürede sizinle iletişime geçsin.",
+      "en": "Fill out the form and our team will get in touch with you as soon as possible."
+    },
+    "nameLabel": { "tr": "Ad Soyad *", "en": "Full Name *" },
+    "namePlaceholder": { "tr": "Adınız Soyadınız", "en": "Your Full Name" },
+    "emailLabel": { "tr": "E-posta *", "en": "Email *" },
+    "emailPlaceholder": { "tr": "ornek@firma.com", "en": "example@company.com" },
+    "phoneLabel": { "tr": "Telefon", "en": "Phone" },
+    "phonePlaceholder": { "tr": "+90 5XX XXX XX XX", "en": "+90 5XX XXX XX XX" },
+    "serviceLabel": { "tr": "Hizmet Türü *", "en": "Service Type *" },
+    "servicePlaceholder": { "tr": "Bir hizmet seçin", "en": "Select a service" },
+    "serviceOptions": {
+      "tr": ["Özel Yazılım Geliştirme", "ERP & Sistem Çözümleri", "Mobil Uygulama", "Web Tasarımı", "Bakım & Destek", "BT Danışmanlığı", "Diğer"],
+      "en": ["Custom Software Development", "ERP & System Solutions", "Mobile App", "Web Design", "Maintenance & Support", "IT Consulting", "Other"]
+    },
+    "messageLabel": { "tr": "Mesajınız *", "en": "Your Message *" },
+    "messagePlaceholder": {
+      "tr": "Projenizden veya ihtiyacınızdan kısaca bahsedin...",
+      "en": "Briefly tell us about your project or need..."
+    },
+    "kvkkText": {
+      "tr": "Kişisel verilerimin",
+      "en": "I consent to the processing of my personal data within the scope of the"
+    },
+    "kvkkLink": { "tr": "KVKK Aydınlatma Metni", "en": "GDPR Disclosure" },
+    "kvkkTextAfter": {
+      "tr": "kapsamında işlenmesini kabul ediyorum. *",
+      "en": ". *"
+    },
+    "submitText": { "tr": "Mesajı Gönder", "en": "Send Message" },
+    "sendingText": { "tr": "Gönderiliyor...", "en": "Sending..." },
+    "formPrivacy": {
+      "tr": "Bilgileriniz güvende, yalnızca sizinle iletişim için kullanılır.",
+      "en": "Your information is safe, used only to contact you."
+    },
+    "successTitle": { "tr": "Mesajınız Alındı", "en": "Your Message Was Received" },
+    "successText": {
+      "tr": "Teşekkür ederiz! Ekibimiz en kısa sürede sizinle iletişime geçecek.",
+      "en": "Thank you! Our team will get in touch with you as soon as possible."
+    },
+    "resetBtn": { "tr": "Yeni Mesaj Gönder", "en": "Send a New Message" },
+    "errorAlert": {
+      "tr": "Bir sorun oluştu, lütfen tekrar deneyin veya doğrudan e-posta ile ulaşın.",
+      "en": "Something went wrong, please try again or reach out directly via email."
+    },
+    "infoEmail": { "tr": "E-posta", "en": "Email" },
+    "infoPhone": { "tr": "Telefon", "en": "Phone" },
+    "infoAddress": { "tr": "Adres", "en": "Address" },
+    "infoAddressValue": {
+      "tr": "Ofis adresi buraya eklenecek, Türkiye",
+      "en": "Office address to be added here, Türkiye"
+    },
+    "infoHours": { "tr": "Çalışma Saatleri", "en": "Working Hours" },
+    "infoHoursValue": {
+      "tr": "Hafta içi 09:00 - 18:00",
+      "en": "Weekdays 09:00 - 18:00"
+    },
+    "socials": { "tr": "Sosyal Medya", "en": "Social Media" },
+    "mapEyebrow": { "tr": "Konum", "en": "Location" },
+    "mapTitle": { "tr": "Bizi Burada Bulun", "en": "Find Us Here" },
+    "mapTitleAttr": { "tr": "E-DOOR Konum", "en": "E-DOOR Location" }
+  },
+  "langSwitcher": {
+    "tr": "Türkçe",
+    "en": "English",
+    "label": { "tr": "Dili değiştir", "en": "Change language" }
+  }
+}

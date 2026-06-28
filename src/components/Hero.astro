@@ -1,5 +1,12 @@
 ---
+import { useTranslations, getNavLinks, type Lang } from '../i18n/utils';
 
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang);
+const paths = getNavLinks(lang);
 ---
 
 <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-surface-container-lowest">
@@ -9,30 +16,30 @@
   <div class="absolute inset-0 grid-wave"></div>
   <div class="relative z-10 max-w-7xl mx-auto px-gutter md:px-margin text-center">
     <h1 class="font-headline text-4xl sm:text-5xl md:text-[64px] leading-tight text-on-surface mb-6 max-w-4xl mx-auto font-bold tracking-tight">
-      İhtiyacınıza Özel <br />
+      {t('hero.titleA')} <br />
       <span class="text-secondary relative">
-        Yazılım Çözümleri
+        {t('hero.titleB')}
         <svg class="absolute -bottom-2 left-0 w-full h-3 text-secondary-container opacity-50" fill="none" viewBox="0 0 200 9" xmlns="http://www.w3.org/2000/svg">
           <path d="M2.00021 6.94586C32.0645 2.85921 95.8454 -1.74542 198 6.94586" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
         </svg>
       </span>
     </h1>
     <p class="font-body text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
-      İşletmenizi/Kurumunuzu dijital geleceğe taşıyoruz. Modern teknolojiler ve çevik metodolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılımlar geliştiriyoruz.
+      {t('hero.subtitle')}
     </p>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
       <a
         class="w-full sm:w-auto px-8 py-3 rounded-lg bg-secondary text-on-secondary text-xs font-semibold hover:bg-on-secondary-container transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2"
-        href="/iletisim"
+        href={paths.contact}
       >
-        Teklif Al
+        {t('hero.quote')}
         <span class="material-symbols-outlined text-sm">arrow_forward</span>
       </a>
       <a
         class="w-full sm:w-auto px-8 py-3 rounded-lg bg-surface text-on-surface border border-outline-variant text-xs font-semibold hover:bg-surface-variant transition-all flex items-center justify-center gap-2"
-        href="/hakkimizda"
+        href={paths.about}
       >
-        Hakkımızda
+        {t('hero.about')}
       </a>
     </div>
   </div>

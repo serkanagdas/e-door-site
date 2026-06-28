@@ -1,19 +1,28 @@
 ---
+import { useTranslations, getNavLinks, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang);
+const paths = getNavLinks(lang);
+
 const navLinks = [
-  { href: '/', label: 'Anasayfa' },
-  { href: '/hakkimizda', label: 'Hakkımızda' },
-  { href: '/hizmetler', label: 'Hizmetler' },
-  { href: '/projeler', label: 'Projeler' },
-  { href: '/iletisim', label: 'İletişim' },
+  { key: 'home', href: paths.home },
+  { key: 'about', href: paths.about },
+  { key: 'services', href: paths.services },
+  { key: 'projects', href: paths.projects },
+  { key: 'contact', href: paths.contact },
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
-const isActive = (href: string) => currentPath === href;
+const isActive = (href: string) => currentPath === (href.replace(/\/+$/, '') || '/');
 ---
 
 <nav id="site-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300 ease-in-out border-b border-surface-variant">
   <div class="flex items-center justify-between px-gutter md:px-margin py-4 max-w-7xl mx-auto">
-    <a class="flex-shrink-0" href="/">
+    <a class="flex-shrink-0" href={paths.home}>
       <img alt="E-DOOR Logo" class="h-8 w-auto" src="/images/logo.png" />
     </a>
     <div class="hidden md:flex items-center gap-1">
@@ -27,7 +36,7 @@ const isActive = (href: string) => currentPath === href;
           ]}
           href={link.href}
         >
-          {link.label}
+          {t(`nav.${link.key}`)}
           {isActive(link.href) && (
             <span class="absolute left-4 right-4 -bottom-0.5 h-0.5 bg-secondary rounded-full"></span>
           )}
@@ -37,13 +46,13 @@ const isActive = (href: string) => currentPath === href;
     <div class="flex items-center gap-2">
       <a
         class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-secondary text-on-secondary text-xs font-semibold hover:bg-on-secondary-container transition-colors"
-        href="/iletisim"
+        href={paths.contact}
       >
-        Teklif Al
+        {t('nav.quote')}
       </a>
       <button
         id="menu-toggle"
-        aria-label="Menüyü aç/kapat"
+        aria-label={t('nav.menuAria')}
         aria-expanded="false"
         class="md:hidden p-2 text-on-surface"
       >
@@ -65,14 +74,14 @@ const isActive = (href: string) => currentPath === href;
           ]}
           href={link.href}
         >
-          {link.label}
+          {t(`nav.${link.key}`)}
         </a>
       ))}
       <a
         class="mobile-link inline-flex items-center justify-center mt-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary text-sm font-semibold"
-        href="/iletisim"
+        href={paths.contact}
       >
-        Teklif Al
+        {t('nav.quote')}
       </a>
     </div>
   </div>

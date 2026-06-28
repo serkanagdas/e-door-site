@@ -4,4 +4,11 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://edoor.com.tr',
   integrations: [tailwind()],
+  i18n: {
+    defaultLocale: 'tr',
+    locales: ['tr', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

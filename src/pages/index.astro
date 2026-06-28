@@ -6,13 +6,16 @@ import Services from '../components/Services.astro';
 import Process from '../components/Process.astro';
 import SuccessCriteria from '../components/SuccessCriteria.astro';
 import CTA from '../components/CTA.astro';
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout>
-  <Hero />
-  <About />
-  <Services />
-  <Process />
-  <SuccessCriteria />
-  <CTA />
+  <Hero lang={lang} />
+  <About lang={lang} />
+  <Services lang={lang} />
+  <Process lang={lang} />
+  <SuccessCriteria lang={lang} />
+  <CTA lang={lang} />
 </Layout>

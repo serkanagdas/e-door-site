@@ -1,4 +1,12 @@
 ---
+import { useTranslations, getNavLinks, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang);
+const paths = getNavLinks(lang);
 ---
 
 <section id="cta" class="bg-background py-14 md:py-24">
@@ -7,15 +15,15 @@
       <div class="absolute inset-0 hero-pattern opacity-10"></div>
       <span class="material-symbols-outlined absolute -right-8 -top-8 select-none text-[220px] leading-none text-on-secondary/10">rocket_launch</span>
       <div class="relative">
-        <h2 class="mb-4 font-headline text-3xl font-bold text-on-secondary md:text-4xl">Birlikte Çalışalım</h2>
+        <h2 class="mb-4 font-headline text-3xl font-bold text-on-secondary md:text-4xl">{t('cta.title')}</h2>
         <p class="mx-auto mb-8 max-w-xl font-body text-base text-on-secondary/80">
-          Projenizi konuşmak için bizimle iletişime geçin. İhtiyacınıza özel çözümleri birlikte tasarlayalım.
+          {t('cta.text')}
         </p>
         <a
-          href="/iletisim"
+          href={paths.contact}
           class="inline-flex items-center justify-center gap-2 rounded-lg bg-on-secondary px-8 py-3 text-sm font-semibold text-secondary shadow-md transition-all hover:scale-105"
         >
-          İletişime Geç
+          {t('cta.button')}
           <span class="material-symbols-outlined text-base">arrow_forward</span>
         </a>
       </div>

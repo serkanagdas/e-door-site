@@ -1,33 +1,19 @@
 ---
-const services = [
-  {
-    icon: 'code',
-    title: 'Özel Yazılım Geliştirme',
-    desc: 'İş süreçlerinize tam uyumlu, ölçeklenebilir ve yüksek performanslı özel web ve mobil uygulamalar.',
-  },
-  {
-    icon: 'account_tree',
-    title: 'ERP & Sistem Çözümleri',
-    desc: 'Kurumsal kaynak planlaması ve tüm departmanları tek bir merkezden yönetmenizi sağlayan sistemler.',
-  },
-  {
-    icon: 'support_agent',
-    title: 'Bakım & Destek',
-    desc: 'Yazılımlarınızın 7/24 kesintisiz çalışması için sürekli izleme, güncelleme ve teknik destek hizmeti.',
-  },
-  {
-    icon: 'lightbulb',
-    title: 'BT Danışmanlığı',
-    desc: 'Dijital dönüşüm yolculuğunuzda stratejik teknoloji danışmanlığı ve mimari altyapı planlaması.',
-  },
-];
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang);
+const services = t('services.items') as { icon: string; title: string; desc: string }[];
 ---
 
 <section class="py-14 md:py-24 bg-surface-container-low" id="services">
   <div class="max-w-7xl mx-auto px-gutter md:px-margin">
     <div class="text-center mb-12 md:mb-16">
-      <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">Neler Yapıyoruz?</span>
-      <h2 class="font-headline text-4xl font-bold text-on-surface">Uçtan Uca Hizmetler</h2>
+      <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">{t('services.eyebrow')}</span>
+      <h2 class="font-headline text-4xl font-bold text-on-surface">{t('services.title')}</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service) => (
