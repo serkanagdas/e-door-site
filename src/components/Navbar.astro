@@ -18,18 +18,19 @@ const navLinks = [
 
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isActive = (href: string) => currentPath === (href.replace(/\/+$/, '') || '/');
+const isHome = currentPath === '/' || currentPath === '/en';
 ---
 
-<nav id="site-nav" class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm transition-all duration-300 ease-in-out border-b border-surface-variant">
+<nav id="site-nav" data-on-sky={isHome ? 'true' : 'false'} class="fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
   <div class="flex items-center justify-between px-gutter md:px-margin py-4 max-w-7xl mx-auto">
     <a class="flex-shrink-0" href={paths.home}>
-      <img alt="E-DOOR Logo" class="h-8 w-auto" src="/images/logo.png" />
+      <img alt="E-DOOR Logo" class="nav-logo h-8 w-auto transition-[filter] duration-300" src="/images/logo.png" />
     </a>
     <div class="hidden md:flex items-center gap-1">
       {navLinks.map((link) => (
         <a
           class:list={[
-            'relative px-4 py-2 rounded-lg font-body text-sm transition-colors duration-200',
+            'nav-text relative px-4 py-2 rounded-lg font-body text-sm transition-colors duration-200',
             isActive(link.href)
               ? 'text-secondary font-semibold'
               : 'text-on-surface-variant hover:text-secondary',
@@ -38,14 +39,14 @@ const isActive = (href: string) => currentPath === (href.replace(/\/+$/, '') || 
         >
           {t(`nav.${link.key}`)}
           {isActive(link.href) && (
-            <span class="absolute left-4 right-4 -bottom-0.5 h-0.5 bg-secondary rounded-full"></span>
+            <span class="nav-active-bar absolute left-4 right-4 -bottom-0.5 h-0.5 bg-secondary rounded-full"></span>
           )}
         </a>
       ))}
     </div>
     <div class="flex items-center gap-2">
       <a
-        class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-secondary text-on-secondary text-xs font-semibold hover:bg-on-secondary-container transition-colors"
+        class="nav-quote-btn hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-secondary text-on-secondary text-xs font-semibold hover:bg-on-secondary-container transition-colors"
         href={paths.contact}
       >
         {t('nav.quote')}
@@ -54,9 +55,9 @@ const isActive = (href: string) => currentPath === (href.replace(/\/+$/, '') || 
         id="menu-toggle"
         aria-label={t('nav.menuAria')}
         aria-expanded="false"
-        class="md:hidden p-2 text-on-surface"
+        class="nav-menu-icon md:hidden p-2 text-on-surface"
       >
-        <span class="material-symbols-outlined" id="menu-icon">menu</span>
+        <span class="material-symbols-outlined nav-text" id="menu-icon">menu</span>
       </button>
     </div>
   </div>
@@ -121,4 +122,17 @@ const isActive = (href: string) => currentPath === (href.replace(/\/+$/, '') || 
   };
 
   initNav();
+
+  // Scroll-aware navbar: blends with the sky at the very top of the homepage,
+  // then animates into a solid bar as the user scrolls down.
+  const nav = document.getElementById('site-nav');
+  if (nav && nav.dataset.onSky === 'true') {
+    const threshold = 80;
+    const onScroll = () => {
+      if (window.scrollY <= threshold) nav.classList.add('nav-top');
+      else nav.classList.remove('nav-top');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
 </script>
