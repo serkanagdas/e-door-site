@@ -40,11 +40,11 @@
     }
   },
   "hero": {
-    "titleA": { "tr": "İhtiyacınıza Özel", "en": "Tailored to Your Needs" },
-    "titleB": { "tr": "Yazılım Çözümleri", "en": "Software Solutions" },
+    "titleA": { "tr": "Kurumsal Otomasyona Açılan", "en": "The Digital Door" },
+    "titleB": { "tr": "Dijital Kapı", "en": "to Corporate Automation" },
     "subtitle": {
-      "tr": "İşletmenizi/Kurumunuzu dijital geleceğe taşıyoruz. Modern teknolojiler ve çevik metodolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılımlar geliştiriyoruz.",
-      "en": "We carry your business/organization into the digital future. We develop scalable, secure and high-performance software with modern technologies and agile methodologies."
+      "tr": "Manuel yürütülen karmaşık süreçleri ve dağınık verileri geride bırakın. E-DOOR olarak; operasyonlarınızı tek merkezden yönetebileceğiniz güçlü yazılım mimarileri kuruyor, kurumunuzu hız ve verimlilikle tanıştıracak o kapıyı aralıyoruz.",
+      "en": "Leave behind manually-run complex processes and scattered data. As E-DOOR, we build powerful software architectures that let you manage your operations from a single center, opening the door that will introduce your organization to speed and efficiency."
     },
     "quote": { "tr": "Teklif Al", "en": "Get a Quote" },
     "about": { "tr": "Hakkımızda", "en": "About Us" }
