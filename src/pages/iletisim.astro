@@ -300,6 +300,7 @@ const formTexts = {
 </style>
 
 <script>
+  const initContact = () => {
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const wrapper = document.getElementById('form-wrapper');
   const successPanel = document.getElementById('form-success') as HTMLElement | null;
@@ -380,4 +381,7 @@ const formTexts = {
     );
     reveals.forEach((el) => io.observe(el));
   }
+  };
+
+  document.addEventListener('astro:page-load', initContact);
 </script>

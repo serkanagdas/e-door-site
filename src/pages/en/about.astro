@@ -185,6 +185,7 @@ const description = t('aboutPage.metaDesc');
 </style>
 
 <script>
+  const initAbout = () => {
   const reveals = document.querySelectorAll('.reveal');
   if (reveals.length) {
     const io = new IntersectionObserver(
@@ -200,4 +201,7 @@ const description = t('aboutPage.metaDesc');
     );
     reveals.forEach((el) => io.observe(el));
   }
+  };
+
+  document.addEventListener('astro:page-load', initAbout);
 </script>

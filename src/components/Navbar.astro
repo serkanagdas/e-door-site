@@ -121,18 +121,23 @@ const isHome = currentPath === '/' || currentPath === '/en';
     });
   };
 
-  initNav();
+  document.addEventListener('astro:page-load', initNav);
 
   // Scroll-aware navbar: blends with the sky at the very top of the homepage,
   // then animates into a solid bar as the user scrolls down.
-  const nav = document.getElementById('site-nav');
-  if (nav && nav.dataset.onSky === 'true') {
-    const threshold = 80;
-    const onScroll = () => {
-      if (window.scrollY <= threshold) nav.classList.add('nav-top');
-      else nav.classList.remove('nav-top');
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
+  const NAV_THRESHOLD = 80;
+  const updateNavTop = () => {
+    const nav = document.getElementById('site-nav');
+    if (!nav || nav.dataset.onSky !== 'true') return;
+    if (window.scrollY <= NAV_THRESHOLD) nav.classList.add('nav-top');
+    else nav.classList.remove('nav-top');
+  };
+  let navScrollBound = false;
+  const bindNavScroll = () => {
+    updateNavTop();
+    if (navScrollBound) return;
+    navScrollBound = true;
+    window.addEventListener('scroll', updateNavTop, { passive: true });
+  };
+  document.addEventListener('astro:page-load', bindNavScroll);
 </script>

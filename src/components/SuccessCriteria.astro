@@ -103,5 +103,5 @@ const standards = t('criteria.standards') as { icon: string; title: string; desc
     reveals.forEach((el) => io.observe(el));
   };
 
-  initCriteria();
+  document.addEventListener('astro:page-load', initCriteria);
 </script>

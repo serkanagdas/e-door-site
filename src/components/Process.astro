@@ -221,5 +221,5 @@ const steps = t('process.steps') as { num: string; icon: string; title: string; 
     goTo(0);
   };
 
-  initProcess();
+  document.addEventListener('astro:page-load', initProcess);
 </script>

@@ -8,6 +8,7 @@ import geistWoff2 from '@fontsource-variable/geist/files/geist-latin-wght-normal
 import msWoff2 from '@fontsource-variable/material-symbols-outlined/files/material-symbols-outlined-latin-full-normal.woff2';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -31,6 +32,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <ClientRouter />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />

@@ -53,8 +53,10 @@ const paths = getNavLinks(lang);
 </style>
 
 <script>
-  const section = document.getElementById('cta');
-  if (section) {
+  const initCTA = () => {
+    const section = document.getElementById('cta');
+    if (!section) return;
+
     const reveals = section.querySelectorAll('.reveal');
     const io = new IntersectionObserver(
       (entries) => {
@@ -68,5 +70,7 @@ const paths = getNavLinks(lang);
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
     reveals.forEach((el) => io.observe(el));
-  }
+  };
+
+  document.addEventListener('astro:page-load', initCTA);
 </script>

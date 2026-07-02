@@ -90,18 +90,29 @@ const t = useTranslations(lang);
 </style>
 
 <script>
-  const cue = document.getElementById('hero-scroll-cue');
-  if (cue) {
+  const initCue = () => {
+    const cue = document.getElementById('hero-scroll-cue');
+    if (!cue) return;
     cue.addEventListener('click', () => {
       window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
     });
-    window.addEventListener(
-      'scroll',
-      () => {
-        if (window.scrollY > 60) cue.classList.add('is-hidden');
-        else cue.classList.remove('is-hidden');
-      },
-      { passive: true }
-    );
-  }
+    if (window.scrollY > 60) cue.classList.add('is-hidden');
+    else cue.classList.remove('is-hidden');
+  };
+
+  const updateCue = () => {
+    const cue = document.getElementById('hero-scroll-cue');
+    if (!cue) return;
+    if (window.scrollY > 60) cue.classList.add('is-hidden');
+    else cue.classList.remove('is-hidden');
+  };
+  let cueScrollBound = false;
+  const bindCueScroll = () => {
+    if (cueScrollBound) return;
+    cueScrollBound = true;
+    window.addEventListener('scroll', updateCue, { passive: true });
+  };
+
+  document.addEventListener('astro:page-load', initCue);
+  document.addEventListener('astro:page-load', bindCueScroll);
 </script>
