@@ -41,8 +41,8 @@ export default {
         full: '9999px',
       },
       fontFamily: {
-        headline: ['Geist', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        headline: ['"Geist Variable"', 'sans-serif'],
+        body: ['"Inter Variable"', 'sans-serif'],
       },
       spacing: {
         base: '8px',

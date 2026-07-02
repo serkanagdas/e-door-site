@@ -94,7 +94,7 @@ const steps = t('process.steps') as { num: string; icon: string; title: string; 
     justify-content: center;
     font-size: 0.7rem;
     font-weight: 700;
-    font-family: 'Geist', sans-serif;
+    font-family: 'Geist Variable', sans-serif;
     border: 2px solid #c4c7c8;
     background: #fcf8f8;
     color: #444748;
@@ -221,5 +221,5 @@ const steps = t('process.steps') as { num: string; icon: string; title: string; 
     goTo(0);
   };
 
-  initProcess();
+  document.addEventListener('astro:page-load', initProcess);
 </script>

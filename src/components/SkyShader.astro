@@ -1,0 +1,239 @@
+<!-- WebGL sky shader: blue sky with drifting clouds fading to the page background at the bottom. -->
+
+<canvas
+  id="sky-shader"
+  class="sky-canvas pointer-events-none absolute inset-0 block h-full w-full"
+  aria-hidden="true"
+></canvas>
+
+<style>
+  .sky-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>
+
+<script>
+  function initSky() {
+    const canvas = document.getElementById('sky-shader') as HTMLCanvasElement | null;
+    if (!canvas) return;
+    if ((canvas as any).__skyInit) return;
+    (canvas as any).__skyInit = true;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let gl: WebGLRenderingContext | null =
+      canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'high-performance' }) ||
+      (canvas.getContext('experimental-webgl') as WebGLRenderingContext | null);
+
+    if (!gl) {
+      canvas.style.display = 'none';
+      return;
+    }
+
+    const vsSrc = `attribute vec2 a_pos; void main(){ gl_Position = vec4(a_pos, 0.0, 1.0); }`;
+
+    const fsSrc = `
+      precision highp float;
+      uniform vec2 u_res;
+      uniform float u_time;
+
+      float hash(vec2 p){
+        p = fract(p * vec2(123.34, 456.21));
+        p += dot(p, p + 45.32);
+        return fract(p.x * p.y);
+      }
+      float noise(vec2 p){
+        vec2 i = floor(p), f = fract(p);
+        vec2 u = f * f * (3.0 - 2.0 * f);
+        float a = hash(i);
+        float b = hash(i + vec2(1.0, 0.0));
+        float c = hash(i + vec2(0.0, 1.0));
+        float d = hash(i + vec2(1.0, 1.0));
+        return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
+      }
+      float fbm(vec2 p){
+        float v = 0.0, a = 0.5;
+        for (int i = 0; i < 4; i++){
+          v += a * noise(p);
+          p = p * 2.03 + vec2(3.1, 1.7);
+          a *= 0.5;
+        }
+        return v;
+      }
+
+      // Domain-warped density -> organic, billowy cloud blobs.
+      float cloudD(vec2 p){
+        vec2 q = vec2(fbm(p), fbm(p + vec2(5.2, 1.3)));
+        vec2 r = vec2(
+          fbm(p + 1.8 * q + vec2(1.7, 9.2)),
+          fbm(p + 1.8 * q + vec2(8.3, 2.8))
+        );
+        return fbm(p + 1.7 * r);
+      }
+
+      void main(){
+        vec2 uv = gl_FragCoord.xy / u_res;
+        float t = uv.y; // 1 = top, 0 = bottom
+
+        // Sky vertical gradient: deep blue up high, pale near the horizon.
+        vec3 deep = vec3(0.26, 0.51, 0.84);
+        vec3 pale = vec3(0.86, 0.94, 1.0);
+        vec3 sky = mix(pale, deep, smoothstep(0.22, 1.0, t));
+        vec3 col = sky;
+
+        float aspect = u_res.x / max(u_res.y, 1.0);
+        vec2 suv = vec2(uv.x * aspect, t);
+
+        // Clouds clear out toward the horizon so the lower sky opens up.
+        float band = smoothstep(0.30, 0.95, t);
+
+        // --- Far layer: faint, slow, flat-shaded (depth) ---
+        vec2 pf = suv * 1.5 + vec2(u_time * 0.006, u_time * 0.0015);
+        float df = cloudD(pf);
+        float covf = smoothstep(0.56, 0.80, df);
+        covf = pow(covf, 1.2);
+        vec3 farCol = mix(vec3(0.70, 0.77, 0.84), vec3(0.97, 0.99, 1.0), smoothstep(0.56, 0.80, df));
+        col = mix(col, farCol, covf * 0.5 * band);
+
+        // --- Near layer: puffy cumulus with vertical lighting ---
+        vec2 pn = suv * 2.7 + vec2(u_time * 0.014, u_time * 0.004);
+        float dn  = cloudD(pn);
+        float dnU = cloudD(pn - vec2(0.0, 0.10)); // sample above (lit top)
+        float dnD = cloudD(pn + vec2(0.0, 0.10)); // sample below (shaded base)
+        float covn = smoothstep(0.52, 0.78, dn);
+        covn = pow(covn, 1.25); // round off the puff edges, open clear gaps
+        float shade = clamp(0.5 + (dnU - dnD) * 3.0, 0.0, 1.0);
+        vec3 nearCol = mix(vec3(0.74, 0.80, 0.86), vec3(1.0), shade);
+        col = mix(col, nearCol, covn * band);
+
+        // Fade down to the page background colour across the bottom half.
+        vec3 bg = vec3(0.9882, 0.9725, 0.9725); // #fcf8f8
+        col = mix(col, bg, smoothstep(0.55, 0.0, t));
+
+        gl_FragColor = vec4(col, 1.0);
+      }
+    `;
+
+    function compile(type: number, src: string): WebGLShader | null {
+      const s = gl!.createShader(type);
+      if (!s) return null;
+      gl!.shaderSource(s, src);
+      gl!.compileShader(s);
+      if (!gl!.getShaderParameter(s, gl!.COMPILE_STATUS)) {
+        console.warn('Sky shader compile error:', gl!.getShaderInfoLog(s));
+        return null;
+      }
+      return s;
+    }
+
+    const prog = gl.createProgram();
+    const vs = compile(gl.VERTEX_SHADER, vsSrc);
+    const fs = compile(gl.FRAGMENT_SHADER, fsSrc);
+    if (!prog || !vs || !fs) {
+      canvas.style.display = 'none';
+      return;
+    }
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      console.warn('Sky shader link error:', gl.getProgramInfoLog(prog));
+      canvas.style.display = 'none';
+      return;
+    }
+    gl.useProgram(prog);
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const aPos = gl.getAttribLocation(prog, 'a_pos');
+    gl.enableVertexAttribArray(aPos);
+    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+    const uRes = gl.getUniformLocation(prog, 'u_res');
+    const uTime = gl.getUniformLocation(prog, 'u_time');
+
+    // Render below native resolution for GPU headroom (clouds are soft, so the
+    // CSS upscale is visually invisible) — lets the shader hit the full refresh
+    // rate instead of dropping frames on high-refresh displays.
+    const RENDER_SCALE = 0.7;
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const scale = RENDER_SCALE * dpr;
+      const w = Math.max(1, Math.floor(canvas.clientWidth * scale));
+      const h = Math.max(1, Math.floor(canvas.clientHeight * scale));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+      }
+      gl!.viewport(0, 0, canvas.width, canvas.height);
+    }
+
+    let visible = true;
+    let io: IntersectionObserver | null = null;
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver((entries) => {
+        visible = entries[0]?.isIntersecting ?? true;
+      }, { threshold: 0 });
+      io.observe(canvas);
+    }
+
+    function draw() {
+      resize();
+      gl!.uniform2f(uRes, canvas.width, canvas.height);
+      gl!.uniform1f(uTime, (performance.now() - start) / 1000);
+      gl!.drawArrays(gl!.TRIANGLES, 0, 3);
+    }
+
+    const start = performance.now();
+
+    // Initial static frame (also covers reduced-motion users).
+    draw();
+
+    let raf = 0;
+    let loop: (() => void) | null = null;
+    const onVisChange = () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else if (loop) raf = requestAnimationFrame(loop);
+    };
+
+    if (!reduceMotion) {
+      loop = () => {
+        if (visible) draw();
+        raf = requestAnimationFrame(loop!);
+      };
+      raf = requestAnimationFrame(loop);
+      window.addEventListener('resize', resize, { passive: true });
+      document.addEventListener('visibilitychange', onVisChange);
+    } else {
+      window.addEventListener('resize', draw, { passive: true });
+    }
+
+    // Cleanup so View Transitions can tear down the WebGL context + loops on navigation.
+    return () => {
+      cancelAnimationFrame(raf);
+      io?.disconnect();
+      window.removeEventListener('resize', reduceMotion ? draw : resize);
+      document.removeEventListener('visibilitychange', onVisChange);
+      gl?.getExtension('WEBGL_lose_context')?.loseContext();
+    };
+  }
+
+  let skyCleanup: (() => void) | null = null;
+  document.addEventListener('astro:page-load', () => {
+    const cleanup = initSky();
+    if (cleanup) skyCleanup = cleanup;
+  });
+  document.addEventListener('astro:before-swap', () => {
+    try {
+      skyCleanup?.();
+    } catch (e) {
+      /* noop */
+    }
+    skyCleanup = null;
+  });
+</script>

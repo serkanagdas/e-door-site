@@ -1,20 +1,18 @@
 ---
-import { useTranslations, getNavLinks, type Lang } from '../i18n/utils';
+import { useTranslations, type Lang } from '../i18n/utils';
+import SkyShader from './SkyShader.astro';
+import HeroMarquee from './HeroMarquee.astro';
 
 interface Props {
   lang?: Lang;
 }
 const { lang = 'tr' } = Astro.props;
 const t = useTranslations(lang);
-const paths = getNavLinks(lang);
 ---
 
-<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-surface-container-lowest">
-  <div class="absolute inset-0 hero-pattern opacity-20"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-surface/50 to-surface"></div>
-  <div class="absolute inset-0 animated-grid"></div>
-  <div class="absolute inset-0 grid-wave"></div>
-  <div class="relative z-10 max-w-7xl mx-auto px-gutter md:px-margin text-center">
+<section class="hero-sky relative -mt-[72px] min-h-screen flex items-center justify-center overflow-hidden">
+  <SkyShader />
+  <div class="relative z-10 max-w-7xl mx-auto px-gutter md:px-margin text-center py-28">
     <h1 class="font-headline text-4xl sm:text-5xl md:text-[64px] leading-tight text-on-surface mb-6 max-w-4xl mx-auto font-bold tracking-tight">
       {t('hero.titleA')} <br />
       <span class="text-secondary relative">
@@ -24,24 +22,13 @@ const paths = getNavLinks(lang);
         </svg>
       </span>
     </h1>
-    <p class="font-body text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
-      {t('hero.subtitle')}
-    </p>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a
-        class="w-full sm:w-auto px-8 py-3 rounded-lg bg-secondary text-on-secondary text-xs font-semibold hover:bg-on-secondary-container transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2"
-        href={paths.contact}
-      >
-        {t('hero.quote')}
-        <span class="material-symbols-outlined text-sm">arrow_forward</span>
-      </a>
-      <a
-        class="w-full sm:w-auto px-8 py-3 rounded-lg bg-surface text-on-surface border border-outline-variant text-xs font-semibold hover:bg-surface-variant transition-all flex items-center justify-center gap-2"
-        href={paths.about}
-      >
-        {t('hero.about')}
-      </a>
-    </div>
   </div>
-  <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent"></div>
+  <HeroMarquee lang={lang} />
 </section>
+
+<style>
+  /* Fallback gradient shown before/instead of the WebGL shader (progressive enhancement). */
+  .hero-sky {
+    background: linear-gradient(to bottom, #3f86d6 0%, #7fb4ee 30%, #c2def9 52%, #eef5fc 66%, #fcf8f8 80%);
+  }
+</style>

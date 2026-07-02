@@ -40,23 +40,24 @@
     }
   },
   "hero": {
-    "titleA": { "tr": "İhtiyacınıza Özel", "en": "Tailored to Your Needs" },
-    "titleB": { "tr": "Yazılım Çözümleri", "en": "Software Solutions" },
-    "subtitle": {
-      "tr": "İşletmenizi/Kurumunuzu dijital geleceğe taşıyoruz. Modern teknolojiler ve çevik metodolojilerle ölçeklenebilir, güvenli ve yüksek performanslı yazılımlar geliştiriyoruz.",
-      "en": "We carry your business/organization into the digital future. We develop scalable, secure and high-performance software with modern technologies and agile methodologies."
-    },
+    "titleA": { "tr": "Kurumsal Otomasyona Açılan", "en": "The Digital Door" },
+    "titleB": { "tr": "Dijital Kapı", "en": "to Corporate Automation" },
     "quote": { "tr": "Teklif Al", "en": "Get a Quote" },
-    "about": { "tr": "Hakkımızda", "en": "About Us" }
+    "about": { "tr": "Hakkımızda", "en": "About Us" },
+    "scroll": { "tr": "Keşfet", "en": "Discover" }
   },
   "about": {
     "titleA": { "tr": "Genç, Dinamik ve", "en": "A Young, Dynamic and" },
     "titleB": { "tr": "Hedef Odaklı Ekip", "en": "Goal-Oriented Team" },
     "p1": {
+      "tr": "Manuel yürütülen karmaşık süreçleri ve dağınık verileri geride bırakın. E-DOOR olarak; operasyonlarınızı tek merkezden yönetebileceğiniz güçlü yazılım mimarileri kuruyor, kurumunuzu hız ve verimlilikle tanıştıracak o kapıyı aralıyoruz.",
+      "en": "Leave behind manually-run complex processes and scattered data. As E-DOOR, we build powerful software architectures that let you manage your operations from a single center, opening the door that will introduce your organization to speed and efficiency."
+    },
+    "p2": {
       "tr": "E-DOOR olarak, karmaşık problemleri zarif kodlara dönüştüren tutkulu bir mühendislik ekibiyiz. Teknolojinin sınırlarını zorlayarak, müşterilerimize sadece bir yazılım değil, rekabet avantajı sunuyoruz.",
       "en": "As E-DOOR, we are a passionate engineering team that turns complex problems into elegant code. By pushing the boundaries of technology, we offer our clients not just software, but a competitive advantage."
     },
-    "p2": {
+    "p3": {
       "tr": "Son olarak \"Yazma Eser Kurumu\" için geliştirdiğimiz \"Şifahane Kitap Restorasyonu ve Arşivlemesi\" otomasyonu, büyük ölçekli veri yönetimi ve kurumsal süreç mimarisindeki uzmanlığımızın somut bir göstergesidir.",
       "en": "Most recently, the \"Şifahane Book Restoration and Archiving\" automation we developed for the \"Manuscripts Institution\" is a concrete demonstration of our expertise in large-scale data management and enterprise process architecture."
     },

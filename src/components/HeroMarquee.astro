@@ -1,0 +1,118 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'tr' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="absolute inset-x-0 bottom-0 z-10 flex justify-center">
+  <button type="button" id="hero-scroll-cue" class="hero-cue" aria-label={t('hero.scroll')}>
+    <span class="hero-cue-mouse"><span class="hero-cue-dot"></span></span>
+    <span class="hero-cue-text">{t('hero.scroll')}</span>
+  </button>
+</div>
+
+<style>
+  .hero-cue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 auto 1.5rem;
+    padding: 0.5rem;
+    color: #444748; /* on-surface-variant */
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: cue-in 0.8s ease 0.6s forwards;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .hero-cue.is-hidden {
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+  }
+  .hero-cue-mouse {
+    width: 22px;
+    height: 34px;
+    border: 2px solid currentColor;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+  }
+  .hero-cue-dot {
+    width: 3px;
+    height: 7px;
+    border-radius: 2px;
+    background: currentColor;
+    animation: cue-bob 1.6s ease-in-out infinite;
+  }
+  .hero-cue-text {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  @keyframes cue-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes cue-bob {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 0.25;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-cue-dot {
+      animation: none;
+    }
+    .hero-cue {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  const initCue = () => {
+    const cue = document.getElementById('hero-scroll-cue');
+    if (!cue) return;
+    cue.addEventListener('click', () => {
+      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    });
+    if (window.scrollY > 60) cue.classList.add('is-hidden');
+    else cue.classList.remove('is-hidden');
+  };
+
+  const updateCue = () => {
+    const cue = document.getElementById('hero-scroll-cue');
+    if (!cue) return;
+    if (window.scrollY > 60) cue.classList.add('is-hidden');
+    else cue.classList.remove('is-hidden');
+  };
+  let cueScrollBound = false;
+  const bindCueScroll = () => {
+    if (cueScrollBound) return;
+    cueScrollBound = true;
+    window.addEventListener('scroll', updateCue, { passive: true });
+  };
+
+  document.addEventListener('astro:page-load', initCue);
+  document.addEventListener('astro:page-load', bindCueScroll);
+</script>

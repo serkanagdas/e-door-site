@@ -267,6 +267,7 @@ const title = t('projectsPage.title');
 </style>
 
 <script>
+  const initProjects = () => {
   // Reveal animasyonları
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver(
@@ -305,4 +306,7 @@ const title = t('projectsPage.title');
     img.addEventListener('load', showImg);
     img.addEventListener('error', showPlaceholder);
   });
+  };
+
+  document.addEventListener('astro:page-load', initProjects);
 </script>

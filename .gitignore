@@ -14,3 +14,4 @@ build/
 .env
 *.log
 stitch-source.html
+.opencode/plans/hero-marquee.md
