@@ -45,6 +45,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="preload" href={geistWoff2} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={msWoff2} as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
+    <script is:inline data-astro-rerun>
+      (function () {
+        var html = document.documentElement;
+        function ready() { html.classList.add('icon-font-ready'); }
+        if (!document.fonts) { ready(); return; }
+        if (document.fonts.check("24px 'Material Symbols Outlined Variable'")) { ready(); return; }
+        document.fonts.load("24px 'Material Symbols Outlined Variable'").then(ready, ready);
+      })();
+    </script>
   </head>
   <body class="bg-background text-on-background font-body antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
     <Navbar lang={lang} />
