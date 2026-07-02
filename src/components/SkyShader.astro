@@ -57,7 +57,7 @@
       }
       float fbm(vec2 p){
         float v = 0.0, a = 0.5;
-        for (int i = 0; i < 5; i++){
+        for (int i = 0; i < 4; i++){
           v += a * noise(p);
           p = p * 2.03 + vec2(3.1, 1.7);
           a *= 0.5;
@@ -157,10 +157,15 @@
     const uRes = gl.getUniformLocation(prog, 'u_res');
     const uTime = gl.getUniformLocation(prog, 'u_time');
 
+    // Render below native resolution for GPU headroom (clouds are soft, so the
+    // CSS upscale is visually invisible) — lets the shader hit the full refresh
+    // rate instead of dropping frames on high-refresh displays.
+    const RENDER_SCALE = 0.7;
     function resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      const w = Math.max(1, Math.floor(canvas.clientWidth * dpr));
-      const h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+      const scale = RENDER_SCALE * dpr;
+      const w = Math.max(1, Math.floor(canvas.clientWidth * scale));
+      const h = Math.max(1, Math.floor(canvas.clientHeight * scale));
       if (canvas.width !== w || canvas.height !== h) {
         canvas.width = w;
         canvas.height = h;
