@@ -121,7 +121,7 @@
       "en": "We never overlook the details that make a project successful. Every software we deliver meets the following criteria."
     },
     "featured": {
-      "tr": { "icon": "account_tree", "title": "İş Akışı Otomasyonu", "desc": "En önemlisi: kurumların iş akışlarını ve hedefledikleri iş düzenini net biçimde anlayıp, bu süreçleri yazılımla otomatize ediyoruz. Manuel, tekrarlayan işleri azaltır; verimliliği artırırken insan hatasını en aza indiririz." },
+      "tr": { "icon": "account_tree", "title": "İş Akışı Otomasyonu", "desc": "En önemlisi: kurumların iş akışlarını ve hedefledikleri iş düzenini net biçimde anlayıp, bu süreçleri yazılımla otomatize ediyoruz. Manuel, tekrarlayan işleri azaltır; verimliliği artırırken insan faktörünü en aza indiririz." },
       "en": { "icon": "account_tree", "title": "Workflow Automation", "desc": "Most importantly: we clearly understand the workflows and target business routines of organizations, and automate these processes with software. We reduce manual, repetitive tasks; increasing efficiency while minimizing human error." }
     },
     "standards": {
@@ -161,7 +161,7 @@
     "heroCta2": { "tr": "Projelerimizi İnceleyin", "en": "View Our Projects" },
     "storyTitle": { "tr": "Hikayemiz", "en": "Our Story" },
     "storyP1": {
-      "tr": "E-DOOR, yazılımın yalnızca kod değil, bir iş çözümü olduğuna inanan bir grup mühendis tarafından kuruldu. Çıkış noktamız basitti: kurumların tekrarlayan, manuel iş süreçlerini otomatize eden; verimliliği artırırken insan hatasını en aza indiren sistemler geliştirmek.",
+      "tr": "E-DOOR, yazılımın yalnızca kod değil, bir iş çözümü olduğuna inanan bir grup mühendis tarafından kuruldu. Çıkış noktamız basitti: kurumların tekrarlayan, manuel iş süreçlerini otomatize eden; verimliliği artırırken insan faktörünü en aza indiren sistemler geliştirmek.",
       "en": "E-DOOR was founded by a group of engineers who believed that software is not just code, but a business solution. Our starting point was simple: to develop systems that automate repetitive, manual business processes of organizations; increasing efficiency while minimizing human error."
     },
     "storyP2A": {
