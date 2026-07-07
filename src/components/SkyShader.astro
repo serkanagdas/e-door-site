@@ -160,7 +160,7 @@
     // Render below native resolution for GPU headroom (clouds are soft, so the
     // CSS upscale is visually invisible) — lets the shader hit the full refresh
     // rate instead of dropping frames on high-refresh displays.
-    const RENDER_SCALE = 0.7;
+    const RENDER_SCALE = 0.2;
     function resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       const scale = RENDER_SCALE * dpr;
