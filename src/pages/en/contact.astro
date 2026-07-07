@@ -5,28 +5,8 @@ import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// ============================================================
-//  FORM BACKEND AYARI  (DEMO MODU)
-// ------------------------------------------------------------
-//  Su an site statik oldugu icin formun gercekten bir yere
-//  gonderilmesi lazim. Bu degisken o "hedef adresi" tutar:
-//
-//   •  '' (bos)   -> DEMO MODU: gonderim simule edilir,
-//                    sadece basarili mesaji gosterilir.
-//                    (sunucuya hicbir sey gonderilmez)
-//
-//   •  bir URL    -> GERCEK GONDERIM: o adrese fetch ile
-//                    POST yapilir. Bunu doldurdugunda demo
-//                    modu otomatik kapanir. Ornek degerler:
-//
-//        Formspree : 'https://formspree.io/f/XXXXXXXX'
-//        Kendi API : 'https://edoor.com.tr/api/contact'
-//
-//  Host/VPS kesinlesince ya Formspree gibi bir servis ac,
-//  ya da kendi endpoint'ini yaz ve asagidaki adresi yapistir.
-//  Baska HICBIR seyi degistirmene gerek yok.
-// ============================================================
-const FORM_ENDPOINT = '';
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+const WEB3FORMS_ACCESS_KEY = '5588659b-5a86-4c40-863a-87d04f999fd6';
 
 const serviceOptions = t('contactPage.serviceOptions') as string[];
 
@@ -109,6 +89,11 @@ const formTexts = {
                 action="#"
                 class="space-y-5"
               >
+                <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+                <input type="hidden" name="subject" value="E-DOOR Contact Form" />
+                <input type="hidden" name="from_name" value="E-DOOR Website" />
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
                 <!-- Ad Soyad -->
                 <div>
                   <label for="name" class="mb-2 block text-sm font-medium text-on-surface">{t('contactPage.nameLabel')}</label>
