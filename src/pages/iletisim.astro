@@ -345,9 +345,15 @@ const formTexts = {
     if (!submitBtn || !submitText || !submitIcon) return;
     submitBtn.disabled = loading;
     submitText.textContent = loading ? txtSending : txtSend;
-    submitIcon.textContent = loading ? 'progress_activity' : 'send';
-    if (loading) submitIcon.classList.add('animate-spin');
-    else submitIcon.classList.remove('animate-spin');
+    submitIcon.textContent = loading ? '' : 'send';
+    submitIcon.classList.toggle('material-symbols-outlined', !loading);
+    submitIcon.classList.toggle('h-4', loading);
+    submitIcon.classList.toggle('w-4', loading);
+    submitIcon.classList.toggle('rounded-full', loading);
+    submitIcon.classList.toggle('border-2', loading);
+    submitIcon.classList.toggle('border-on-secondary/35', loading);
+    submitIcon.classList.toggle('border-t-on-secondary', loading);
+    submitIcon.classList.toggle('animate-spin', loading);
   }
 
   // ---- Scroll-reveal ----
