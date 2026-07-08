@@ -1,0 +1,24 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ProjectDetail from '../../../components/ProjectDetail.astro';
+import { projects, getProjectBySlug } from '../../../data/projects';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const project = getProjectBySlug(slug!);
+
+const title = project ? project.name[lang] : '';
+const description = project ? project.summary[lang] : '';
+---
+
+<Layout title={`${title} | E-DOOR`} description={description}>
+  <ProjectDetail slug={slug!} lang={lang} />
+</Layout>

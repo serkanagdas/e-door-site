@@ -226,11 +226,26 @@
       "tr": "E-DOOR hizmetleri: özel yazılım geliştirme, ERP & sistem çözümleri, mobil uygulama, web tasarımı, bakım & destek ve BT danışmanlığı.",
       "en": "E-DOOR services: custom software development, ERP & system solutions, mobile apps, web design, maintenance & support and IT consulting."
     },
-    "text": {
-      "tr": "Bu sayfa şu anda hazırlanıyor. Yakında sunduğumuz uçtan uca hizmetleri ve teknoloji yığınını detaylıca burada paylaşacağız.",
-      "en": "This page is currently under construction. Soon we will share the end-to-end services and technology stack we offer here in detail."
+    "heroEyebrow": { "tr": "Hizmetlerimiz", "en": "Our Services" },
+    "heroTitle": { "tr": "İşinizi Dijitalleştiren Çözümler", "en": "Solutions That Digitize Your Business" },
+    "heroText": {
+      "tr": "Özel yazılımdan ERP entegrasyonuna, IoT çözümlerinden saha servisine kadar geniş bir yelpazede uçtan uca hizmet sunuyoruz.",
+      "en": "We offer end-to-end services ranging from custom software to ERP integration, from IoT solutions to field service."
     },
-    "backHome": { "tr": "Anasayfaya Dön", "en": "Back to Home" }
+    "servicesEyebrow": { "tr": "Ne Yapıyoruz?", "en": "What We Do?" },
+    "servicesTitle": { "tr": "Hizmet Kategorileri", "en": "Service Categories" },
+    "productsEyebrow": { "tr": "Ürünlerimiz", "en": "Our Products" },
+    "productsTitle": { "tr": "Çözümlerimiz", "en": "Our Solutions" },
+    "productsText": {
+      "tr": "Geliştirdiğimiz kurumsal ürünler ve platformlar. Detaylarını incelemek için projeler sayfasını ziyaret edin.",
+      "en": "Enterprise products and platforms we've developed. Visit the projects page to explore the details."
+    },
+    "otherEyebrow": { "tr": "Daha Fazlası", "en": "More" },
+    "otherTitle": { "tr": "Diğer Çözümler", "en": "Other Solutions" },
+    "otherText": {
+      "tr": "Çözüm portföyümüzde yer alan diğer ürünler.",
+      "en": "Other products in our solution portfolio."
+    }
   },
   "projectsPage": {
     "title": { "tr": "Projeler", "en": "Projects" },
@@ -239,90 +254,24 @@
       "en": "Projects & References"
     },
     "metaDesc": {
-      "tr": "E-DOOR'un tamamladığı yazılım projeleri ve kurumsal referansları. Şifahane Kitap Restorasyonu ve Arşivlemesi Otomasyonu başta olmak üzere teslim edilen çözümler.",
-      "en": "Software projects and corporate references completed by E-DOOR. Delivered solutions, led by the Şifahane Book Restoration and Archiving Automation."
+      "tr": "E-DOOR'un geliştirdiği yazılım projeleri ve kurumsal çözümleri. ERP sistemleri, saha servisi, IoT ve daha fazlası.",
+      "en": "Software projects and enterprise solutions developed by E-DOOR. ERP systems, field service, IoT and more."
     },
-    "project": {
-      "name": { "tr": "Şifahane", "en": "Şifahane" },
-      "subtitle": {
-        "tr": "Kitap Restorasyonu ve Arşivlemesi Otomasyonu",
-        "en": "Book Restoration and Archiving Automation"
-      },
-      "category": {
-        "tr": "ERP & Kurumsal Yönetim Sistemi",
-        "en": "ERP & Enterprise Management System"
-      },
-      "client": { "tr": "Yazma Eser Kurumu", "en": "Manuscripts Institution" },
-      "year": { "tr": "2025", "en": "2025" },
-      "summary": {
-        "tr": "Kültür ve Turizm Bakanlığı'na bağlı Yazma Eser Kurumu için geliştirilen, kitap ve yazma eserlerinin restorasyon, konservasyon, kataloglama, dijitalleştirme ve arşivlenme süreçlerini uçtan uca yöneten kurumsal ölçekli bir yönetim sistemidir. 7 departmanı, 30+ modülü ve IoT tabanlı ortam izleme altyapısıyla kurumun tüm operasyonel akışını tek bir çatı altında birleştirir.",
-        "en": "An enterprise-scale management system developed for the Manuscripts Institution under the Ministry of Culture and Tourism, managing the restoration, conservation, cataloging, digitization and archiving processes of books and manuscripts end to end. With 7 departments, 30+ modules and an IoT-based environmental monitoring infrastructure, it unites the institution's entire operational flow under one roof."
-      },
-      "tags": ["PHP", "PostgreSQL", "Tailwind CSS", "jQuery", "Chart.js", "Material Design"],
-      "stats": {
-        "tr": [
-          { "value": "30+", "label": "Modül & Sayfa" },
-          { "value": "7", "label": "Departman Entegrasyonu" },
-          { "value": "IoT", "label": "Sensör Entegrasyonu" },
-          { "value": "100%", "label": "Responsive & Dark Mode" }
-        ],
-        "en": [
-          { "value": "30+", "label": "Modules & Pages" },
-          { "value": "7", "label": "Department Integration" },
-          { "value": "IoT", "label": "Sensor Integration" },
-          { "value": "100%", "label": "Responsive & Dark Mode" }
-        ]
-      },
-      "cardTag": { "tr": "E-DOOR Kurumsal Çözüm", "en": "E-DOOR Enterprise Solution" }
+    "listingEyebrow": { "tr": "Portföyümüz", "en": "Our Portfolio" },
+    "listingTitle": { "tr": "Projelerimiz", "en": "Our Projects" },
+    "listingText": {
+      "tr": "Geliştirdiğimiz kurumsal yazılım çözümleri ve ürünler. Her birinin detaylarını incelemek için kartlara tıklayın.",
+      "en": "Enterprise software solutions and products we've developed. Click on a card to explore the details."
     },
+    "exploreProject": { "tr": "İncele", "en": "Explore" },
+    "backToProjects": { "tr": "Tüm Projeler", "en": "All Projects" },
     "clientLabel": { "tr": "Müşteri:", "en": "Client:" },
     "yearLabel": { "tr": "Yıl:", "en": "Year:" },
-    "screensEyebrow": { "tr": "Uygulama İçi Görünümler", "en": "In-App Views" },
-    "screensTitle": { "tr": "Ekran Görüntüleri", "en": "Screenshots" },
-    "screensText": {
-      "tr": "Sistemin arayüzünden üç kesit: yönetim paneli, eser yönetimi ve depo sıcaklık takibi ekranları.",
-      "en": "Three glimpses from the system's interface: the management panel, artifact management and warehouse temperature tracking screens."
-    },
-    "screenshots": {
-      "tr": [
-        { "src": "/images/anasayfa.png", "alt": "Şifahane Dashboard - Başkan Yönetim Paneli", "title": "Yönetim Paneli (Dashboard)", "desc": "Eser öncelik dağılımı, konservasyon durumu, ısı-nem trendleri ve departman bazlı analitik grafikler tek ekranda.", "icon": "dashboard" },
-        { "src": "/images/eser_sayfasi.png", "alt": "Şifahane Eser Yönetimi Ekranı", "title": "Eser Yönetimi & Kataloglama", "desc": "Yazma eserlerinin kaydı, fiziki değerlendirme formları ve kataloglama işlemleri için kapsamlı arayüz.", "icon": "library_books" },
-        { "src": "/images/sicaklik_takip.png", "alt": "Şifahane Depo Sıcaklık Takip Ekranı", "title": "Depo Sıcaklık & Nem Takibi", "desc": "Depo ve kütüphane ortam koşullarının gerçek zamanlı izlenmesi, tarih aralıklı trend grafikleri ve eşik analizi.", "icon": "thermostat" }
-      ],
-      "en": [
-        { "src": "/images/anasayfa.png", "alt": "Şifahane Dashboard - President Management Panel", "title": "Management Panel (Dashboard)", "desc": "Artifact priority distribution, conservation status, temperature-humidity trends and department-based analytics charts on a single screen.", "icon": "dashboard" },
-        { "src": "/images/eser_sayfasi.png", "alt": "Şifahane Artifact Management Screen", "title": "Artifact Management & Cataloging", "desc": "A comprehensive interface for manuscript registration, physical assessment forms and cataloging operations.", "icon": "library_books" },
-        { "src": "/images/sicaklik_takip.png", "alt": "Şifahane Warehouse Temperature Tracking Screen", "title": "Warehouse Temperature & Humidity Tracking", "desc": "Real-time monitoring of warehouse and library environmental conditions, date-ranged trend charts and threshold analysis.", "icon": "thermostat" }
-      ]
-    },
-    "shotPlaceholder": { "tr": "Ekran görüntüsü yakında eklenecek", "en": "Screenshot coming soon" },
-    "featuresEyebrow": { "tr": "Modüller", "en": "Modules" },
-    "featuresTitle": { "tr": "Sistem Özellikleri", "en": "System Features" },
+    "featuresEyebrow": { "tr": "Yetenekler", "en": "Capabilities" },
+    "featuresTitle": { "tr": "Özellikler", "en": "Features" },
     "featuresText": {
-      "tr": "Kurumun farklı departmanlarına hitap eden, birbirleriyle entegre çalışan modüler yapı.",
-      "en": "A modular structure addressing the institution's different departments, working in an integrated fashion."
-    },
-    "features": {
-      "tr": [
-        { "icon": "library_books", "title": "Eser Yönetimi & Kataloglama", "desc": "Kitap ve yazma eserlerinin kaydı, kataloglanması, sınıflandırılması ve dijitalleştirilmesi. Çok dilli destek ve eser bazlı değerleme formları." },
-        { "icon": "engineering", "title": "Konservasyon & Restorasyon", "desc": "Eserlerin fiziki değerlendirmesi, kritik/orta/düşük öncelik analizleri ve restorasyon süreçlerinin uçtan uca takibi." },
-        { "icon": "thermostat", "title": "Isı & Nem İzleme", "desc": "Depo ve kütüphane ortam koşullarının IoT sensörlerle gerçek zamanlı takibi, trend grafikleri ve eşik uyarıları." },
-        { "icon": "checklist", "title": "Rutin İş Takibi", "desc": "Periyodik bakım ve kontrol görevlerinin planlanması, ataması ve tamamlanma durumlarının izlenmesi." },
-        { "icon": "translate", "title": "Çeviri Operasyonları", "desc": "Çeviri taleplerinin alınması, eser bazlı çeviri süreç yönetimi ve yıllık çeviri performans takibi." },
-        { "icon": "museum", "title": "Sergi Yönetimi", "desc": "Sergilerin planlanması, devam eden ve tamamlanan sergilerin takibi ile yıllık sergi durum analitikleri." },
-        { "icon": "developer_board", "title": "IoT Cihaz Yönetimi", "desc": "Sensör ve cihaz tanımlamaları, rutin tanımları ve cihaz bazlı veri toplama altyapısı." },
-        { "icon": "admin_panel_settings", "title": "Rol Tabanlı Erişim", "desc": "Departman ve yetki seviyesine göre detaylı erişim kontrolü, ekip/rol yönetimi ve denetim kayıtları." }
-      ],
-      "en": [
-        { "icon": "library_books", "title": "Artifact Management & Cataloging", "desc": "Registration, cataloging, classification and digitization of books and manuscripts. Multilingual support and artifact-based valuation forms." },
-        { "icon": "engineering", "title": "Conservation & Restoration", "desc": "Physical assessment of artifacts, critical/medium/low priority analysis and end-to-end tracking of restoration processes." },
-        { "icon": "thermostat", "title": "Temperature & Humidity Monitoring", "desc": "Real-time tracking of warehouse and library environmental conditions with IoT sensors, trend charts and threshold alerts." },
-        { "icon": "checklist", "title": "Routine Task Tracking", "desc": "Planning, assignment and completion status monitoring of periodic maintenance and control tasks." },
-        { "icon": "translate", "title": "Translation Operations", "desc": "Receiving translation requests, artifact-based translation process management and annual translation performance tracking." },
-        { "icon": "museum", "title": "Exhibition Management", "desc": "Planning exhibitions, tracking ongoing and completed exhibitions, and annual exhibition status analytics." },
-        { "icon": "developer_board", "title": "IoT Device Management", "desc": "Sensor and device definitions, routine definitions and device-based data collection infrastructure." },
-        { "icon": "admin_panel_settings", "title": "Role-Based Access", "desc": "Detailed access control by department and authorization level, team/role management and audit logs." }
-      ]
+      "tr": "Birbirleriyle entegre çalışan modüler yapı ve yetenekler.",
+      "en": "A modular structure with integrated capabilities."
     },
     "techEyebrow": { "tr": "Mimari", "en": "Architecture" },
     "techTitle": { "tr": "Teknik Altyapı", "en": "Technical Infrastructure" },
@@ -330,25 +279,14 @@
       "tr": "Güvenli, ölçeklenebilir ve sürdürülebilir bir mimari için seçilen teknolojiler.",
       "en": "Technologies chosen for a secure, scalable and sustainable architecture."
     },
-    "techStack": {
-      "tr": [
-        { "category": "Back-End", "icon": "dns", "items": [{ "name": "PHP", "desc": "Sunucu tarafı iş mantığı" }, { "name": "PostgreSQL", "desc": "İlişkisel veritabanı (PDO)" }, { "name": "Prepared Statements", "desc": "Güvenli veri erişimi" }] },
-        { "category": "Front-End", "icon": "code", "items": [{ "name": "Tailwind CSS", "desc": "Utility-first stil sistemi" }, { "name": "jQuery", "desc": "DOM etkileşimleri" }, { "name": "Select2", "desc": "Gelişmiş arama/seçim" }] },
-        { "category": "Görselleştirme", "icon": "monitoring", "items": [{ "name": "Chart.js", "desc": "İnteraktif grafikler" }, { "name": "Material Symbols", "desc": "Tutarlı ikon seti" }, { "name": "Dark Mode", "desc": "Tema desteği" }] },
-        { "category": "Altyapı", "icon": "cloud", "items": [{ "name": "Responsive", "desc": "Mobil & masaüstü uyum" }, { "name": "Rol Bazlı Güvenlik", "desc": "Yetkilendirme katmanı" }, { "name": "Modüler Mimari", "desc": "Veri/şablon ayrımı" }] }
-      ],
-      "en": [
-        { "category": "Back-End", "icon": "dns", "items": [{ "name": "PHP", "desc": "Server-side business logic" }, { "name": "PostgreSQL", "desc": "Relational database (PDO)" }, { "name": "Prepared Statements", "desc": "Secure data access" }] },
-        { "category": "Front-End", "icon": "code", "items": [{ "name": "Tailwind CSS", "desc": "Utility-first styling system" }, { "name": "jQuery", "desc": "DOM interactions" }, { "name": "Select2", "desc": "Advanced search/select" }] },
-        { "category": "Visualization", "icon": "monitoring", "items": [{ "name": "Chart.js", "desc": "Interactive charts" }, { "name": "Material Symbols", "desc": "Consistent icon set" }, { "name": "Dark Mode", "desc": "Theme support" }] },
-        { "category": "Infrastructure", "icon": "cloud", "items": [{ "name": "Responsive", "desc": "Mobile & desktop compatibility" }, { "name": "Role-Based Security", "desc": "Authorization layer" }, { "name": "Modular Architecture", "desc": "Data/template separation" }] }
-      ]
+    "screensEyebrow": { "tr": "Uygulama İçi Görünümler", "en": "In-App Views" },
+    "screensTitle": { "tr": "Ekran Görüntüleri", "en": "Screenshots" },
+    "screensText": {
+      "tr": "Sistemin arayüzünden kesitler.",
+      "en": "Glimpses from the system's interface."
     },
-    "departmentsTitle": { "tr": "Entegre Departmanlar", "en": "Integrated Departments" },
-    "departments": {
-      "tr": ["Kitap Şifahanesi ve Arşiv Dairesi", "Önleyici Koruma", "Taşra Teşkilatı", "Yazma ve Nadir Eserler", "Çeviri ve Yayın", "Araştırma ve Eğitim", "Strateji & İnsan Kaynakları"],
-      "en": ["Book Şifahane and Archive Department", "Preventive Conservation", "Provincial Organization", "Manuscripts and Rare Works", "Translation and Publication", "Research and Education", "Strategy & Human Resources"]
-    }
+    "shotPlaceholder": { "tr": "Ekran görüntüsü yakında eklenecek", "en": "Screenshot coming soon" },
+    "departmentsTitle": { "tr": "Entegre Departmanlar", "en": "Integrated Departments" }
   },
   "contactPage": {
     "metaTitle": { "tr": "İletişim", "en": "Contact" },

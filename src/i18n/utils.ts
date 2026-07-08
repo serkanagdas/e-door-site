@@ -63,14 +63,16 @@ export function getCounterpartUrl(pathname: string): string {
   const normalize = (p: string) => p.replace(/\/+$/, '') || '/';
 
   if (isEn) {
-    const enPath = normalize(pathname.replace(/^\/en/, '') || '/');
-    const trPath = enToTrSlugs[enPath] ?? enPath;
-    return trPath;
+    let path = normalize(pathname.replace(/^\/en/, '') || '/');
+    path = enToTrSlugs[path] ?? path;
+    path = path.replace(/^\/projects(\/.+)?$/, (_m, slug) => `/projeler${slug || ''}`);
+    return path;
   }
 
-  const trPath = normalize(pathname);
-  const enPath = trToEnSlugs[trPath] ?? trPath;
-  return enPath === '/' ? '/en/' : `/en${enPath}`;
+  let path = normalize(pathname);
+  path = trToEnSlugs[path] ?? path;
+  path = path.replace(/^\/projeler(\/.+)?$/, (_m, slug) => `/projects${slug || ''}`);
+  return path === '/' ? '/en/' : `/en${path}`;
 }
 
 export function getCurrentLangCode(lang: Lang): string {

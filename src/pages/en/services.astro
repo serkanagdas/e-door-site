@@ -1,28 +1,173 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getLangFromUrl, useTranslations, getNavLinks } from '../../i18n/utils';
+import CTA from '../../components/CTA.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects, serviceCategories, otherProducts } from '../../data/projects';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const paths = getNavLinks(lang);
 
-const title = t('servicesPage.metaTitle');
+const generalServices = t('services.items') as { icon: string; title: string; desc: string }[];
 ---
 
-<Layout title={`${title} | E-DOOR`} description={t('servicesPage.metaDesc')}>
-  <section class="min-h-[70vh] flex items-center justify-center bg-background px-gutter md:px-margin">
-    <div class="text-center max-w-xl">
-      <div class="w-16 h-16 rounded-2xl bg-secondary-container/20 text-secondary flex items-center justify-center mx-auto mb-6">
-        <span class="material-symbols-outlined text-4xl">construction</span>
-      </div>
-      <h1 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-4">{title}</h1>
-      <p class="font-body text-base text-on-surface-variant mb-8">
-        {t('servicesPage.text')}
+<Layout title={`${t('servicesPage.metaTitle')} | E-DOOR`} description={t('servicesPage.metaDesc')}>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="relative overflow-hidden bg-surface-container-lowest">
+    <div class="absolute inset-0 hero-pattern opacity-20"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-surface/30 to-background"></div>
+    <div class="absolute inset-0 animated-grid"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-gutter md:px-margin py-20 md:py-32 text-center">
+      <span class="reveal block text-xs font-medium uppercase tracking-wider text-secondary mb-3">
+        {t('servicesPage.heroEyebrow')}
+      </span>
+      <h1 class="reveal font-headline text-4xl md:text-5xl font-bold text-on-surface mb-6 leading-tight">
+        {t('servicesPage.heroTitle')}
+      </h1>
+      <p class="reveal mx-auto max-w-2xl font-body text-base text-on-surface-variant md:text-lg" style="--reveal-delay: 80ms;">
+        {t('servicesPage.heroText')}
       </p>
-      <a href={paths.home} class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary text-sm font-semibold hover:bg-on-secondary-container transition-colors">
-        <span class="material-symbols-outlined text-base">arrow_back</span>
-        {t('servicesPage.backHome')}
-      </a>
+    </div>
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent"></div>
+  </section>
+
+  <!-- ==================== HİZMET KATEGORİLERİ ==================== -->
+  <section class="py-14 md:py-24 bg-background">
+    <div class="max-w-7xl mx-auto px-gutter md:px-margin">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">{t('servicesPage.servicesEyebrow')}</span>
+        <h2 class="font-headline text-4xl font-bold text-on-surface">{t('servicesPage.servicesTitle')}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {generalServices.map((service, i) => (
+          <div
+            class="reveal bg-surface rounded-xl p-8 shadow-sm border border-outline-variant hover:border-secondary hover:shadow-md transition-all group"
+            style={`--reveal-delay: ${i * 60}ms;`}
+          >
+            <div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-[32px]">{service.icon}</span>
+            </div>
+            <h3 class="font-headline text-xl font-semibold text-on-surface mb-3">{service.title}</h3>
+            <p class="font-body text-sm text-on-surface-variant leading-relaxed">{service.desc}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
+
+  <!-- ==================== ÜRÜNLER (KATEGORİ BAZINDA) ==================== -->
+  <section class="py-14 md:py-24 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-gutter md:px-margin">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">{t('servicesPage.productsEyebrow')}</span>
+        <h2 class="font-headline text-4xl font-bold text-on-surface">{t('servicesPage.productsTitle')}</h2>
+        <p class="mt-3 font-body text-base text-on-surface-variant max-w-2xl mx-auto">
+          {t('servicesPage.productsText')}
+        </p>
+      </div>
+
+      {serviceCategories.map((cat) => {
+        const catProjects = projects.filter((p) => p.serviceCategory === cat.key);
+        if (catProjects.length === 0) return null;
+        return (
+          <div class="mb-12 last:mb-0">
+            <div class="reveal flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-secondary-container/20 text-secondary flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl">{cat.icon}</span>
+              </div>
+              <div>
+                <h3 class="font-headline text-2xl font-bold text-on-surface">{cat.title[lang]}</h3>
+                <p class="font-body text-sm text-on-surface-variant">{cat.desc[lang]}</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {catProjects.map((project, i) => (
+                <div style={`--reveal-delay: ${i * 100}ms;`}>
+                  <ProjectCard project={project} lang={lang} />
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- ==================== DİĞER ÇÖZÜMLER ==================== -->
+  <section class="py-14 md:py-24 bg-background">
+    <div class="max-w-7xl mx-auto px-gutter md:px-margin">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="text-xs font-medium text-secondary tracking-wider uppercase mb-2 block">{t('servicesPage.otherEyebrow')}</span>
+        <h2 class="font-headline text-4xl font-bold text-on-surface">{t('servicesPage.otherTitle')}</h2>
+        <p class="mt-3 font-body text-base text-on-surface-variant max-w-2xl mx-auto">
+          {t('servicesPage.otherText')}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {otherProducts.map((product, i) => (
+          <div
+            class="reveal flex items-center gap-4 rounded-xl border border-outline-variant bg-surface p-5 shadow-sm hover:border-secondary/50 transition-colors"
+            style={`--reveal-delay: ${i * 50}ms;`}
+          >
+            <div class="w-10 h-10 rounded-lg bg-secondary-container/15 text-secondary flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-xl">widgets</span>
+            </div>
+            <div>
+              <h4 class="font-headline text-sm font-semibold text-on-surface">{product.name}</h4>
+              <p class="text-xs text-on-surface-variant">{product.desc[lang]}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <CTA lang={lang} />
+
 </Layout>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const initServices = () => {
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    reveals.forEach((el) => io.observe(el));
+  };
+
+  document.addEventListener('astro:page-load', initServices);
+</script>
