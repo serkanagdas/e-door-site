@@ -359,6 +359,112 @@ export const projects: Project[] = [
     externalUrl: 'https://www.kolayssh.com',
     serviceCategory: 'field-service',
   },
+
+  // ════════════════════════════════════════════════════════════════════
+  // AKILLI YAKIT YÖNETİMİ (IFMS)
+  // ════════════════════════════════════════════════════════════════════
+  {
+    slug: 'akilli-yakit-yonetimi',
+    icon: 'local_gas_station',
+    name: {
+      tr: 'Akıllı Yakıt Yönetim Sistemi',
+      en: 'Smart Fuel Management System',
+    },
+    subtitle: {
+      tr: 'IoT Tabanlı Yakıt İzleme ve Kontrol Platformu',
+      en: 'IoT-Based Fuel Monitoring and Control Platform',
+    },
+    category: {
+      tr: 'IoT & Filo Çözümleri',
+      en: 'IoT & Fleet Solutions',
+    },
+    summary: {
+      tr: '%0,02 ölçüm hassasiyetiyle yakıt kayıplarını minimize eden IoT tabanlı uçtan uca çözüm. Ana ve mobil tankerlerde anlık seviye, ısı, kesafet ve alarm takibi; firma, ekipman, lokasyon ve operatör bazlı detaylı maliyet analizi ve yetkilendirmeyle kontrol altına alınmış yakıt verme operasyonları ile fireyi sıfıra indirir.',
+      en: 'An end-to-end IoT-based solution that minimizes fuel losses with 0.02% measurement precision. Real-time level, temperature, density and alarm monitoring on main and mobile tankers; detailed cost analysis by company, equipment, location and operator; and authorized fuel dispensing operations that reduce waste to zero.',
+    },
+    tags: ['IoT', 'ASP.NET Core', 'TimescaleDB', 'Apache Kafka', 'React', 'Flutter', 'Docker'],
+    cardTag: { tr: 'E-DOOR IoT Çözümü', en: 'E-DOOR IoT Solution' },
+    stats: [
+      { value: '%0,02', label: { tr: 'Ölçüm Hassasiyeti', en: 'Measurement Precision' } },
+      { value: 'IoT', label: { tr: 'Sensör Entegrasyonu', en: 'Sensor Integration' } },
+      { value: '7/24', label: { tr: 'Kesintisiz İzleme', en: 'Uninterrupted Monitoring' } },
+      { value: 'O/Offline', label: { tr: 'Saha Desteği', en: 'Field Support' } },
+    ],
+    features: [
+      {
+        icon: 'precision_manufacturing',
+        title: { tr: 'Yüksek Hassasiyetli Ölçüm', en: 'High Precision Measurement' },
+        desc: {
+          tr: 'Ana ve mobil tankerlerde anlık yakıt seviyesi, ısı, kesafet (yoğunluk) ve alarm takibi. %0,02 hassasiyetle her damlayı ölçün, kayıpları anında tespit edin.',
+          en: 'Real-time fuel level, temperature, density and alarm monitoring on main and mobile tankers. Measure every drop with 0.02% precision and detect losses instantly.',
+        },
+      },
+      {
+        icon: 'cloud_sync',
+        title: { tr: 'Online–Offline IoT', en: 'Online–Offline IoT' },
+        desc: {
+          tr: 'Saha bağlantı kesintilerinden bağımsız kesintisiz operasyon. Sensörler internet bağlantısı olmadan da veri toplar; bağlantı kurulduğunda otomatik senkronize olur.',
+          en: 'Uninterrupted operation independent of field connectivity disruptions. Sensors collect data even without internet; automatic synchronization upon reconnection.',
+        },
+      },
+      {
+        icon: 'monitoring',
+        title: { tr: 'Detaylı Maliyet Analizi', en: 'Detailed Cost Analysis' },
+        desc: {
+          tr: 'Firma, ekipman, lokasyon, kilometre, saat ve operatör bazlı detaylı yakıt tüketim ve maliyet analizleri. Karar destek dashboard\'larıyla verimliliği artırın.',
+          en: 'Detailed fuel consumption and cost analysis by company, equipment, location, mileage, hour and operator. Increase efficiency with decision-support dashboards.',
+        },
+      },
+      {
+        icon: 'verified_user',
+        title: { tr: 'Yetkili Yakıt Verme', en: 'Authorized Fuel Dispensing' },
+        desc: {
+          tr: 'Tüm yakıt verme işlemleri yetkilendirme mekanizmalarıyla güvence altında. Yetkisiz dağıtımlar engellenir, her işlem kayıt altına alınır ve fire önlenir.',
+          en: 'All fuel dispensing operations are secured with authorization mechanisms. Unauthorized distributions are blocked, every transaction is logged, and waste is prevented.',
+        },
+      },
+    ],
+    techStack: [
+      {
+        category: { tr: 'Back-End', en: 'Back-End' },
+        icon: 'dns',
+        items: [
+          { name: 'ASP.NET Core 10', desc: { tr: 'Yüksek performanslı sunucu tarafı', en: 'High-performance server-side' } },
+          { name: 'PostgreSQL + EF Core', desc: { tr: 'ACID uyumlu ana iş veritabanı', en: 'ACID-compliant core database' } },
+          { name: 'Hangfire', desc: { tr: 'Arka plan iş kuyruğu ve zamanlanmış görevler', en: 'Background job queue and scheduled tasks' } },
+        ],
+      },
+      {
+        category: { tr: 'IoT & Veri', en: 'IoT & Data' },
+        icon: 'sensors',
+        items: [
+          { name: 'TimescaleDB', desc: { tr: 'IoT/zaman serisi sensör verisi', en: 'IoT/time-series sensor data' } },
+          { name: 'Apache Kafka', desc: { tr: 'Yüksek hacimli sensör mesaj akışı', en: 'High-volume sensor message streaming' } },
+          { name: 'MongoDB', desc: { tr: 'Esnek şemalı loglama', en: 'Flexible-schema logging' } },
+        ],
+      },
+      {
+        category: { tr: 'Front-End', en: 'Front-End' },
+        icon: 'code',
+        items: [
+          { name: 'React', desc: { tr: 'Gerçek zamanlı izleme dashboard\'ları', en: 'Real-time monitoring dashboards' } },
+          { name: 'Flutter', desc: { tr: 'Android & iOS saha mobil uygulaması', en: 'Android & iOS field mobile app' } },
+          { name: 'SignalR', desc: { tr: 'WebSocket tabanlı anlık bildirim', en: 'WebSocket-based instant notifications' } },
+        ],
+      },
+      {
+        category: { tr: 'Altyapı', en: 'Infrastructure' },
+        icon: 'cloud',
+        items: [
+          { name: 'Docker + Kubernetes', desc: { tr: 'Konteyner orkestrasyon ve otomatik ölçekleme', en: 'Container orchestration and auto-scaling' } },
+          { name: 'Apache Superset', desc: { tr: 'BI raporlama ve dinamik panolar', en: 'BI reporting and dynamic dashboards' } },
+          { name: 'MimOS', desc: { tr: 'Kurumsal yazılım altyapısı', en: 'Enterprise software infrastructure' } },
+        ],
+      },
+    ],
+    externalUrl: 'https://mimware.com/akilli-yakit-yonetim-sistemi',
+    serviceCategory: 'iot',
+  },
 ];
 
 // ──────────────────────────────────────────────────────────────────────
@@ -400,6 +506,15 @@ export const serviceCategories: {
     desc: {
       tr: 'Satış sonrası hizmet, teknik servis, saha ekibi yönetimi ve müşteri ilişkilerini birleştiren platformlar.',
       en: 'Platforms combining after-sales service, technical support, field team management, and customer relations.',
+    },
+  },
+  {
+    key: 'iot',
+    icon: 'sensors',
+    title: { tr: 'IoT & Endüstriyel Çözümler', en: 'IoT & Industrial Solutions' },
+    desc: {
+      tr: 'Sensör verisinden gerçek zamanlı iş zekâsına, sahadan buluta uçtan uca IoT tabanlı endüstriyel otomasyon.',
+      en: 'End-to-end IoT-based industrial automation from sensor data to real-time business intelligence, from field to cloud.',
     },
   },
 ];
