@@ -465,6 +465,112 @@ export const projects: Project[] = [
     externalUrl: 'https://mimware.com/akilli-yakit-yonetim-sistemi',
     serviceCategory: 'iot',
   },
+
+  // ════════════════════════════════════════════════════════════════════
+  // AKILLI BAKIM & ARIZA
+  // ════════════════════════════════════════════════════════════════════
+  {
+    slug: 'akilli-bakim-ariza',
+    icon: 'handyman',
+    name: {
+      tr: 'Akıllı Bakım & Arıza Yönetimi',
+      en: 'Smart Maintenance & Fault Management',
+    },
+    subtitle: {
+      tr: 'Proaktif Bakım ve Ekipman Ömrü Yönetimi',
+      en: 'Proactive Maintenance and Equipment Lifecycle Management',
+    },
+    category: {
+      tr: 'IoT & Endüstriyel Çözümler',
+      en: 'IoT & Industrial Solutions',
+    },
+    summary: {
+      tr: 'Doğru zamanda doğru müdahale — ekipman ömrünü uzatan, plansız duruşları öngören ve önleyen proaktif bakım yönetim sistemi. Dinamik bakım katalogları, IoT tabanlı saha veri toplama, 360° ekipman görünürlüğü ve ERP/satınalma/depo entegrasyonu ile bakım süreçlerini uçtan uca dijitalleştirir.',
+      en: 'The right intervention at the right time — a proactive maintenance management system that extends equipment life, predicts and prevents unplanned downtime. Digitizes maintenance processes end to end with dynamic maintenance catalogs, IoT-based field data collection, 360° equipment visibility and ERP/purchasing/warehouse integration.',
+    },
+    tags: ['IoT', 'ASP.NET Core', 'TimescaleDB', 'React', 'Flutter', 'Docker', 'ERP'],
+    cardTag: { tr: 'E-DOOR IoT Çözümü', en: 'E-DOOR IoT Solution' },
+    stats: [
+      { value: 'MTBF/MTBR', label: { tr: 'Güvenilirlik Analizi', en: 'Reliability Analysis' } },
+      { value: '360°', label: { tr: 'Ekipman Görünürlüğü', en: 'Equipment Visibility' } },
+      { value: 'IoT', label: { tr: 'Öngörülü Bakım', en: 'Predictive Maintenance' } },
+      { value: 'ERP', label: { tr: 'Tam Entegrasyon', en: 'Full Integration' } },
+    ],
+    features: [
+      {
+        icon: 'event_repeat',
+        title: { tr: 'Otomatik Bakım Takvimi', en: 'Automatic Maintenance Calendar' },
+        desc: {
+          tr: 'Dinamik kataloglar ve IoT sensör verisiyle doğru bakım zamanlaması. Periyodik bakım planları, km/saat/gün bazlı tetikleyiciler ve otomatik görev oluşturma ile hiçbir bakımı kaçırmayın.',
+          en: 'Correct maintenance timing with dynamic catalogs and IoT sensor data. Never miss a maintenance with periodic plans, km/hour/day-based triggers and automatic task generation.',
+        },
+      },
+      {
+        icon: 'visibility',
+        title: { tr: '360° Ekipman Görünürlüğü', en: '360° Equipment Visibility' },
+        desc: {
+          tr: 'Maliyet, yedek parça, işçilik ve belgeler tek ekranda. Her ekipman için MTBF/MTBR güvenilirlik analizi, arıza geçmişi ve toplam sahip olma maliyeti (TCO) takibi.',
+          en: 'Cost, spare parts, labor and documents on a single screen. MTBF/MTBR reliability analysis, fault history and total cost of ownership (TCO) tracking for each equipment.',
+        },
+      },
+      {
+        icon: 'sensors',
+        title: { tr: 'Saha Veri Toplama (IoT)', en: 'Field Data Collection (IoT)' },
+        desc: {
+          tr: 'IoT sensörlerinden gelen verilerle plansız duruşlar öngörülür ve önlenir. Titreşim, ısı, basınç ve diğer parametreler sürekli izlenir; eşik aşımlarında proaktif uyarı üretilir.',
+          en: 'Unplanned downtime is predicted and prevented with data from IoT sensors. Vibration, temperature, pressure and other parameters are continuously monitored; proactive alerts are generated on threshold breaches.',
+        },
+      },
+      {
+        icon: 'sync',
+        title: { tr: 'ERP / Satınalma / Depo Entegrasyonu', en: 'ERP / Purchasing / Warehouse Integration' },
+        desc: {
+          tr: 'Tüm bakım iş akışları kurumsal sistemlere sorunsuz bağlanır. Yedek parça siparişi, satınalma talebi ve stok hareketleri ERP ile entegre çalışır; veri tekrarı ortadan kalkar.',
+          en: 'All maintenance workflows seamlessly connect to corporate systems. Spare part orders, purchase requests and stock movements work integrated with ERP; data duplication is eliminated.',
+        },
+      },
+    ],
+    techStack: [
+      {
+        category: { tr: 'Back-End', en: 'Back-End' },
+        icon: 'dns',
+        items: [
+          { name: 'ASP.NET Core 10', desc: { tr: 'Yüksek performanslı sunucu tarafı', en: 'High-performance server-side' } },
+          { name: 'PostgreSQL + EF Core', desc: { tr: 'ACID uyumlu ana iş veritabanı', en: 'ACID-compliant core database' } },
+          { name: 'Hangfire', desc: { tr: 'Zamanlanmış bakım görevleri ve kuyruk', en: 'Scheduled maintenance tasks and queue' } },
+        ],
+      },
+      {
+        category: { tr: 'IoT & Veri', en: 'IoT & Data' },
+        icon: 'sensors',
+        items: [
+          { name: 'TimescaleDB', desc: { tr: 'Sensör zaman serisi verisi', en: 'Sensor time-series data' } },
+          { name: 'Redis', desc: { tr: 'Dağıtık önbellek ve Pub/Sub', en: 'Distributed cache and Pub/Sub' } },
+          { name: 'SignalR', desc: { tr: 'Gerçek zamanlı arıza bildirimleri', en: 'Real-time fault notifications' } },
+        ],
+      },
+      {
+        category: { tr: 'Front-End', en: 'Front-End' },
+        icon: 'code',
+        items: [
+          { name: 'React', desc: { tr: 'Ekipman ve bakım dashboard\'ları', en: 'Equipment and maintenance dashboards' } },
+          { name: 'Flutter', desc: { tr: 'Android & iOS saha mobil uygulaması', en: 'Android & iOS field mobile app' } },
+          { name: 'Apache Superset', desc: { tr: 'MTBF/MTBR ve TCO analitiği', en: 'MTBF/MTBR and TCO analytics' } },
+        ],
+      },
+      {
+        category: { tr: 'Altyapı', en: 'Infrastructure' },
+        icon: 'cloud',
+        items: [
+          { name: 'Docker + Kubernetes', desc: { tr: 'Konteyner orkestrasyon ve otomatik ölçekleme', en: 'Container orchestration and auto-scaling' } },
+          { name: 'ERP Entegrasyonu', desc: { tr: 'Satınalma, stok ve maliyet bağlantısı', en: 'Purchasing, inventory and cost linkage' } },
+          { name: 'MimOS', desc: { tr: 'Kurumsal yazılım altyapısı', en: 'Enterprise software infrastructure' } },
+        ],
+      },
+    ],
+    externalUrl: 'https://mimware.com/akilli-bakim-yonetim-sistemi',
+    serviceCategory: 'iot',
+  },
 ];
 
 // ──────────────────────────────────────────────────────────────────────
