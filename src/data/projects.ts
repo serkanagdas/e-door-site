@@ -253,6 +253,7 @@ export const projects: Project[] = [
       { tr: 'Araştırma ve Eğitim', en: 'Research and Education' },
       { tr: 'Strateji & İnsan Kaynakları', en: 'Strategy & Human Resources' },
     ],
+    externalUrl: 'https://belgeleme.yek.gov.tr/',
     serviceCategory: 'enterprise',
   },
 
