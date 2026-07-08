@@ -50,23 +50,24 @@ const formTexts = {
 <Layout title={`${title} | E-DOOR`} description={description}>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden bg-surface-container-lowest py-20 md:py-28">
-    <div class="absolute inset-0 hero-pattern opacity-30"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-surface/50 to-surface-container-lowest"></div>
+  <section class="relative overflow-hidden bg-surface-container-lowest">
+    <div class="absolute inset-0 hero-pattern opacity-20"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-surface/30 to-background"></div>
     <div class="absolute inset-0 animated-grid"></div>
-    <div class="relative z-10 mx-auto max-w-3xl px-gutter text-center md:px-margin">
-      <span class="mb-3 block text-xs font-medium uppercase tracking-wider text-secondary">{t('contactPage.heroEyebrow')}</span>
-      <h1 class="mb-5 font-headline text-4xl font-bold leading-tight text-on-surface sm:text-5xl">
+    <div class="relative z-10 mx-auto max-w-3xl px-gutter text-center md:px-margin py-20 md:py-28">
+      <span class="reveal block mb-3 text-xs font-medium uppercase tracking-wider text-secondary">{t('contactPage.heroEyebrow')}</span>
+      <h1 class="reveal mb-5 font-headline text-4xl font-bold leading-tight text-on-surface sm:text-5xl">
         {t('contactPage.heroTitle')}
       </h1>
-      <p class="mx-auto max-w-2xl font-body text-base text-on-surface-variant md:text-lg">
+      <p class="reveal mx-auto max-w-2xl font-body text-base text-on-surface-variant md:text-lg" style="--reveal-delay: 80ms;">
         {t('contactPage.heroText')}
       </p>
     </div>
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent"></div>
   </section>
 
   <!-- ANA BÖLÜM: Form + Bilgi Sidebar -->
-  <section class="bg-surface-container-low py-14 md:py-24">
+  <section class="bg-background py-14 md:py-24">
     <div class="mx-auto max-w-7xl px-gutter md:px-margin">
       <div class="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-12">
 
@@ -100,7 +101,7 @@ const formTexts = {
                   <input
                     id="name" name="name" type="text" required autocomplete="name"
                     placeholder={t('contactPage.namePlaceholder')}
-                    class="w-full rounded-lg border border-outline-variant bg-surface-container px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                    class="w-full rounded-lg border border-outline-variant bg-background px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
                   />
                 </div>
 
@@ -111,7 +112,7 @@ const formTexts = {
                     <input
                       id="email" name="email" type="email" required autocomplete="email"
                       placeholder={t('contactPage.emailPlaceholder')}
-                      class="w-full rounded-lg border border-outline-variant bg-surface-container px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                      class="w-full rounded-lg border border-outline-variant bg-background px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
                     />
                   </div>
                   <div>
@@ -119,7 +120,7 @@ const formTexts = {
                     <input
                       id="phone" name="phone" type="tel" autocomplete="tel"
                       placeholder={t('contactPage.phonePlaceholder')}
-                      class="w-full rounded-lg border border-outline-variant bg-surface-container px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                      class="w-full rounded-lg border border-outline-variant bg-background px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
                     />
                   </div>
                 </div>
@@ -129,7 +130,7 @@ const formTexts = {
                   <label for="service" class="mb-2 block text-sm font-medium text-on-surface">{t('contactPage.serviceLabel')}</label>
                   <select
                     id="service" name="service" required
-                    class="w-full rounded-lg border border-outline-variant bg-surface-container px-4 py-3 text-sm text-on-surface transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                    class="w-full rounded-lg border border-outline-variant bg-background px-4 py-3 text-sm text-on-surface transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
                   >
                     <option value="" disabled selected>{t('contactPage.servicePlaceholder')}</option>
                     {serviceOptions.map((opt) => (
@@ -144,7 +145,7 @@ const formTexts = {
                   <textarea
                     id="message" name="message" rows="5" required
                     placeholder={t('contactPage.messagePlaceholder')}
-                    class="w-full resize-y rounded-lg border border-outline-variant bg-surface-container px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
+                    class="w-full resize-y rounded-lg border border-outline-variant bg-background px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/20"
                   ></textarea>
                 </div>
 
