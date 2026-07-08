@@ -571,6 +571,212 @@ export const projects: Project[] = [
     externalUrl: 'https://mimware.com/akilli-bakim-yonetim-sistemi',
     serviceCategory: 'iot',
   },
+
+  // ════════════════════════════════════════════════════════════════════
+  // BIEKİPMAN
+  // ════════════════════════════════════════════════════════════════════
+  {
+    slug: 'biekipman',
+    icon: 'qr_code_scanner',
+    name: { tr: 'BiEkipman', en: 'BiEkipman' },
+    subtitle: {
+      tr: 'QR/RFID ile Ekipman Bakım, Kontrol ve Takip',
+      en: 'QR/RFID Equipment Maintenance, Inspection and Tracking Platform',
+    },
+    category: {
+      tr: 'IoT & Endüstriyel Çözümler',
+      en: 'IoT & Industrial Solutions',
+    },
+    summary: {
+      tr: 'Sahada ve depoda ekipman bakım, kontrol ve takibini QR kod ve RFID teknolojisiyle kolaylaştıran dijital platform. Makine, araç ve ekipmanların konum takibi, sayım işlemleri, bakım/arıza/İSG denetimleri ve envanter yönetimini kâğıtsız, hızlı ve izlenebilir hale getirir. Bağlantısız ortamda da çalışır, veriler otomatik senkronize olur.',
+      en: 'A digital platform that simplifies equipment maintenance, inspection and tracking in the field and warehouse using QR code and RFID technology. Makes location tracking, counting, maintenance/fault/OHS inspections and inventory management of machines, vehicles and equipment paperless, fast and traceable. Works offline and synchronizes data automatically.',
+    },
+    tags: ['QR Kod', 'RFID', 'ASP.NET Core', 'React', 'Flutter', 'Docker', 'Online/Offline'],
+    cardTag: { tr: 'E-DOOR Saha Çözümü', en: 'E-DOOR Field Solution' },
+    stats: [
+      { value: 'QR/RFID', label: { tr: 'Hızlı Saha İşlemi', en: 'Fast Field Operation' } },
+      { value: 'O/Offline', label: { tr: 'Bağlantısız Çalışma', en: 'Offline Operation' } },
+      { value: 'İSG', label: { tr: 'Denetim & Güvenlik', en: 'Inspection & Safety' } },
+      { value: '100%', label: { tr: 'Dijital Kayıt', en: 'Digital Record' } },
+    ],
+    features: [
+      {
+        icon: 'pin_drop',
+        title: { tr: 'Lokasyon & Sayım', en: 'Location & Counting' },
+        desc: {
+          tr: 'Makine, araç ve ekipman konumları web ve mobil uygulamadan anlık izlenir. Depo ve saha sayımları QR/RFID ile saniyeler içinde tamamlanır; envanter farklılığı anında tespit edilir.',
+          en: 'Machine, vehicle and equipment locations are tracked in real time via web and mobile app. Warehouse and field counts are completed in seconds with QR/RFID; inventory discrepancies are detected instantly.',
+        },
+      },
+      {
+        icon: 'qr_code_scanner',
+        title: { tr: 'QR Kod / RFID', en: 'QR Code / RFID' },
+        desc: {
+          tr: 'Saha işlemleri hızlanır; kâğıt bazlı süreçler tamamen ortadan kalkar. Her ekipmana özel QR kod veya RFID etiket tanımlanır, tek dokunuşla tüm geçmişine erişilir.',
+          en: 'Field operations speed up; paper-based processes are completely eliminated. A unique QR code or RFID tag is assigned to each equipment, giving instant access to its full history with a single tap.',
+        },
+      },
+      {
+        icon: 'health_and_safety',
+        title: { tr: 'Bakım, Arıza & İSG', en: 'Maintenance, Fault & OHS' },
+        desc: {
+          tr: 'Tüm denetimler, bakım kontrolleri ve iş sağlığı güvenliği (İSG) formları dijital olarak kayıt altına alınır. Fotoğraf, imza ve check-list ile eksiksiz denetim raporları oluşturulur.',
+          en: 'All inspections, maintenance checks and occupational health and safety (OHS) forms are digitally recorded. Comprehensive inspection reports are created with photos, signatures and checklists.',
+        },
+      },
+      {
+        icon: 'cloud_sync',
+        title: { tr: 'Online / Offline', en: 'Online / Offline' },
+        desc: {
+          tr: 'Bağlantısız ortamda tam işlevsellik. Saha ekipleri internet olmadan denetim ve bakım yapar; bağlantı kurulduğunda tüm veriler otomatik olarak merkezi sistemle senkronize edilir.',
+          en: 'Full functionality in disconnected environments. Field teams perform inspections and maintenance without internet; all data automatically synchronizes with the central system upon reconnection.',
+        },
+      },
+    ],
+    techStack: [
+      {
+        category: { tr: 'Back-End', en: 'Back-End' },
+        icon: 'dns',
+        items: [
+          { name: 'ASP.NET Core 10', desc: { tr: 'Yüksek performanslı sunucu tarafı', en: 'High-performance server-side' } },
+          { name: 'PostgreSQL + EF Core', desc: { tr: 'ACID uyumlu ana iş veritabanı', en: 'ACID-compliant core database' } },
+          { name: 'Hangfire', desc: { tr: 'Senkronizasyon ve zamanlanmış görevler', en: 'Synchronization and scheduled tasks' } },
+        ],
+      },
+      {
+        category: { tr: 'Front-End', en: 'Front-End' },
+        icon: 'code',
+        items: [
+          { name: 'React', desc: { tr: 'Ekipman ve envanter yönetim paneli', en: 'Equipment and inventory management panel' } },
+          { name: 'Flutter', desc: { tr: 'Android & iOS QR/RFID saha uygulaması', en: 'Android & iOS QR/RFID field app' } },
+          { name: 'SignalR', desc: { tr: 'Gerçek zamanlı senkronizasyon', en: 'Real-time synchronization' } },
+        ],
+      },
+      {
+        category: { tr: 'Veri & Önbellek', en: 'Data & Cache' },
+        icon: 'storage',
+        items: [
+          { name: 'Redis', desc: { tr: 'Dağıtık önbellek', en: 'Distributed cache' } },
+          { name: 'LiteDB', desc: { tr: 'Mobil cihazda yerel gömülü önbellek', en: 'On-device local embedded cache' } },
+          { name: 'MongoDB', desc: { tr: 'Esnek şemalı denetim logları', en: 'Flexible-schema inspection logs' } },
+        ],
+      },
+      {
+        category: { tr: 'Altyapı', en: 'Infrastructure' },
+        icon: 'cloud',
+        items: [
+          { name: 'Docker + Kubernetes', desc: { tr: 'Konteyner orkestrasyon', en: 'Container orchestration' } },
+          { name: 'MeiliSearch', desc: { tr: 'Ekipman ve kayıt arama', en: 'Equipment and record search' } },
+          { name: 'MimOS', desc: { tr: 'Kurumsal yazılım altyapısı', en: 'Enterprise software infrastructure' } },
+        ],
+      },
+    ],
+    externalUrl: 'https://www.biekipman.com',
+    serviceCategory: 'iot',
+  },
+
+  // ════════════════════════════════════════════════════════════════════
+  // KOLAYDRIVE
+  // ════════════════════════════════════════════════════════════════════
+  {
+    slug: 'kolaydrive',
+    icon: 'folder_managed',
+    name: { tr: 'KolayDrive', en: 'KolayDrive' },
+    subtitle: {
+      tr: 'KVKK Uyumlu Doküman Yönetimi ve Arşivleme',
+      en: 'KVKK-Compliant Enterprise Document Management and Archiving Platform',
+    },
+    category: {
+      tr: 'Doküman Yönetimi & Arşivleme',
+      en: 'Document Management & Archiving',
+    },
+    summary: {
+      tr: 'Kurumunuzun tüm belgelerini tek platformda yönetin, güvende tutun, hızla bulun. Ortak alan yapısı, granüler yetkilendirme, OCR destekli belge içi arama, iş akışı ve onay mekanizmaları, karekodlu fiziksel arşiv entegrasyonu ve otomatik yedekleme ile belge yönetimini uçtan uca dijitalleştirir. Bulut veya lokal sunucu seçenekleriyle altyapınıza en uygun çözüm.',
+      en: 'Manage all your institution\'s documents on a single platform — keep them secure, find them fast. Digitizes document management end to end with shared workspace structure, granular permissions, OCR-powered in-document search, workflow and approval mechanisms, QR-coded physical archive integration and automatic backup. Cloud or on-premise deployment options for the infrastructure that suits you best.',
+    },
+    tags: ['KVKK', 'OCR', 'Doküman Yönetimi', 'ASP.NET Core', 'React', 'Docker', 'Bulut/Lokal'],
+    cardTag: { tr: 'E-DOOR Kurumsal Çözüm', en: 'E-DOOR Enterprise Solution' },
+    stats: [
+      { value: '130+', label: { tr: 'Önizlenebilir Format', en: 'Previewable Formats' } },
+      { value: '16', label: { tr: 'Yetki Türü', en: 'Permission Types' } },
+      { value: '%80', label: { tr: 'Arama Hızı Artışı', en: 'Search Speed Gain' } },
+      { value: 'OCR', label: { tr: 'Belge İçi Arama', en: 'In-Document Search' } },
+    ],
+    features: [
+      {
+        icon: 'folder_managed',
+        title: { tr: 'Merkezi Belge Yönetimi', en: 'Central Document Management' },
+        desc: {
+          tr: 'Ortak ve proje bazlı klasör yapısı, 130+ formatta indirmeden önizleme, metaveri ve etiketleme, toplu yükleme ve sürüm/revizyon yönetimi. Belgeleri transmittal, toplantı notu ve e-postalarla ilişkilendirin.',
+          en: 'Shared and project-based folder structure, in-browser preview of 130+ formats without download, metadata and tagging, bulk upload and version/revision management. Link documents to transmittals, meeting notes and emails.',
+        },
+      },
+      {
+        icon: 'document_search',
+        title: { tr: 'OCR ile Akıllı Arama', en: 'OCR-Powered Smart Search' },
+        desc: {
+          tr: 'Taranmış PDF\'ler dahil belge içeriğinde tam metin arama. Türkçe karakter ve büyük/küçük harf duyarlılığı olmadan, çok parametreli filtrelerle (tarih, tür, yazar, departman) saniyeler içinde belgeye erişin.',
+          en: 'Full-text search within document contents including scanned PDFs. Access documents in seconds with multi-parameter filters (date, type, author, department) without Turkish character or case sensitivity issues.',
+        },
+      },
+      {
+        icon: 'shield',
+        title: { tr: '16 Yetki Seviyesi & KVKK', en: '16 Permission Levels & KVKK' },
+        desc: {
+          tr: 'Listeleme, indirme, yazdırma, paylaşma, kopyalama, silme — 16 farklı aksiyonu ayrı ayrı yetkilendirin. Rol bazlı erişim (RBAC), LDAP/Active Directory entegrasyonu, şifreli depolama, audit log ve KVKK uyumlu mimari.',
+          en: 'Listing, downloading, printing, sharing, copying, deleting — authorize 16 different actions individually. Role-based access (RBAC), LDAP/Active Directory integration, encrypted storage, audit log and KVKK-compliant architecture.',
+        },
+      },
+      {
+        icon: 'approval_delegation',
+        title: { tr: 'İş Akışı, Onay & Karekod Arşiv', en: 'Workflow, Approval & QR Archive' },
+        desc: {
+          tr: 'Kural bazlı onay akışları, görev atama ve otomatik bildirimlerle belge süreçlerini dijitalleştirin. Karekodlu fiziksel arşiv entegrasyonuyla raftaki kâğıt belgeyi anında bulun; saklama ve imha süreçlerini yönetin.',
+          en: 'Digitize document processes with rule-based approval workflows, task assignment and automatic notifications. Find paper documents on the shelf instantly with QR-coded physical archive integration; manage retention and disposal processes.',
+        },
+      },
+    ],
+    techStack: [
+      {
+        category: { tr: 'Back-End', en: 'Back-End' },
+        icon: 'dns',
+        items: [
+          { name: 'ASP.NET Core 10', desc: { tr: 'Yüksek performanslı sunucu tarafı', en: 'High-performance server-side' } },
+          { name: 'PostgreSQL + EF Core', desc: { tr: 'ACID uyumlu belge veritabanı', en: 'ACID-compliant document database' } },
+          { name: 'Hangfire', desc: { tr: 'Arka plan iş kuyruğu ve zamanlanmış görevler', en: 'Background job queue and scheduled tasks' } },
+        ],
+      },
+      {
+        category: { tr: 'Belge İşleme', en: 'Document Processing' },
+        icon: 'description',
+        items: [
+          { name: 'Tesseract OCR', desc: { tr: 'Türkçe dil modeli, 6+ görüntü formatı', en: 'Turkish language model, 6+ image formats' } },
+          { name: 'Gotenberg', desc: { tr: 'Mikroservis ile PDF\'e dönüşüm', en: 'Microservice PDF conversion' } },
+          { name: 'MeiliSearch', desc: { tr: 'Türkçe, typo-tolerant tam metin arama', en: 'Turkish, typo-tolerant full-text search' } },
+        ],
+      },
+      {
+        category: { tr: 'Front-End', en: 'Front-End' },
+        icon: 'code',
+        items: [
+          { name: 'React', desc: { tr: 'Belge yönetimi ve önizleme arayüzü', en: 'Document management and preview interface' } },
+          { name: 'SeaweedFS', desc: { tr: 'S3 uyumlu açık kaynak nesne depolama', en: 'S3-compatible open-source object storage' } },
+          { name: 'LDAP / AD', desc: { tr: 'Kurumsal kimlik entegrasyonu', en: 'Enterprise identity integration' } },
+        ],
+      },
+      {
+        category: { tr: 'Altyapı', en: 'Infrastructure' },
+        icon: 'cloud',
+        items: [
+          { name: 'Docker + Kubernetes', desc: { tr: 'Bulut veya lokal konteyner dağıtımı', en: 'Cloud or on-premise container deployment' } },
+          { name: 'Redis', desc: { tr: 'Dağıtık önbellek ve Pub/Sub', en: 'Distributed cache and Pub/Sub' } },
+          { name: 'MimOS', desc: { tr: 'Kurumsal yazılım altyapısı', en: 'Enterprise software infrastructure' } },
+        ],
+      },
+    ],
+    externalUrl: 'https://www.kolaydrive.com',
+    serviceCategory: 'document',
+  },
 ];
 
 // ──────────────────────────────────────────────────────────────────────
@@ -621,6 +827,15 @@ export const serviceCategories: {
     desc: {
       tr: 'Sensör verisinden gerçek zamanlı iş zekâsına, sahadan buluta uçtan uca IoT tabanlı endüstriyel otomasyon.',
       en: 'End-to-end IoT-based industrial automation from sensor data to real-time business intelligence, from field to cloud.',
+    },
+  },
+  {
+    key: 'document',
+    icon: 'folder_managed',
+    title: { tr: 'Doküman Yönetimi & Arşivleme', en: 'Document Management & Archiving' },
+    desc: {
+      tr: 'KVKK uyumlu, OCR destekli kurumsal doküman yönetimi; aramadan onay akışına, karekodlu fiziksel arşivden bulut/lokal depolamaya.',
+      en: 'KVKK-compliant, OCR-powered enterprise document management; from search to approval workflows, from QR-coded physical archives to cloud/on-premise storage.',
     },
   },
 ];
