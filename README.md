@@ -467,10 +467,6 @@ Footer'dan kaldırılmıştır (commit: `e2d492b`). Sayfalar hala erişilebilir.
 - Ekip üyeleri gerçek isim/avatar yerine "Backend", "Frontend", "UI/UX"
   placeholder'ları
 
-### Web3Forms Access Key
-
-Access key `iletisim.astro` içinde hard-coded. Güvenlik açısından ortam
-değişkenine (`import.meta.env`) taşınması değerlendirilebilir.
 
 ### Ekran Görüntüleri
 
