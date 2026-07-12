@@ -148,9 +148,9 @@
 }
 
 /* ------------------------------------------------------------------ */
-/* Scroll-aware navbar                                                 */
-/* Default = solid bar. On the homepage it becomes transparent at the  */
-/* very top so it blends with the sky, then separates on scroll.        */
+/* Scroll'a duyarlı navbar                                            */
+/* Varsayılan = katı çubuk. Anasayfada en üstte gökyüzüyle kaynaşmak  */
+/* için şeffaflaşır, scroll'da ayrışıp belirginleşir.                 */
 /* ------------------------------------------------------------------ */
 #site-nav {
   background-color: rgba(252, 248, 248, 0.85);
@@ -170,7 +170,7 @@
   box-shadow: none;
 }
 
-/* Homepage only: light content while blending with the blue sky. */
+/* Sadece anasayfada: mavi gökyüzüyle kaynaşırken açık renkli içerik. */
 #site-nav[data-on-sky='true'].nav-top .nav-text {
   color: #ffffff;
 }

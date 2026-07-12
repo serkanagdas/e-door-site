@@ -61,7 +61,7 @@ const isHome = currentPath === '/' || currentPath === '/en';
     </div>
   </div>
 
-  <!-- Mobile menu -->
+  <!-- Mobil menü -->
   <div id="mobile-menu" class="md:hidden hidden border-t border-surface-variant bg-surface/95 backdrop-blur-md">
     <div class="px-gutter py-4 flex flex-col gap-1 max-w-7xl mx-auto">
       {navLinks.map((link) => (
@@ -122,8 +122,8 @@ const isHome = currentPath === '/' || currentPath === '/en';
 
   document.addEventListener('astro:page-load', initNav);
 
-  // Scroll-aware navbar: blends with the sky at the very top of the homepage,
-  // then animates into a solid bar as the user scrolls down.
+  // Scroll'a duyarlı navbar, anasayfanın en üstünde gökyüzüyle kaynaşır,
+  // kullanıcı aşağı kaydırdıkça katı çubuğa dönüşür.
   const NAV_THRESHOLD = 80;
   const updateNavTop = () => {
     const nav = document.getElementById('site-nav');

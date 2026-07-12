@@ -20,7 +20,7 @@ const standards = t('criteria.standards') as { icon: string; title: string; desc
       </p>
     </div>
 
-    <!-- Featured spotlight -->
+    <!-- Öne çıkan vurgu kartı -->
     <div class="reveal relative rounded-2xl bg-surface border border-outline-variant shadow-sm overflow-hidden">
       <span class="material-symbols-outlined absolute -right-6 -bottom-10 text-[220px] text-secondary/5 select-none pointer-events-none leading-none">{featured.icon}</span>
       <div class="relative grid md:grid-cols-[auto_1fr] gap-8 items-center p-8 md:p-12">
@@ -34,7 +34,7 @@ const standards = t('criteria.standards') as { icon: string; title: string; desc
       </div>
     </div>
 
-    <!-- Supporting standards -->
+    <!-- Destekleyen standartlar -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
       {standards.map((s, i) => (
         <div
