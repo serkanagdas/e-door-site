@@ -1,12 +1,9 @@
 # E-DOOR Kurumsal Web Sitesi
 
 E-DOOR Dijital Bilişim'in kurumsal tanıtım web sitesi kaynak kodu. Bu repo,
-statik olarak üretilen (SSG) çok dilli (TR/EN) bir Astro sitesidir. Netlify
-üzerine dağıtım için tasarlanmıştır.
+statik olarak üretilen (SSG) çok dilli (TR/EN) bir Astro sitesidir.
 
-- **Canlı alan:** <https://edoor.com.tr>
 - **Stack:** Astro 5 · Tailwind CSS 3 · TypeScript (strict)
-- **Dağıtım:** Netlify (statik `dist/`)
 
 ---
 
@@ -44,7 +41,7 @@ form gönderimi, gökyüzü shader'ı, scroll-reveal animasyonları).
 
 ### Gereksinimler
 
-- **Node.js** >= 18 (Netlify'da Node 22 kullanılır — `netlify.toml`)
+- **Node.js** >= 18
 - npm
 
 ### Kurulum ve Geliştirme
