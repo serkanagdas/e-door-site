@@ -351,8 +351,8 @@
     "infoPhone": { "tr": "Telefon", "en": "Phone" },
     "infoAddress": { "tr": "Adres", "en": "Address" },
     "infoAddressValue": {
-      "tr": "Ofis adresi buraya eklenecek, Türkiye",
-      "en": "Office address to be added here, Türkiye"
+      "tr": "Soğanlık Yeni Mahalle, Menderes Sokak No:4/4, Soğanlık/Kartal/İstanbul",
+      "en": "Soğanlık Yeni Mahalle, Menderes Sokak No:4/4, Soğanlık/Kartal/İstanbul, Türkiye"
     },
     "infoHours": { "tr": "Çalışma Saatleri", "en": "Working Hours" },
     "infoHoursValue": {
