@@ -51,6 +51,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         document.fonts.load("24px 'Material Symbols Outlined Variable'").then(ready, ready);
       })();
     </script>
+    <script>
+      // SPA (view-transition) geçişlerinde, ekran içindeki .reveal öğelerini
+      // snapshot alınmadan HEMEN görünür yap. Aksi halde geçiş cross-fade'i
+      // hero başlığını "gizli" yakalıyor; ardından reveal tekrar oynuyor ve
+      // sayfa iki kere açılıyormuş / hero başa dönüyormuş gibi görünüyordu.
+      document.addEventListener('astro:after-swap', () => {
+        const vh = window.innerHeight;
+        document.querySelectorAll('.reveal').forEach((el) => {
+          if (el.classList.contains('is-visible')) return;
+          const rect = el.getBoundingClientRect();
+          const inViewport = rect.top < vh && rect.bottom > 0;
+          if (!inViewport) return;
+          el.style.transition = 'none';
+          el.classList.add('is-visible');
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => {
+              el.style.transition = '';
+            })
+          );
+        });
+      });
+    </script>
   </head>
   <body class="bg-background text-on-background font-body antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
     <Navbar lang={lang} />
