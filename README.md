@@ -1,7 +1,7 @@
 # E-DOOR Kurumsal Web Sitesi
 
 E-DOOR Dijital Bilişim'in kurumsal tanıtım web sitesi kaynak kodu. Bu repo,
-statik olarak üretilen (SSG) çok dilli (TR/EN) bir Astro sitesidir.
+statik olarak üretilen (SSG) çok dilli (TR-EN) bir Astro sitesidir.
 
 - **Stack:** Astro 5 · Tailwind CSS 3 · TypeScript (strict)
 
