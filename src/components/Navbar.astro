@@ -23,7 +23,7 @@ const isHome = currentPath === '/' || currentPath === '/en';
 <nav id="site-nav" data-on-sky={isHome ? 'true' : 'false'} class="fixed top-0 w-full z-50 transition-all duration-300 ease-in-out">
   <div class="flex items-center justify-between px-gutter md:px-margin py-4 max-w-7xl mx-auto">
     <a class="flex-shrink-0" href={paths.home}>
-      <img alt="E-DOOR Logo" class="nav-logo h-8 w-auto transition-[filter] duration-300" src="/images/logo.png" />
+      <img alt="E-DOOR Logo" class="nav-logo h-8 w-[86px] transition-[filter] duration-300" src="/images/logo.png" />
     </a>
     <div class="hidden md:flex items-center gap-1">
       {navLinks.map((link) => (
